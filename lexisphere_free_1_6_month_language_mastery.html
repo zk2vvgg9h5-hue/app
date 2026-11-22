@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LexiSphere" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="description" content="LexiSphere: 100% Free 1-6 Month Language Mastery App with 100+ words/day, 195+ world languages, weekly & monthly tests, and official certificates." />
+  <title>LexiSphere | 100% Free 1-6 Month Language Mastery (100+ Words/Day)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .font-serif-cert { font-family: 'Playfair Display', Georgia, serif; }
+    .font-cinzel { font-family: 'Cinzel', Georgia, serif; }
+    .font-signature { font-family: 'Great Vibes', cursive; }
+    @keyframes splashPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35); }
+      50% { transform: scale(1.04); box-shadow: 0 0 0 18px rgba(255, 255, 255, 0); }
+    }
+    @keyframes splashBar {
+      0% { width: 0%; }
+      60% { width: 78%; }
+      100% { width: 100%; }
+    }
+    .animate-splash-icon { animation: splashPulse 2s infinite ease-in-out; }
+    .animate-splash-bar { animation: splashBar 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .cert-parchment {
+      background-color: #fdfbf4;
+      background-image:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, rgba(247, 241, 224, 0.65) 100%),
+        repeating-linear-gradient(45deg, rgba(180, 145, 75, 0.025) 0px, rgba(180, 145, 75, 0.025) 2px, transparent 2px, transparent 8px);
+    }
+    .gold-foil-text {
+      background: linear-gradient(135deg, #926f22 0%, #d4af37 35%, #8a6417 65%, #c59b27 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-seal-gradient {
+      background: radial-gradient(circle at 30% 30%, #fceabb 0%, #f8b500 45%, #b8860b 85%, #7a5600 100%);
+    }
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    @media print {
+      body * { visibility: hidden !important; }
+      #printable-certificate, #printable-certificate * { visibility: visible !important; }
+      #printable-certificate {
+        position: fixed !important; left: 0 !important; top: 0 !important;
+        width: 100% !important; margin: 0 !important; box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white pb-20 md:pb-0">
+
+  <!-- APP OPENING SPLASH SCREEN -->
+  <div id="app-splash-screen" class="fixed inset-0 z-50 bg-gradient-to-br from-indigo-700 via-violet-700 to-slate-950 text-white flex flex-col items-center justify-between p-8 transition-opacity duration-500">
+    <div class="w-full flex justify-end">
+      <button onclick="dismissSplash()" class="px-3.5 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-xs font-bold tracking-wide backdrop-blur transition">
+        Skip →
+      </button>
+    </div>
+
+    <div class="flex flex-col items-center text-center max-w-md space-y-5">
+      <!-- App Store / Play Store Launcher Icon SVG -->
+      <div class="animate-splash-icon w-28 h-28 rounded-[28px] bg-gradient-to-tr from-indigo-500 via-violet-500 to-fuchsia-500 p-1 shadow-2xl border border-white/30">
+        <div class="w-full h-full rounded-[24px] bg-slate-950/30 backdrop-blur-sm flex flex-col items-center justify-center relative overflow-hidden">
+          <svg class="w-16 h-16 text-white" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="2.5" stroke-opacity="0.35"/>
+            <ellipse cx="32" cy="32" rx="11" ry="24" stroke="currentColor" stroke-width="2.2"/>
+            <path d="M8 32H56M12 20H52M12 44H52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="47" cy="17" r="6" fill="#fbbf24"/>
+          </svg>
+        </div>
+      </div>
+
+      <div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-400/20 border border-emerald-300/30 text-emerald-200 text-[11px] font-extrabold uppercase tracking-widest mb-2">
+          100% Free Global Language Academy
+        </div>
+        <h1 id="splash-brand-title" class="text-4xl sm:text-5xl font-black tracking-tight">LexiSphere</h1>
+        <p class="text-indigo-100 text-sm sm:text-base mt-2 font-medium">
+          195+ World Languages • 100+ Words/Day • Verified Diplomas
+        </p>
+      </div>
+
+      <!-- Loading Progress Bar -->
+      <div class="w-64 space-y-2 pt-2">
+        <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-amber-300 via-white to-emerald-300 rounded-full animate-splash-bar"></div>
+        </div>
+        <div class="text-[11px] text-indigo-200 font-semibold tracking-wide">Loading 195+ Language Dictionaries...</div>
+      </div>
+    </div>
+
+    <div class="text-center space-y-1">
+      <div class="text-xs font-bold text-white/90">100% Free • Zero Subscriptions</div>
+      <div class="text-[11px] text-indigo-200/80">v2.0 Universal Web Edition</div>
+    </div>
+  </div>
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <!-- Brand -->
+      <div class="flex items-center gap-2.5">
+        <div onclick="switchTab('dashboard')" id="brand-monogram" class="cursor-pointer w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white font-black text-lg shadow-md">
+          LX
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span onclick="switchTab('dashboard')" id="brand-title" class="cursor-pointer font-extrabold text-lg tracking-tight text-slate-900">LexiSphere</span>
+            <button onclick="openBrandModal()" title="Customize App Name" class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-100 hover:bg-indigo-100 text-slate-600 hover:text-indigo-700 transition">✎ Rename</button>
+            <span class="hidden md:inline-block px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 rounded-full">100% Free • No Subscriptions</span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium hidden sm:block">100+ Words/Day • 1,000+ Words/Month • Official Certificates</p>
+        </div>
+      </div>
+
+      <!-- Language Selector Button & Feedback Shortcut -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <button onclick="switchTab('support')" title="24/7 Customer Service & Live Support" class="flex items-center gap-1.5 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 text-indigo-700 text-xs font-extrabold rounded-xl px-3 py-2 transition">
+          <span>🎧</span>
+          <span class="hidden sm:inline">Customer Service</span>
+        </button>
+
+        <button onclick="switchTab('feedback')" title="Report Bug, Issue, or Suggest Improvement" class="flex items-center gap-1.5 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-extrabold rounded-xl px-3 py-2 transition">
+          <span>🐞</span>
+          <span class="hidden sm:inline">Bugs & Feedback</span>
+        </button>
+
+        <button onclick="openLangModal()" title="Switch Between 195+ World Languages" class="flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white text-sm font-extrabold rounded-2xl px-3.5 sm:px-4 py-2 shadow-md ring-2 ring-indigo-500/25 transition">
+          <span id="header-lang-flag" class="text-lg">🇪🇸</span>
+          <div class="text-left leading-tight">
+            <div class="text-[9px] uppercase tracking-wider text-indigo-200 font-bold hidden sm:block">Change Language</div>
+            <div class="flex items-center gap-1">
+              <span id="header-lang-name">Spanish</span>
+              <span id="header-lang-native" class="text-xs text-indigo-100 hidden md:inline">(Español)</span>
+            </div>
+          </div>
+          <svg class="w-4 h-4 text-white/90 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+
+        <div class="hidden sm:flex items-center gap-1.5 bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-xl text-amber-800 font-bold text-sm">
+          <span>🔥</span>
+          <span id="header-streak">1</span>d
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-slate-50/80 border-t border-slate-200/80 overflow-x-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-1.5 py-2 min-w-max">
+        <button id="nav-dashboard" onclick="switchTab('dashboard')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">📊 Dashboard</button>
+        <button id="nav-daily" onclick="switchTab('daily')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">⚡ Daily 100+ Words</button>
+        <button id="nav-courses" onclick="switchTab('courses')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">🗺️ 1–6 Month Courses</button>
+        <button id="nav-tests" onclick="switchTab('tests')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">📝 Weekly & Monthly Tests</button>
+        <button id="nav-vault" onclick="switchTab('vault')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">📚 1,000+ Word Vault</button>
+        <button id="nav-certificate" onclick="switchTab('certificate')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">🎓 Certificate</button>
+        <button id="nav-support" onclick="switchTab('support')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">🎧 Customer Service</button>
+        <button id="nav-feedback" onclick="switchTab('feedback')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold transition">💬 Bugs & Feedback</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BACK PAGE & MAIN MENU QUICK BAR -->
+  <div id="page-back-bar" class="hidden bg-white border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <button onclick="goBackPage()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-extrabold transition">
+          <span>←</span>
+          <span>Back Page</span>
+        </button>
+        <button onclick="switchTab('dashboard')" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-extrabold transition">
+          <span>🏠</span>
+          <span>Main Menu</span>
+        </button>
+      </div>
+      <span id="current-page-breadcrumb" class="text-xs font-bold text-slate-500 truncate"></span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <!-- Rendered dynamically by JS -->
+  </main>
+
+  <!-- MOBILE BOTTOM APP TAB BAR (Android & iOS Native Pattern) -->
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur border-t border-slate-200 grid grid-cols-5 py-1.5 px-1 text-[10px] font-bold text-slate-600">
+    <button onclick="switchTab('dashboard')" class="flex flex-col items-center justify-center py-1 rounded-lg hover:text-indigo-600">
+      <span class="text-base">📊</span>
+      <span>Home</span>
+    </button>
+    <button onclick="switchTab('daily')" class="flex flex-col items-center justify-center py-1 rounded-lg hover:text-indigo-600">
+      <span class="text-base">⚡</span>
+      <span>100/Day</span>
+    </button>
+    <button onclick="switchTab('tests')" class="flex flex-col items-center justify-center py-1 rounded-lg hover:text-indigo-600">
+      <span class="text-base">📝</span>
+      <span>Exams</span>
+    </button>
+    <button onclick="switchTab('certificate')" class="flex flex-col items-center justify-center py-1 rounded-lg hover:text-indigo-600">
+      <span class="text-base">🎓</span>
+      <span>Diploma</span>
+    </button>
+    <button onclick="switchTab('support')" class="flex flex-col items-center justify-center py-1 rounded-lg hover:text-indigo-600">
+      <span class="text-base">🎧</span>
+      <span>Support</span>
+    </button>
+  </div>
+
+  <!-- GLOBAL WORLD LANGUAGE MODAL -->
+  <div id="lang-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div class="bg-white w-full max-w-3xl rounded-3xl shadow-2xl border border-slate-200 flex flex-col max-h-[88vh] overflow-hidden">
+      <div class="p-5 sm:p-6 border-b border-slate-200 flex items-center justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-extrabold text-slate-900">Select Any World Language</h3>
+          <p class="text-xs text-slate-500 mt-0.5">195+ global languages included free • 100+ native words/day & 1,000+ words/month</p>
+        </div>
+        <button onclick="closeLangModal()" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 font-bold">✕</button>
+      </div>
+
+      <div class="p-4 bg-slate-50 border-b border-slate-200 space-y-3">
+        <input id="lang-search-input" type="text" oninput="renderLangGrid()" placeholder="Search language by English name, native script, or region (e.g., Arabic, Japanese, French, Hindi, Swahili)..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 outline-none" />
+        <div id="region-pills" class="flex items-center gap-1.5 overflow-x-auto pb-1"></div>
+      </div>
+
+      <div id="lang-grid" class="p-4 sm:p-6 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5"></div>
+    </div>
+  </div>
+
+  <!-- CUSTOM APP NAME MODAL -->
+  <div id="brand-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl border border-slate-200 p-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-extrabold text-slate-900">Change App Name</h3>
+        <button onclick="closeBrandModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 font-bold">✕</button>
+      </div>
+      <p class="text-xs text-slate-500">Enter your preferred brand name. It will update the header, browser title, and official certificate seal.</p>
+      <input id="brand-name-input" type="text" placeholder="e.g., LexiSphere, PolyglotPro, LinguaNova..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none text-sm font-bold" />
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeBrandModal()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700">Cancel</button>
+        <button onclick="saveBrandName()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow">Save App Name</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl text-sm font-semibold">
+    <span id="toast-icon">✅</span>
+    <span id="toast-msg">Saved!</span>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. COMPREHENSIVE WORLD LANGUAGES DIRECTORY (195+ LANGUAGES)
+    // =========================================================================
+    const WORLD_LANGUAGES = [
+      // Core Curated Rich Dictionaries + Full Global Coverage
+      { code: 'es', name: 'Spanish', native: 'Español', flag: '🇪🇸', region: 'Europe', speech: 'es-ES' },
+      { code: 'fr', name: 'French', native: 'Français', flag: '🇫🇷', region: 'Europe', speech: 'fr-FR' },
+      { code: 'ar', name: 'Arabic', native: 'العربية', flag: '🇸🇦', region: 'Middle East', speech: 'ar-SA' },
+      { code: 'de', name: 'German', native: 'Deutsch', flag: '🇩🇪', region: 'Europe', speech: 'de-DE' },
+      { code: 'ja', name: 'Japanese', native: '日本語', flag: '🇯🇵', region: 'Asia', speech: 'ja-JP' },
+      { code: 'zh', name: 'Chinese (Mandarin)', native: '普通话', flag: '🇨🇳', region: 'Asia', speech: 'zh-CN' },
+      { code: 'ko', name: 'Korean', native: '한국어', flag: '🇰🇷', region: 'Asia', speech: 'ko-KR' },
+      { code: 'hi', name: 'Hindi', native: 'हिन्दी', flag: '🇮🇳', region: 'Asia', speech: 'hi-IN' },
+      { code: 'pt', name: 'Portuguese', native: 'Português', flag: '🇧🇷', region: 'Americas', speech: 'pt-BR' },
+      { code: 'it', name: 'Italian', native: 'Italiano', flag: '🇮🇹', region: 'Europe', speech: 'it-IT' },
+      { code: 'ru', name: 'Russian', native: 'Русский', flag: '🇷🇺', region: 'Europe', speech: 'ru-RU' },
+      { code: 'tr', name: 'Turkish', native: 'Türkçe', flag: '🇹🇷', region: 'Middle East', speech: 'tr-TR' },
+      { code: 'ur', name: 'Urdu', native: 'اردو', flag: '🇵🇰', region: 'Asia', speech: 'ur-PK' },
+      { code: 'id', name: 'Indonesian', native: 'Bahasa Indonesia', flag: '🇮🇩', region: 'Asia', speech: 'id-ID' },
+      { code: 'ms', name: 'Malay', native: 'Bahasa Melayu', flag: '🇲🇾', region: 'Asia', speech: 'ms-MY' },
+      { code: 'bn', name: 'Bengali', native: 'বাংলা', flag: '🇧🇩', region: 'Asia', speech: 'bn-BD' },
+      { code: 'ta', name: 'Tamil', native: 'தமிழ்', flag: '🇮🇳', region: 'Asia', speech: 'ta-IN' },
+      { code: 'te', name: 'Telugu', native: 'తెలుగు', flag: '🇮🇳', region: 'Asia', speech: 'te-IN' },
+      { code: 'mr', name: 'Marathi', native: 'मराठी', flag: '🇮🇳', region: 'Asia', speech: 'mr-IN' },
+      { code: 'gu', name: 'Gujarati', native: 'ગુજરાતી', flag: '🇮🇳', region: 'Asia', speech: 'gu-IN' },
+      { code: 'pa', name: 'Punjabi', native: 'ਪੰਜਾਬੀ', flag: '🇮🇳', region: 'Asia', speech: 'pa-IN' },
+      { code: 'ml', name: 'Malayalam', native: 'മലയാളം', flag: '🇮🇳', region: 'Asia', speech: 'ml-IN' },
+      { code: 'kn', name: 'Kannada', native: 'ಕನ್ನಡ', flag: '🇮🇳', region: 'Asia', speech: 'kn-IN' },
+      { code: 'vi', name: 'Vietnamese', native: 'Tiếng Việt', flag: '🇻🇳', region: 'Asia', speech: 'vi-VN' },
+      { code: 'th', name: 'Thai', native: 'ไทย', flag: '🇹🇭', region: 'Asia', speech: 'th-TH' },
+      { code: 'tl', name: 'Tagalog / Filipino', native: 'Filipino', flag: '🇵🇭', region: 'Asia', speech: 'fil-PH' },
+      { code: 'fa', name: 'Persian (Farsi)', native: 'فارسی', flag: '🇮🇷', region: 'Middle East', speech: 'fa-IR' },
+      { code: 'he', name: 'Hebrew', native: 'עברית', flag: '🇮🇱', region: 'Middle East', speech: 'he-IL' },
+      { code: 'ku', name: 'Kurdish', native: 'Kurdî', flag: '🇮🇶', region: 'Middle East', speech: 'ku' },
+      { code: 'ps', name: 'Pashto', native: 'پښتو', flag: '🇦🇫', region: 'Asia', speech: 'ps-AF' },
+      { code: 'sw', name: 'Swahili', native: 'Kiswahili', flag: '🇰🇪', region: 'Africa', speech: 'sw-KE' },
+      { code: 'am', name: 'Amharic', native: 'አማርኛ', flag: '🇪🇹', region: 'Africa', speech: 'am-ET' },
+      { code: 'yo', name: 'Yoruba', native: 'Yorùbá', flag: '🇳🇬', region: 'Africa', speech: 'yo-NG' },
+      { code: 'ig', name: 'Igbo', native: 'Asụsụ Igbo', flag: '🇳🇬', region: 'Africa', speech: 'ig-NG' },
+      { code: 'ha', name: 'Hausa', native: 'Harshen Hausa', flag: '🇳🇬', region: 'Africa', speech: 'ha-NG' },
+      { code: 'zu', name: 'Zulu', native: 'isiZulu', flag: '🇿🇦', region: 'Africa', speech: 'zu-ZA' },
+      { code: 'xh', name: 'Xhosa', native: 'isiXhosa', flag: '🇿🇦', region: 'Africa', speech: 'xh-ZA' },
+      { code: 'af', name: 'Afrikaans', native: 'Afrikaans', flag: '🇿🇦', region: 'Africa', speech: 'af-ZA' },
+      { code: 'so', name: 'Somali', native: 'Af-Soomaali', flag: '🇸🇴', region: 'Africa', speech: 'so-SO' },
+      { code: 'nl', name: 'Dutch', native: 'Nederlands', flag: '🇳🇱', region: 'Europe', speech: 'nl-NL' },
+      { code: 'pl', name: 'Polish', native: 'Polski', flag: '🇵🇱', region: 'Europe', speech: 'pl-PL' },
+      { code: 'uk', name: 'Ukrainian', native: 'Українська', flag: '🇺🇦', region: 'Europe', speech: 'uk-UA' },
+      { code: 'sv', name: 'Swedish', native: 'Svenska', flag: '🇸🇪', region: 'Europe', speech: 'sv-SE' },
+      { code: 'no', name: 'Norwegian', native: 'Norsk', flag: '🇳🇴', region: 'Europe', speech: 'no-NO' },
+      { code: 'da', name: 'Danish', native: 'Dansk', flag: '🇩🇰', region: 'Europe', speech: 'da-DK' },
+      { code: 'fi', name: 'Finnish', native: 'Suomi', flag: '🇫🇮', region: 'Europe', speech: 'fi-FI' },
+      { code: 'el', name: 'Greek', native: 'Ελληνικά', flag: '🇬🇷', region: 'Europe', speech: 'el-GR' },
+      { code: 'cs', name: 'Czech', native: 'Čeština', flag: '🇨🇿', region: 'Europe', speech: 'cs-CZ' },
+      { code: 'ro', name: 'Romanian', native: 'Română', flag: '🇷🇴', region: 'Europe', speech: 'ro-RO' },
+      { code: 'hu', name: 'Hungarian', native: 'Magyar', flag: '🇭🇺', region: 'Europe', speech: 'hu-HU' },
+      { code: 'bg', name: 'Bulgarian', native: 'Български', flag: '🇧🇬', region: 'Europe', speech: 'bg-BG' },
+      { code: 'hr', name: 'Croatian', native: 'Hrvatski', flag: '🇭🇷', region: 'Europe', speech: 'hr-HR' },
+      { code: 'sr', name: 'Serbian', native: 'Српски', flag: '🇷🇸', region: 'Europe', speech: 'sr-RS' },
+      { code: 'sk', name: 'Slovak', native: 'Slovenčina', flag: '🇸🇰', region: 'Europe', speech: 'sk-SK' },
+      { code: 'sl', name: 'Slovenian', native: 'Slovenščina', flag: '🇸🇮', region: 'Europe', speech: 'sl-SI' },
+      { code: 'lt', name: 'Lithuanian', native: 'Lietuvių', flag: '🇱🇹', region: 'Europe', speech: 'lt-LT' },
+      { code: 'lv', name: 'Latvian', native: 'Latviešu', flag: '🇱🇻', region: 'Europe', speech: 'lv-LV' },
+      { code: 'et', name: 'Estonian', native: 'Eesti', flag: '🇪🇪', region: 'Europe', speech: 'et-EE' },
+      { code: 'ga', name: 'Irish', native: 'Gaeilge', flag: '🇮🇪', region: 'Europe', speech: 'ga-IE' },
+      { code: 'cy', name: 'Welsh', native: 'Cymraeg', flag: '🏴󠁧󠁢󠁷󠁬󠁳󠁿', region: 'Europe', speech: 'cy-GB' },
+      { code: 'gd', name: 'Scottish Gaelic', native: 'Gàidhlig', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', region: 'Europe', speech: 'gd-GB' },
+      { code: 'is', name: 'Icelandic', native: 'Íslenska', flag: '🇮🇸', region: 'Europe', speech: 'is-IS' },
+      { code: 'mt', name: 'Maltese', native: 'Malti', flag: '🇲🇹', region: 'Europe', speech: 'mt-MT' },
+      { code: 'sq', name: 'Albanian', native: 'Shqip', flag: '🇦🇱', region: 'Europe', speech: 'sq-AL' },
+      { code: 'mk', name: 'Macedonian', native: 'Македонски', flag: '🇲🇰', region: 'Europe', speech: 'mk-MK' },
+      { code: 'bs', name: 'Bosnian', native: 'Bosanski', flag: '🇧🇦', region: 'Europe', speech: 'bs-BA' },
+      { code: 'be', name: 'Belarusian', native: 'Беларуская', flag: '🇧🇾', region: 'Europe', speech: 'be-BY' },
+      { code: 'ca', name: 'Catalan', native: 'Català', flag: '🇦🇩', region: 'Europe', speech: 'ca-ES' },
+      { code: 'eu', name: 'Basque', native: 'Euskara', flag: '🇪🇸', region: 'Europe', speech: 'eu-ES' },
+      { code: 'gl', name: 'Galician', native: 'Galego', flag: '🇪🇸', region: 'Europe', speech: 'gl-ES' },
+      { code: 'lb', name: 'Luxembourgish', native: 'Lëtzebuergesch', flag: '🇱🇺', region: 'Europe', speech: 'lb-LU' },
+      { code: 'ka', name: 'Georgian', native: 'ქართული', flag: '🇬🇪', region: 'Europe', speech: 'ka-GE' },
+      { code: 'hy', name: 'Armenian', native: 'Հայերեն', flag: '🇦🇲', region: 'Europe', speech: 'hy-AM' },
+      { code: 'az', name: 'Azerbaijani', native: 'Azərbaycan', flag: '🇦🇿', region: 'Middle East', speech: 'az-AZ' },
+      { code: 'kk', name: 'Kazakh', native: 'Қазақ тілі', flag: '🇰🇿', region: 'Asia', speech: 'kk-KZ' },
+      { code: 'uz', name: 'Uzbek', native: 'Oʻzbekcha', flag: '🇺🇿', region: 'Asia', speech: 'uz-UZ' },
+      { code: 'ky', name: 'Kyrgyz', native: 'Кыргызча', flag: '🇰🇬', region: 'Asia', speech: 'ky-KG' },
+      { code: 'tg', name: 'Tajik', native: 'Тоҷикӣ', flag: '🇹🇯', region: 'Asia', speech: 'tg-TJ' },
+      { code: 'tk', name: 'Turkmen', native: 'Türkmençe', flag: '🇹🇲', region: 'Asia', speech: 'tk-TM' },
+      { code: 'mn', name: 'Mongolian', native: 'Монгол', flag: '🇲🇳', region: 'Asia', speech: 'mn-MN' },
+      { code: 'ne', name: 'Nepali', native: 'नेपाली', flag: '🇳🇵', region: 'Asia', speech: 'ne-NP' },
+      { code: 'si', name: 'Sinhala', native: 'සිංහල', flag: '🇱🇰', region: 'Asia', speech: 'si-LK' },
+      { code: 'my', name: 'Burmese', native: 'မြန်မာစာ', flag: '🇲🇲', region: 'Asia', speech: 'my-MM' },
+      { code: 'km', name: 'Khmer', native: 'ភាសាខ្មែរ', flag: '🇰🇭', region: 'Asia', speech: 'km-KH' },
+      { code: 'lo', name: 'Lao', native: 'ລາວ', flag: '🇱🇦', region: 'Asia', speech: 'lo-LA' },
+      { code: 'bo', name: 'Tibetan', native: 'བོད་སྐད', flag: '🏔️', region: 'Asia', speech: 'bo' },
+      { code: 'ug', name: 'Uyghur', native: 'ئۇيغۇرچە', flag: '🌏', region: 'Asia', speech: 'ug' },
+      { code: 'yue', name: 'Cantonese', native: '廣東話', flag: '🇭🇰', region: 'Asia', speech: 'zh-HK' },
+      { code: 'nan', name: 'Hokkien / Taiwanese', native: '臺語', flag: '🇹🇼', region: 'Asia', speech: 'zh-TW' },
+      { code: 'jv', name: 'Javanese', native: 'Basa Jawa', flag: '🇮🇩', region: 'Asia', speech: 'jv-ID' },
+      { code: 'su', name: 'Sundanese', native: 'Basa Sunda', flag: '🇮🇩', region: 'Asia', speech: 'su-ID' },
+      { code: 'ceb', name: 'Cebuano', native: 'Sinugboanon', flag: '🇵🇭', region: 'Asia', speech: 'ceb' },
+      { code: 'ilo', name: 'Ilocano', native: 'Ilokano', flag: '🇵🇭', region: 'Asia', speech: 'ilo' },
+      { code: 'or', name: 'Odia', native: 'ଓଡ଼ିଆ', flag: '🇮🇳', region: 'Asia', speech: 'or-IN' },
+      { code: 'as', name: 'Assamese', native: 'অসমীয়া', flag: '🇮🇳', region: 'Asia', speech: 'as-IN' },
+      { code: 'sd', name: 'Sindhi', native: 'سنڌي', flag: '🇵🇰', region: 'Asia', speech: 'sd' },
+      { code: 'sa', name: 'Sanskrit', native: 'संस्कृतम्', flag: '🕉️', region: 'Classical & Constructed', speech: 'sa-IN' },
+      { code: 'la', name: 'Latin', native: 'Latina', flag: '🏛️', region: 'Classical & Constructed', speech: 'la' },
+      { code: 'eo', name: 'Esperanto', native: 'Esperanto', flag: '🌍', region: 'Classical & Constructed', speech: 'eo' },
+      { code: 'mi', name: 'Māori', native: 'Te Reo Māori', flag: '🇳🇿', region: 'Oceania', speech: 'mi-NZ' },
+      { code: 'sm', name: 'Samoan', native: 'Gagana Sāmoa', flag: '🇼🇸', region: 'Oceania', speech: 'sm' },
+      { code: 'to', name: 'Tongan', native: 'Lea Fakatonga', flag: '🇹🇴', region: 'Oceania', speech: 'to' },
+      { code: 'fj', name: 'Fijian', native: 'Na Vosa Vakaviti', flag: '🇫🇯', region: 'Oceania', speech: 'fj' },
+      { code: 'haw', name: 'Hawaiian', native: 'ʻŌlelo Hawaiʻi', flag: '🌺', region: 'Oceania', speech: 'haw' },
+      { code: 'ty', name: 'Tahitian', native: 'Reo Tahiti', flag: '🇵🇫', region: 'Oceania', speech: 'ty' },
+      { code: 'tpi', name: 'Tok Pisin', native: 'Tok Pisin', flag: '🇵🇬', region: 'Oceania', speech: 'tpi' },
+      { code: 'qu', name: 'Quechua', native: 'Runasimi', flag: '🇵🇪', region: 'Americas', speech: 'qu' },
+      { code: 'gn', name: 'Guarani', native: 'Avañeʼẽ', flag: '🇵🇾', region: 'Americas', speech: 'gn' },
+      { code: 'ay', name: 'Aymara', native: 'Aymar aru', flag: '🇧🇴', region: 'Americas', speech: 'ay' },
+      { code: 'nah', name: 'Nahuatl', native: 'Nāhuatl', flag: '🇲🇽', region: 'Americas', speech: 'nah' },
+      { code: 'ht', name: 'Haitian Creole', native: 'Kreyòl Ayisyen', flag: '🇭🇹', region: 'Americas', speech: 'ht' },
+      { code: 'jam', name: 'Jamaican Patois', native: 'Patwa', flag: '🇯🇲', region: 'Americas', speech: 'jam' },
+      { code: 'nv', name: 'Navajo', native: 'Diné bizaad', flag: '🦅', region: 'Americas', speech: 'nv' },
+      { code: 'chr', name: 'Cherokee', native: 'ᏣᎳᎩ ᎦᏬᏂᎯᏍᏗ', flag: '🇺🇸', region: 'Americas', speech: 'chr' },
+      { code: 'iu', name: 'Inuktitut', native: 'ᐃᓄᒃᑎᑐᑦ', flag: '🇨🇦', region: 'Americas', speech: 'iu' },
+      { code: 'kl', name: 'Greenlandic', native: 'Kalaallisut', flag: '🇬🇱', region: 'Americas', speech: 'kl' },
+      { code: 'om', name: 'Oromo', native: 'Afaan Oromoo', flag: '🇪🇹', region: 'Africa', speech: 'om' },
+      { code: 'ti', name: 'Tigrinya', native: 'ትግርኛ', flag: '🇪🇷', region: 'Africa', speech: 'ti' },
+      { code: 'rw', name: 'Kinyarwanda', native: 'Ikinyarwanda', flag: '🇷🇼', region: 'Africa', speech: 'rw' },
+      { code: 'rn', name: 'Kirundi', native: 'Ikirundi', flag: '🇧🇮', region: 'Africa', speech: 'rn' },
+      { code: 'lg', name: 'Luganda', native: 'Oluganda', flag: '🇺🇬', region: 'Africa', speech: 'lg' },
+      { code: 'sn', name: 'Shona', native: 'chiShona', flag: '🇿🇼', region: 'Africa', speech: 'sn' },
+      { code: 'ny', name: 'Chichewa', native: 'Chichewa', flag: '🇲🇼', region: 'Africa', speech: 'ny' },
+      { code: 'st', name: 'Sesotho', native: 'Sesotho', flag: '🇱🇸', region: 'Africa', speech: 'st' },
+      { code: 'tn', name: 'Setswana', native: 'Setswana', flag: '🇧🇼', region: 'Africa', speech: 'tn' },
+      { code: 'wo', name: 'Wolof', native: 'Wolof', flag: '🇸🇳', region: 'Africa', speech: 'wo' },
+      { code: 'ff', name: 'Fula (Fulfulde)', native: 'Fulfulde', flag: '🇬🇳', region: 'Africa', speech: 'ff' },
+      { code: 'ak', name: 'Akan / Twi', native: 'Twi', flag: '🇬🇭', region: 'Africa', speech: 'ak' },
+      { code: 'ee', name: 'Ewe', native: 'Eʋegbe', flag: '🇹🇬', region: 'Africa', speech: 'ee' },
+      { code: 'bm', name: 'Bambara', native: 'Bamanankan', flag: '🇲🇱', region: 'Africa', speech: 'bm' },
+      { code: 'ln', name: 'Lingala', native: 'Lingála', flag: '🇨🇩', region: 'Africa', speech: 'ln' },
+      { code: 'kg', name: 'Kongo', native: 'Kikongo', flag: '🇨🇬', region: 'Africa', speech: 'kg' },
+      { code: 'mg', name: 'Malagasy', native: 'Malagasy', flag: '🇲🇬', region: 'Africa', speech: 'mg' },
+      { code: 'ber', name: 'Tamazight (Berber)', native: 'ⵜⴰⵎⴰⵣⵉⵖⵜ', flag: '🇲🇦', region: 'Africa', speech: 'ber' },
+      { code: 'ckb', name: 'Sorani Kurdish', native: 'کوردیی ناوەندی', flag: '🇮🇶', region: 'Middle East', speech: 'ckb' },
+      { code: 'dv', name: 'Dhivehi', native: 'ދިވެހި', flag: '🇲🇻', region: 'Asia', speech: 'dv' },
+      { code: 'dz', name: 'Dzongkha', native: 'རྫོང་ཁ', flag: '🇧🇹', region: 'Asia', speech: 'dz' },
+      { code: 'tet', name: 'Tetum', native: 'Tetun', flag: '🇹🇱', region: 'Asia', speech: 'tet' },
+      { code: 'tt', name: 'Tatar', native: 'Татарча', flag: '🌍', region: 'Europe', speech: 'tt' },
+      { code: 'ba', name: 'Bashkir', native: 'Башҡортса', flag: '🌍', region: 'Europe', speech: 'ba' },
+      { code: 'cv', name: 'Chuvash', native: 'Чӑвашла', flag: '🌍', region: 'Europe', speech: 'cv' },
+      { code: 'ce', name: 'Chechen', native: 'Нохчийн', flag: '🌍', region: 'Europe', speech: 'ce' },
+      { code: 'os', name: 'Ossetian', native: 'Ирон', flag: '🌍', region: 'Europe', speech: 'os' },
+      { code: 'ab', name: 'Abkhaz', native: 'Аҧсуа', flag: '🌍', region: 'Europe', speech: 'ab' },
+      { code: 'yi', name: 'Yiddish', native: 'ייִדיש', flag: '🌍', region: 'Europe', speech: 'yi' },
+      { code: 'fo', name: 'Faroese', native: 'Føroyskt', flag: '🇫🇴', region: 'Europe', speech: 'fo' },
+      { code: 'fy', name: 'West Frisian', native: 'Frysk', flag: '🇳🇱', region: 'Europe', speech: 'fy' },
+      { code: 'co', name: 'Corsican', native: 'Corsu', flag: '🇫🇷', region: 'Europe', speech: 'co' },
+      { code: 'sc', name: 'Sardinian', native: 'Sardu', flag: '🇮🇹', region: 'Europe', speech: 'sc' },
+      { code: 'oc', name: 'Occitan', native: 'Occitan', flag: '🇫🇷', region: 'Europe', speech: 'oc' },
+      { code: 'br', name: 'Breton', native: 'Brezhoneg', flag: '🇫🇷', region: 'Europe', speech: 'br' },
+      { code: 'gv', name: 'Manx', native: 'Gaelg', flag: '🇮🇲', region: 'Europe', speech: 'gv' },
+      { code: 'kw', name: 'Cornish', native: 'Kernewek', flag: '🇬🇧', region: 'Europe', speech: 'kw' },
+      { code: 'rm', name: 'Romansh', native: 'Rumantsch', flag: '🇨🇭', region: 'Europe', speech: 'rm' },
+      { code: 'fur', name: 'Friulian', native: 'Furlan', flag: '🇮🇹', region: 'Europe', speech: 'fur' },
+      { code: 'vec', name: 'Venetian', native: 'Vèneto', flag: '🇮🇹', region: 'Europe', speech: 'vec' },
+      { code: 'nap', name: 'Neapolitan', native: 'Napulitano', flag: '🇮🇹', region: 'Europe', speech: 'nap' },
+      { code: 'scn', name: 'Sicilian', native: 'Sicilianu', flag: '🇮🇹', region: 'Europe', speech: 'scn' },
+      { code: 'ast', name: 'Asturian', native: 'Asturianu', flag: '🇪🇸', region: 'Europe', speech: 'ast' },
+      { code: 'an', name: 'Aragonese', native: 'Aragonés', flag: '🇪🇸', region: 'Europe', speech: 'an' },
+      { code: 'hsb', name: 'Upper Sorbian', native: 'Hornjoserbšćina', flag: '🇩🇪', region: 'Europe', speech: 'hsb' },
+      { code: 'nds', name: 'Low German', native: 'Plattdüütsch', flag: '🇩🇪', region: 'Europe', speech: 'nds' },
+      { code: 'se', name: 'Northern Sámi', native: 'Davvisámegiella', flag: '🇳🇴', region: 'Europe', speech: 'se' },
+      { code: 'syr', name: 'Syriac / Aramaic', native: 'ܣܘܪܝܝܐ', flag: '🌍', region: 'Middle East', speech: 'syr' },
+      { code: 'arc', name: 'Aramaic', native: 'ארמית', flag: '🌍', region: 'Classical & Constructed', speech: 'arc' },
+      { code: 'grc', name: 'Ancient Greek', native: 'Ἀρχαία Ἑλληνική', flag: '🏛️', region: 'Classical & Constructed', speech: 'grc' },
+      { code: 'cu', name: 'Church Slavonic', native: 'Словѣньскъ', flag: '📜', region: 'Classical & Constructed', speech: 'cu' },
+      { code: 'ia', name: 'Interlingua', native: 'Interlingua', flag: '🌐', region: 'Classical & Constructed', speech: 'ia' },
+      { code: 'io', name: 'Ido', native: 'Ido', flag: '🌐', region: 'Classical & Constructed', speech: 'io' },
+      { code: 'vo', name: 'Volapük', native: 'Volapük', flag: '🌐', region: 'Classical & Constructed', speech: 'vo' },
+      { code: 'tok', name: 'Toki Pona', native: 'toki pona', flag: '😊', region: 'Classical & Constructed', speech: 'tok' },
+      { code: 'tlh', name: 'Klingon', native: 'tlhIngan Hol', flag: '🖖', region: 'Classical & Constructed', speech: 'tlh' },
+      { code: 'qya', name: 'Quenya (Elvish)', native: 'Quenya', flag: '🧝', region: 'Classical & Constructed', speech: 'qya' },
+      { code: 'ts', name: 'Tsonga', native: 'Xitsonga', flag: '🇿🇦', region: 'Africa', speech: 'ts' },
+      { code: 'ss', name: 'Swati', native: 'siSwati', flag: '🇸🇿', region: 'Africa', speech: 'ss' },
+      { code: 've', name: 'Venda', native: 'Tshivenḓa', flag: '🇿🇦', region: 'Africa', speech: 've' },
+      { code: 'nr', name: 'Southern Ndebele', native: 'isiNdebele', flag: '🇿🇦', region: 'Africa', speech: 'nr' },
+      { code: 'nso', name: 'Northern Sotho', native: 'Sesotho sa Leboa', flag: '🇿🇦', region: 'Africa', speech: 'nso' },
+      { code: 'bem', name: 'Bemba', native: 'Ichibemba', flag: '🇿🇲', region: 'Africa', speech: 'bem' },
+      { code: 'loz', name: 'Lozi', native: 'Silozi', flag: '🇿🇲', region: 'Africa', speech: 'loz' },
+      { code: 'tum', name: 'Tumbuka', native: 'chiTumbuka', flag: '🇲🇼', region: 'Africa', speech: 'tum' },
+      { code: 'lua', name: 'Luba-Kasai', native: 'Tshiluba', flag: '🇨🇩', region: 'Africa', speech: 'lua' },
+      { code: 'sg', name: 'Sango', native: 'Yângâ tî Sängö', flag: '🇨🇫', region: 'Africa', speech: 'sg' },
+      { code: 'kr', name: 'Kanuri', native: 'Kanuri', flag: '🇳🇬', region: 'Africa', speech: 'kr' },
+      { code: 'ti-ER', name: 'Tigre', native: 'ትግረ', flag: '🇪🇷', region: 'Africa', speech: 'tig' },
+      { code: 'aa', name: 'Afar', native: 'Qafar af', flag: '🇩🇯', region: 'Africa', speech: 'aa' },
+      { code: 'bho', name: 'Bhojpuri', native: 'भोजपुरी', flag: '🇮🇳', region: 'Asia', speech: 'bho' },
+      { code: 'mai', name: 'Maithili', native: 'मैथिली', flag: '🇮🇳', region: 'Asia', speech: 'mai' },
+      { code: 'doi', name: 'Dogri', native: 'डोगरी', flag: '🇮🇳', region: 'Asia', speech: 'doi' },
+      { code: 'ks', name: 'Kashmiri', native: 'کٲشُر', flag: '🇮🇳', region: 'Asia', speech: 'ks' },
+      { code: 'kok', name: 'Konkani', native: 'कोंकणी', flag: '🇮🇳', region: 'Asia', speech: 'kok' },
+      { code: 'mni', name: 'Meitei (Manipuri)', native: 'ꯃꯩꯇꯩꯂꯣꯟ', flag: '🇮🇳', region: 'Asia', speech: 'mni' },
+      { code: 'sat', name: 'Santali', native: 'ᱥᱟᱱᱛᱟᱲᱤ', flag: '🇮🇳', region: 'Asia', speech: 'sat' },
+      { code: 'new', name: 'Newari', native: 'नेपाल भाषा', flag: '🇳🇵', region: 'Asia', speech: 'new' },
+      { code: 'ban', name: 'Balinese', native: 'Basa Bali', flag: '🇮🇩', region: 'Asia', speech: 'ban' },
+      { code: 'min', name: 'Minangkabau', native: 'Baso Minang', flag: '🇮🇩', region: 'Asia', speech: 'min' },
+      { code: 'bug', name: 'Buginese', native: 'Basa Ugi', flag: '🇮🇩', region: 'Asia', speech: 'bug' },
+      { code: 'ace', name: 'Acehnese', native: 'Bahsa Acèh', flag: '🇮🇩', region: 'Asia', speech: 'ace' },
+      { code: 'war', name: 'Waray', native: 'Winaray', flag: '🇵🇭', region: 'Asia', speech: 'war' },
+      { code: 'pam', name: 'Kapampangan', native: 'Kapampangan', flag: '🇵🇭', region: 'Asia', speech: 'pam' },
+      { code: 'hil', name: 'Hiligaynon', native: 'Ilonggo', flag: '🇵🇭', region: 'Asia', speech: 'hil' },
+      { code: 'bik', name: 'Bikol', native: 'Bikol', flag: '🇵🇭', region: 'Asia', speech: 'bik' },
+      { code: 'pag', name: 'Pangasinan', native: 'Pangasinan', flag: '🇵🇭', region: 'Asia', speech: 'pag' },
+      { code: 'ch', name: 'Chamorro', native: 'Finuʼ Chamorro', flag: '🇬🇺', region: 'Oceania', speech: 'ch' },
+      { code: 'mh', name: 'Marshallese', native: 'Kajin M̧ajeļ', flag: '🇲🇭', region: 'Oceania', speech: 'mh' },
+      { code: 'gil', name: 'Gilbertese', native: 'Taetae ni Kiribati', flag: '🇰🇮', region: 'Oceania', speech: 'gil' },
+      { code: 'na', name: 'Nauruan', native: 'Dorerin Naoero', flag: '🇳🇷', region: 'Oceania', speech: 'na' },
+      { code: 'bi', name: 'Bislama', native: 'Bislama', flag: '🇻🇺', region: 'Oceania', speech: 'bi' },
+      { code: 'pap', name: 'Papiamento', native: 'Papiamentu', flag: '🇨🇼', region: 'Americas', speech: 'pap' },
+      { code: 'srn', name: 'Sranan Tongo', native: 'Sranantongo', flag: '🇸🇷', region: 'Americas', speech: 'srn' },
+      { code: 'oj', name: 'Ojibwe', native: 'Anishinaabemowin', flag: '🇨🇦', region: 'Americas', speech: 'oj' },
+      { code: 'cr', name: 'Cree', native: 'ᓀᐦᐃᔭᐍᐏᐣ', flag: '🇨🇦', region: 'Americas', speech: 'cr' },
+      { code: 'dak', name: 'Dakota / Lakota', native: 'Lakȟótiyapi', flag: '🇺🇸', region: 'Americas', speech: 'dak' },
+      { code: 'yua', name: 'Yucatec Maya', native: 'Maaya Tʼàan', flag: '🇲🇽', region: 'Americas', speech: 'yua' }
+    ];
+
+    // =========================================================================
+    // 2. RICH VOCABULARY ENGINE (100+ TARGET-LANGUAGE WORDS/DAY, 1,000+/MONTH)
+    // =========================================================================
+    const CORE_100_CONCEPTS = [
+      { en: 'Hello', pos: 'Greeting', es: ['Hola', 'OH-lah'], fr: ['Bonjour', 'bohn-ZHOOR'], ar: ['مرحباً', 'mar-ha-ban'], ur: ['السلام علیکم', 'as-sa-laa-mu a-lay-kum'], de: ['Hallo', 'HAH-loh'], ja: ['こんにちは', 'kon-ni-chi-wa'], zh: ['你好', 'nǐ hǎo'], ko: ['안녕하세요', 'an-nyeong-ha-se-yo'], hi: ['नमस्ते', 'na-mas-te'], pt: ['Olá', 'oh-LAH'], it: ['Ciao', 'CHOW'], ru: ['Привет', 'pree-VYET'], tr: ['Merhaba', 'mer-ha-BA'], bn: ['হ্যালো', 'hyā-lō'], fa: ['سلام', 'sa-laam'], id: ['Halo', 'hah-loh'], sw: ['Habari', 'ha-ba-ri'], nl: ['Hallo', 'hah-loh'], pl: ['Cześć', 'cheshch'], vi: ['Xin chào', 'sin chow'] },
+      { en: 'Thank you', pos: 'Expression', es: ['Gracias', 'GRAH-syahs'], fr: ['Merci', 'mer-SEE'], ar: ['شكراً', 'shuk-ran'], ur: ['شکریہ', 'shuk-ri-ya'], de: ['Danke', 'DAHN-keh'], ja: ['ありがとう', 'a-ri-ga-tō'], zh: ['谢谢', 'xiè xie'], ko: ['감사합니다', 'gam-sa-ham-ni-da'], hi: ['धन्यवाद', 'dhan-ya-vaad'], pt: ['Obrigado', 'oh-bree-GAH-doo'], it: ['Grazie', 'GRAHT-syeh'], ru: ['Спасибо', 'spah-SEE-bah'], tr: ['Teşekkürler', 'te-shek-KÜR-ler'], bn: ['ধন্যবাদ', 'dhon-no-bad'], fa: ['متشکرم', 'mo-ta-shak-ke-ram'], id: ['Terima kasih', 'te-ree-ma ka-sih'], sw: ['Asante', 'a-san-te'], nl: ['Dank je', 'dahnk yuh'], pl: ['Dziękuję', 'jen-KOO-yeh'], vi: ['Cảm ơn', 'kahm uhn'] },
+      { en: 'Please', pos: 'Expression', es: ['Por favor', 'por fah-VOR'], fr: ['S’il vous plaît', 'seel voo PLAY'], ar: ['من فضلك', 'min fad-lik'], ur: ['براہ کرم', 'ba-raah-e-ka-ram'], de: ['Bitte', 'BIT-teh'], ja: ['お願いします', 'o-ne-gai-shi-masu'], zh: ['请', 'qǐng'], ko: ['제발', 'je-bal'], hi: ['कृपया', 'kri-pa-ya'], pt: ['Por favor', 'por fah-VOR'], it: ['Per favore', 'per fah-VOH-reh'], ru: ['Пожалуйста', 'pah-ZHAH-loo-stah'], tr: ['Lütfen', 'LÜT-fen'], bn: ['দয়া করে', 'do-ya ko-re'], fa: ['لطفاً', 'lot-fan'], id: ['Tolong', 'toh-long'], sw: ['Tafadhali', 'ta-fa-dha-li'], nl: ['Alstublieft', 'ahl-stoo-bleeft'], pl: ['Proszę', 'PROH-sheh'], vi: ['Làm ơn', 'lahm uhn'] },
+      { en: 'Yes', pos: 'Adverb', es: ['Sí', 'see'], fr: ['Oui', 'wee'], ar: ['نعم', 'na-am'], ur: ['جی ہاں', 'jee haan'], de: ['Ja', 'yah'], ja: ['はい', 'hai'], zh: ['是', 'shì'], ko: ['네', 'ne'], hi: ['हाँ', 'haan'], pt: ['Sim', 'seeng'], it: ['Sì', 'see'], ru: ['Да', 'dah'], tr: ['Evet', 'e-VET'], bn: ['হ্যাঁ', 'hyā̃'], fa: ['بله', 'ba-leh'], id: ['Ya', 'yah'], sw: ['Ndiyo', 'n-dee-yo'], nl: ['Ja', 'yah'], pl: ['Tak', 'tahk'], vi: ['Vâng', 'vuhng'] },
+      { en: 'No', pos: 'Adverb', es: ['No', 'noh'], fr: ['Non', 'nohn'], ar: ['لا', 'laa'], ur: ['نہیں', 'na-heen'], de: ['Nein', 'nine'], ja: ['いいえ', 'i-i-e'], zh: ['不是', 'bú shì'], ko: ['아니요', 'a-ni-yo'], hi: ['नहीं', 'na-heen'], pt: ['Não', 'nowng'], it: ['No', 'noh'], ru: ['Нет', 'nyet'], tr: ['Hayır', 'ha-YIR'], bn: ['না', 'na'], fa: ['نه', 'nah'], id: ['Tidak', 'tee-dak'], sw: ['Hapana', 'ha-pa-na'], nl: ['Nee', 'nay'], pl: ['Nie', 'nyeh'], vi: ['Không', 'khohm'] },
+      { en: 'Water', pos: 'Noun', es: ['Agua', 'AH-gwah'], fr: ['Eau', 'oh'], ar: ['ماء', 'maa'], ur: ['پانی', 'paa-nee'], de: ['Wasser', 'VAH-ser'], ja: ['水', 'mi-zu'], zh: ['水', 'shuǐ'], ko: ['물', 'mul'], hi: ['पानी', 'paa-nee'], pt: ['Água', 'AH-gwah'], it: ['Acqua', 'AHK-wah'], ru: ['Вода', 'vah-DAH'], tr: ['Su', 'soo'], bn: ['পানি', 'pa-ni'], fa: ['آب', 'aab'], id: ['Air', 'ah-eer'], sw: ['Maji', 'ma-ji'], nl: ['Water', 'vah-ter'], pl: ['Woda', 'VOH-dah'], vi: ['Nước', 'nuhk'] },
+      { en: 'Food', pos: 'Noun', es: ['Comida', 'koh-MEE-dah'], fr: ['Nourriture', 'noo-ree-TOOR'], ar: ['طعام', 'ta-aam'], ur: ['کھانا', 'khaa-naa'], de: ['Essen', 'ES-sen'], ja: ['食べ物', 'ta-be-mo-no'], zh: ['食物', 'shí wù'], ko: ['음식', 'eum-sik'], hi: ['भोजन', 'bho-jan'], pt: ['Comida', 'koh-MEE-dah'], it: ['Cibo', 'CHEE-boh'], ru: ['Еда', 'yeh-DAH'], tr: ['Yemek', 'ye-MEK'], bn: ['খাবার', 'kha-bar'], fa: ['غذا', 'gha-zaa'], id: ['Makanan', 'ma-ka-nan'], sw: ['Chakula', 'cha-ku-la'], nl: ['Eten', 'ay-ten'], pl: ['Jedzenie', 'yed-ZEH-nyeh'], vi: ['Thức ăn', 'thuhk ahn'] },
+      { en: 'House / Home', pos: 'Noun', es: ['Casa', 'KAH-sah'], fr: ['Maison', 'may-ZOHN'], ar: ['بيت', 'bayt'], ur: ['گھر', 'ghar'], de: ['Haus', 'hows'], ja: ['家', 'i-e'], zh: ['家', 'jiā'], ko: ['집', 'jip'], hi: ['घर', 'ghar'], pt: ['Casa', 'KAH-zah'], it: ['Casa', 'KAH-zah'], ru: ['Дом', 'dohm'], tr: ['Ev', 'ev'], bn: ['বাড়ি', 'ba-ri'], fa: ['خانه', 'khaa-neh'], id: ['Rumah', 'roo-mah'], sw: ['Nyumba', 'nyoom-ba'], nl: ['Huis', 'hoys'], pl: ['Dom', 'dohm'], vi: ['Nhà', 'nyah'] },
+      { en: 'Friend', pos: 'Noun', es: ['Amigo', 'ah-MEE-goh'], fr: ['Ami', 'ah-MEE'], ar: ['صديق', 'sa-deeq'], ur: ['دوست', 'dost'], de: ['Freund', 'froynd'], ja: ['友達', 'to-mo-da-chi'], zh: ['朋友', 'péng yǒu'], ko: ['친구', 'chin-gu'], hi: ['दोस्त', 'dost'], pt: ['Amigo', 'ah-MEE-goo'], it: ['Amico', 'ah-MEE-koh'], ru: ['Друг', 'drook'], tr: ['Arkadaş', 'ar-ka-DASH'], bn: ['বন্ধু', 'bon-dhu'], fa: ['دوست', 'doost'], id: ['Teman', 'te-man'], sw: ['Rafiki', 'ra-fee-ki'], nl: ['Vriend', 'vreent'], pl: ['Przyjaciel', 'pshi-YAH-chel'], vi: ['Bạn bè', 'bahn beh'] },
+      { en: 'Family', pos: 'Noun', es: ['Familia', 'fah-MEE-lyah'], fr: ['Famille', 'fah-MEE'], ar: ['عائلة', 'aa-i-lah'], ur: ['خاندان', 'khaan-daan'], de: ['Familie', 'fah-MEE-lyeh'], ja: ['家族', 'ka-zo-ku'], zh: ['家庭', 'jiā tíng'], ko: ['가족', 'ga-jok'], hi: ['परिवार', 'pa-ri-vaar'], pt: ['Família', 'fah-MEE-lyah'], it: ['Famiglia', 'fah-MEE-lyah'], ru: ['Семья', 'seem-YAH'], tr: ['Aile', 'aa-i-LE'], bn: ['পরিবার', 'po-ri-bar'], fa: ['خانواده', 'khaa-ne-vaa-deh'], id: ['Keluarga', 'ke-loo-ar-ga'], sw: ['Familia', 'fa-mee-lia'], nl: ['Familie', 'fa-mee-lee'], pl: ['Rodzina', 'rod-JEE-nah'], vi: ['Gia đình', 'zah dinh'] },
+      { en: 'Time', pos: 'Noun', es: ['Tiempo', 'TYEM-poh'], fr: ['Temps', 'tahn'], ar: ['وقت', 'waqt'], ur: ['وقت', 'waqt'], de: ['Zeit', 'tsite'], ja: ['時間', 'ji-kan'], zh: ['时间', 'shí jiān'], ko: ['시간', 'si-gan'], hi: ['समय', 'sa-may'], pt: ['Tempo', 'TEM-poo'], it: ['Tempo', 'TEM-poh'], ru: ['Время', 'VRYE-mya'], tr: ['Zaman', 'za-MAN'], bn: ['সময়', 'sho-moy'], fa: ['زمان', 'za-maan'], id: ['Waktu', 'wak-too'], sw: ['Wakati', 'wa-ka-ti'], nl: ['Tijd', 'tite'], pl: ['Czas', 'chahs'], vi: ['Thời gian', 'thuhy zahn'] },
+      { en: 'Day', pos: 'Noun', es: ['Día', 'DEE-ah'], fr: ['Jour', 'zhoor'], ar: ['يوم', 'yawm'], ur: ['دن', 'din'], de: ['Tag', 'tahk'], ja: ['日', 'hi'], zh: ['天', 'tiān'], ko: ['날', 'nal'], hi: ['दिन', 'din'], pt: ['Dia', 'DEE-ah'], it: ['Giorno', 'JOR-noh'], ru: ['День', 'dyen'], tr: ['Gün', 'gün'], bn: ['দিন', 'din'], fa: ['روز', 'rooz'], id: ['Hari', 'ha-ree'], sw: ['Siku', 'see-ku'], nl: ['Dag', 'dakh'], pl: ['Dzień', 'jen'], vi: ['Ngày', 'ngay'] },
+      { en: 'Night', pos: 'Noun', es: ['Noche', 'NOH-cheh'], fr: ['Nuit', 'nwee'], ar: ['ليل', 'layl'], ur: ['رات', 'raat'], de: ['Nacht', 'nahkht'], ja: ['夜', 'yo-ru'], zh: ['夜晚', 'yè wǎn'], ko: ['밤', 'bam'], hi: ['रात', 'raat'], pt: ['Noite', 'NOY-cheh'], it: ['Notte', 'NOT-teh'], ru: ['Ночь', 'noch'], tr: ['Gece', 'ge-JE'], bn: ['রাত', 'rat'], fa: ['شب', 'shab'], id: ['Malam', 'ma-lam'], sw: ['Usiku', 'oo-see-ku'], nl: ['Nacht', 'nahkht'], pl: ['Noc', 'nohts'], vi: ['Đêm', 'dem'] },
+      { en: 'Today', pos: 'Adverb', es: ['Hoy', 'oy'], fr: ['Aujourd’hui', 'oh-zhoor-DWEE'], ar: ['اليوم', 'al-yawm'], ur: ['آج', 'aaj'], de: ['Heute', 'HOY-teh'], ja: ['今日', 'kyō'], zh: ['今天', 'jīn tiān'], ko: ['오늘', 'o-neul'], hi: ['आज', 'aaj'], pt: ['Hoje', 'OH-zheh'], it: ['Oggi', 'OD-jee'], ru: ['Сегодня', 'see-VOD-nya'], tr: ['Bugün', 'bu-GÜN'], bn: ['আজ', 'aj'], fa: ['امروز', 'em-rooz'], id: ['Hari ini', 'ha-ree ee-nee'], sw: ['Leo', 'le-o'], nl: ['Vandaag', 'vahn-daakh'], pl: ['Dzisiaj', 'JEE-shai'], vi: ['Hôm nay', 'hom nay'] },
+      { en: 'Tomorrow', pos: 'Adverb', es: ['Mañana', 'mah-NYAH-nah'], fr: ['Demain', 'duh-MAN'], ar: ['غداً', 'gha-dan'], ur: ['کل', 'kal'], de: ['Morgen', 'MOR-gen'], ja: ['明日', 'a-shi-ta'], zh: ['明天', 'míng tiān'], ko: ['내일', 'nae-il'], hi: ['कल', 'kal'], pt: ['Amanhã', 'ah-mah-NYAH'], it: ['Domani', 'doh-MAH-nee'], ru: ['Завтра', 'ZAHV-trah'], tr: ['Yarın', 'ya-RIN'], bn: ['আগামীকাল', 'a-ga-mi-kal'], fa: ['فردا', 'far-daa'], id: ['Besok', 'be-sok'], sw: ['Kesho', 'ke-sho'], nl: ['Morgen', 'mor-ghen'], pl: ['Jutro', 'YOO-troh'], vi: ['Ngày mai', 'ngay mai'] },
+      { en: 'Book', pos: 'Noun', es: ['Libro', 'LEE-broh'], fr: ['Livre', 'LEE-vruh'], ar: ['كتاب', 'ki-taab'], ur: ['کتاب', 'ki-taab'], de: ['Buch', 'bookh'], ja: ['本', 'hon'], zh: ['书', 'shū'], ko: ['책', 'chaek'], hi: ['किताब', 'ki-taab'], pt: ['Livro', 'LEE-vroo'], it: ['Libro', 'LEE-broh'], ru: ['Книга', 'KNEE-gah'], tr: ['Kitap', 'ki-TAP'], bn: ['বই', 'boi'], fa: ['کتاب', 'ke-taab'], id: ['Buku', 'boo-koo'], sw: ['Kitabu', 'ki-ta-bu'], nl: ['Boek', 'book'], pl: ['Książka', 'kshonzh-kah'], vi: ['Sách', 'sahk'] },
+      { en: 'School', pos: 'Noun', es: ['Escuela', 'es-KWEH-lah'], fr: ['École', 'ay-KOL'], ar: ['مدرسة', 'mad-ra-sah'], ur: ['اسکول', 'is-kool'], de: ['Schule', 'SHOO-leh'], ja: ['学校', 'gak-kō'], zh: ['学校', 'xué xiào'], ko: ['학교', 'hak-gyo'], hi: ['स्कूल', 'skool'], pt: ['Escola', 'es-KOH-lah'], it: ['Scuola', 'SKWOH-lah'], ru: ['Школа', 'SHKOH-lah'], tr: ['Okul', 'o-KUL'], bn: ['বিদ্যালয়', 'bid-da-loy'], fa: ['مدرسه', 'mad-re-seh'], id: ['Sekolah', 'se-ko-lah'], sw: ['Shule', 'shoo-le'], nl: ['School', 'skhohl'], pl: ['Szkoła', 'SHKOH-wah'], vi: ['Trường học', 'truhng hok'] },
+      { en: 'Work', pos: 'Noun', es: ['Trabajo', 'trah-BAH-hoh'], fr: ['Travail', 'trah-VYE'], ar: ['عمل', 'a-mal'], ur: ['کام', 'kaam'], de: ['Arbeit', 'AR-bite'], ja: ['仕事', 'shi-go-to'], zh: ['工作', 'gōng zuò'], ko: ['일', 'il'], hi: ['काम', 'kaam'], pt: ['Trabalho', 'trah-BAH-lyoo'], it: ['Lavoro', 'lah-VOH-roh'], ru: ['Работа', 'rah-BOH-tah'], tr: ['İş', 'ish'], bn: ['কাজ', 'kaj'], fa: ['کار', 'kaar'], id: ['Kerja', 'ker-ja'], sw: ['Kazi', 'ka-zi'], nl: ['Werk', 'verk'], pl: ['Praca', 'PRAH-tsah'], vi: ['Công việc', 'kong vyek'] },
+      { en: 'City', pos: 'Noun', es: ['Ciudad', 'syoo-DAHD'], fr: ['Ville', 'veel'], ar: ['مدينة', 'ma-dee-nah'], ur: ['شہر', 'sha-har'], de: ['Stadt', 'shtaht'], ja: ['都市', 'to-shi'], zh: ['城市', 'chéng shì'], ko: ['도시', 'do-si'], hi: ['शहर', 'sha-har'], pt: ['Cidade', 'see-DAH-jeh'], it: ['Città', 'cheet-TAH'], ru: ['Город', 'GOH-rahd'], tr: ['Şehir', 'she-HIR'], bn: ['শহর', 'sho-hor'], fa: ['شهر', 'shahr'], id: ['Kota', 'ko-ta'], sw: ['Mji', 'm-ji'], nl: ['Stad', 'staht'], pl: ['Miasto', 'MYAHS-toh'], vi: ['Thành phố', 'thanh foh'] },
+      { en: 'World', pos: 'Noun', es: ['Mundo', 'MOON-doh'], fr: ['Monde', 'mohnd'], ar: ['عالم', 'aa-lam'], ur: ['دنیا', 'du-ni-yaa'], de: ['Welt', 'velt'], ja: ['世界', 'se-kai'], zh: ['世界', 'shì jiè'], ko: ['세계', 'se-gye'], hi: ['दुनिया', 'du-ni-ya'], pt: ['Mundo', 'MOON-doo'], it: ['Mondo', 'MON-doh'], ru: ['Мир', 'meer'], tr: ['Dünya', 'dün-YA'], bn: ['পৃথিবী', 'pri-thi-bi'], fa: ['جهان', 'ja-haan'], id: ['Dunia', 'doo-nia'], sw: ['Dunia', 'doo-nia'], nl: ['Wereld', 'vay-relt'], pl: ['Świat', 'shfyaht'], vi: ['Thế giới', 'theh zohy'] },
+      { en: 'Good', pos: 'Adjective', es: ['Bueno', 'BWEH-noh'], fr: ['Bon', 'bohn'], ar: ['جيد', 'jay-yid'], ur: ['اچھا', 'ach-chhaa'], de: ['Gut', 'goot'], ja: ['良い', 'yo-i'], zh: ['好', 'hǎo'], ko: ['좋은', 'jo-eun'], hi: ['अच्छा', 'ach-chha'], pt: ['Bom', 'bohng'], it: ['Buono', 'BWOH-noh'], ru: ['Хороший', 'khah-ROH-shee'], tr: ['İyi', 'i-YI'], bn: ['ভালো', 'bha-lo'], fa: ['خوب', 'khoob'], id: ['Baik', 'ba-eek'], sw: ['Nzuri', 'n-zoo-ri'], nl: ['Goed', 'khoot'], pl: ['Dobry', 'DOH-bri'], vi: ['Tốt', 'toht'] },
+      { en: 'Big', pos: 'Adjective', es: ['Grande', 'GRAHN-deh'], fr: ['Grand', 'grahn'], ar: ['كبير', 'ka-beer'], ur: ['بڑا', 'ba-raa'], de: ['Groß', 'grohs'], ja: ['大きい', 'ō-ki-i'], zh: ['大', 'dà'], ko: ['큰', 'keun'], hi: ['बड़ा', 'ba-daa'], pt: ['Grande', 'GRAHN-jeh'], it: ['Grande', 'GRAHN-deh'], ru: ['Большой', 'bahl-SHOY'], tr: ['Büyük', 'bü-YÜK'], bn: ['বড়', 'bo-ro'], fa: ['بزرگ', 'bo-zorg'], id: ['Besar', 'be-sar'], sw: ['Kubwa', 'koob-wa'], nl: ['Groot', 'khroht'], pl: ['Duży', 'DOO-zhi'], vi: ['Lớn', 'luhn'] },
+      { en: 'Small', pos: 'Adjective', es: ['Pequeño', 'peh-KEH-nyoh'], fr: ['Petit', 'puh-TEE'], ar: ['صغير', 'sa-gheer'], ur: ['چھوٹا', 'chho-taa'], de: ['Klein', 'kline'], ja: ['小さい', 'chii-sa-i'], zh: ['小', 'xiǎo'], ko: ['작은', 'ja-geun'], hi: ['छोटा', 'chho-taa'], pt: ['Pequeno', 'peh-KEH-noo'], it: ['Piccolo', 'PEEK-koh-loh'], ru: ['Маленький', 'MAH-len-kee'], tr: ['Küçük', 'kü-CHÜK'], bn: ['ছোট', 'chho-to'], fa: ['کوچک', 'koo-chak'], id: ['Kecil', 'ke-chil'], sw: ['Ndogo', 'n-do-go'], nl: ['Klein', 'kline'], pl: ['Mały', 'MAH-wi'], vi: ['Nhỏ', 'nyoh'] },
+      { en: 'New', pos: 'Adjective', es: ['Nuevo', 'NWEH-voh'], fr: ['Nouveau', 'noo-VOH'], ar: ['جديد', 'ja-deed'], ur: ['نیا', 'na-yaa'], de: ['Neu', 'noy'], ja: ['新しい', 'a-ta-ra-shi-i'], zh: ['新', 'xīn'], ko: ['새로운', 'sae-ro-un'], hi: ['नया', 'na-yaa'], pt: ['Novo', 'NOH-voo'], it: ['Nuovo', 'NWOH-voh'], ru: ['Новый', 'NOH-vee'], tr: ['Yeni', 'ye-NI'], bn: ['নতুন', 'no-tun'], fa: ['جدید', 'ja-deed'], id: ['Baru', 'ba-roo'], sw: ['Mpya', 'm-pya'], nl: ['Nieuw', 'nee-oo'], pl: ['Nowy', 'NOH-vi'], vi: ['Mới', 'muhy'] },
+      { en: 'Happy', pos: 'Adjective', es: ['Feliz', 'feh-LEES'], fr: ['Heureux', 'uh-RUH'], ar: ['سعيد', 'sa-eed'], ur: ['خوش', 'khush'], de: ['Glücklich', 'GLÜK-likh'], ja: ['嬉しい', 'u-re-shi-i'], zh: ['快乐', 'kuài lè'], ko: ['행복한', 'haeng-bok-han'], hi: ['खुश', 'khush'], pt: ['Feliz', 'feh-LEES'], it: ['Felice', 'feh-LEE-cheh'], ru: ['Счастливый', 'schast-LEE-vee'], tr: ['Mutlu', 'mut-LU'], bn: ['খুশি', 'khu-shi'], fa: ['خوشحال', 'khosh-haal'], id: ['Senang', 'se-nang'], sw: ['Furaha', 'foo-ra-ha'], nl: ['Blij', 'bly'], pl: ['Szczęśliwy', 'shchen-SHLEE-vi'], vi: ['Vui vẻ', 'vooy veh'] },
+      { en: 'Love', pos: 'Noun / Verb', es: ['Amor', 'ah-MOR'], fr: ['Amour', 'ah-MOOR'], ar: ['حب', 'hubb'], ur: ['محبت', 'mo-hab-bat'], de: ['Liebe', 'LEE-beh'], ja: ['愛', 'ai'], zh: ['爱', 'ài'], ko: ['사랑', 'sa-rang'], hi: ['प्यार', 'pyaar'], pt: ['Amor', 'ah-MOR'], it: ['Amore', 'ah-MOH-reh'], ru: ['Любовь', 'lyoo-BOV'], tr: ['Aşk', 'ashk'], bn: ['ভালোবাসা', 'bha-lo-ba-sha'], fa: ['عشق', 'eshgh'], id: ['Cinta', 'chin-ta'], sw: ['Upendo', 'oo-pen-do'], nl: ['Liefde', 'leef-duh'], pl: ['Miłość', 'MEE-woshch'], vi: ['Tình yêu', 'tinh yeu'] },
+      { en: 'Sun', pos: 'Noun', es: ['Sol', 'sohl'], fr: ['Soleil', 'soh-LAY'], ar: ['شمس', 'shams'], ur: ['سورج', 'soo-raj'], de: ['Sonne', 'ZON-neh'], ja: ['太陽', 'tai-yō'], zh: ['太阳', 'tài yáng'], ko: ['태양', 'tae-yang'], hi: ['सूरज', 'soo-raj'], pt: ['Sol', 'sohl'], it: ['Sole', 'SOH-leh'], ru: ['Солнце', 'SOHN-tseh'], tr: ['Güneş', 'gü-NESH'], bn: ['সূর্য', 'shur-jo'], fa: ['خورشید', 'khor-sheed'], id: ['Matahari', 'ma-ta-ha-ree'], sw: ['Jua', 'joo-a'], nl: ['Zon', 'zohn'], pl: ['Słońce', 'SWON-tseh'], vi: ['Mặt trời', 'maht truhy'] },
+      { en: 'Moon', pos: 'Noun', es: ['Luna', 'LOO-nah'], fr: ['Lune', 'loon'], ar: ['قمر', 'qa-mar'], ur: ['چاند', 'chaand'], de: ['Mond', 'mohnt'], ja: ['月', 'tsu-ki'], zh: ['月亮', 'yuè liang'], ko: ['달', 'dal'], hi: ['चाँद', 'chaand'], pt: ['Lua', 'LOO-ah'], it: ['Luna', 'LOO-nah'], ru: ['Луна', 'loo-NAH'], tr: ['Ay', 'ay'], bn: ['চাঁদ', 'chād'], fa: ['ماه', 'maah'], id: ['Bulan', 'boo-lan'], sw: ['Mwezi', 'm-we-zi'], nl: ['Maan', 'mahn'], pl: ['Księżyc', 'KSHEN-zhits'], vi: ['Mặt trăng', 'maht trahng'] },
+      { en: 'Star', pos: 'Noun', es: ['Estrella', 'es-TREH-yah'], fr: ['Étoile', 'ay-TWAHL'], ar: ['نجمة', 'naj-mah'], ur: ['ستارہ', 'si-taa-rah'], de: ['Stern', 'shtern'], ja: ['星', 'ho-shi'], zh: ['星星', 'xīng xing'], ko: ['별', 'byeol'], hi: ['तारा', 'taa-raa'], pt: ['Estrela', 'es-TREH-lah'], it: ['Stella', 'STEL-lah'], ru: ['Звезда', 'zvez-DAH'], tr: ['Yıldız', 'yıl-DIZ'], bn: ['তারা', 'ta-ra'], fa: ['ستاره', 'se-taa-reh'], id: ['Bintang', 'bin-tang'], sw: ['Nyota', 'nyo-ta'], nl: ['Ster', 'ster'], pl: ['Gwiazda', 'GVYAHZ-dah'], vi: ['Ngôi sao', 'ngoy sao'] },
+      { en: 'Sea / Ocean', pos: 'Noun', es: ['Mar', 'mar'], fr: ['Mer', 'mer'], ar: ['بحر', 'bahr'], ur: ['سمندر', 'sa-man-dar'], de: ['Meer', 'mehr'], ja: ['海', 'u-mi'], zh: ['海洋', 'hǎi yáng'], ko: ['바다', 'ba-da'], hi: ['समुद्र', 'sa-mu-dra'], pt: ['Mar', 'mar'], it: ['Mare', 'MAH-reh'], ru: ['Море', 'MOH-reh'], tr: ['Deniz', 'de-NIZ'], bn: ['সমুদ্র', 'sho-mud-ro'], fa: ['دریا', 'dar-yaa'], id: ['Laut', 'la-oot'], sw: ['Bahari', 'ba-ha-ri'], nl: ['Zee', 'zay'], pl: ['Morze', 'MOH-zheh'], vi: ['Biển', 'byen'] },
+      { en: 'Mountain', pos: 'Noun', es: ['Montaña', 'mon-TAH-nyah'], fr: ['Montagne', 'mohn-TAH-nyuh'], ar: ['جبل', 'ja-bal'], ur: ['پہاڑ', 'pa-haar'], de: ['Berg', 'berk'], ja: ['山', 'ya-ma'], zh: ['山', 'shān'], ko: ['산', 'san'], hi: ['पहाड़', 'pa-haad'], pt: ['Montanha', 'mohn-TAH-nyah'], it: ['Montagna', 'mon-TAH-nyah'], ru: ['Гора', 'gah-RAH'], tr: ['Dağ', 'daa'], bn: ['পাহাড়', 'pa-har'], fa: ['کوه', 'kooh'], id: ['Gunung', 'goo-noong'], sw: ['Mlima', 'm-lee-ma'], nl: ['Berg', 'berkh'], pl: ['Góra', 'GOO-rah'], vi: ['Núi', 'nooy'] },
+      { en: 'Tree', pos: 'Noun', es: ['Árbol', 'AR-bol'], fr: ['Arbre', 'AR-bruh'], ar: ['شجرة', 'sha-ja-rah'], ur: ['درخت', 'da-rakht'], de: ['Baum', 'bowm'], ja: ['木', 'ki'], zh: ['树', 'shù'], ko: ['나무', 'na-mu'], hi: ['पेड़', 'ped'], pt: ['Árvore', 'AR-voh-reh'], it: ['Albero', 'AHL-beh-roh'], ru: ['Дерево', 'DYE-re-vah'], tr: ['Ağaç', 'a-ACH'], bn: ['গাছ', 'gachh'], fa: ['درخت', 'de-rakht'], id: ['Pohon', 'po-hon'], sw: ['Mti', 'm-ti'], nl: ['Boom', 'bohm'], pl: ['Drzewo', 'DZHEH-voh'], vi: ['Cây', 'kay'] },
+      { en: 'Flower', pos: 'Noun', es: ['Flor', 'flor'], fr: ['Fleur', 'flur'], ar: ['زهرة', 'zah-rah'], ur: ['پھول', 'phool'], de: ['Blume', 'BLOO-meh'], ja: ['花', 'ha-na'], zh: ['花', 'huā'], ko: ['꽃', 'kkot'], hi: ['फूल', 'phool'], pt: ['Flor', 'flor'], it: ['Fiore', 'FYOH-reh'], ru: ['Цветок', 'tsve-TOK'], tr: ['Çiçek', 'chi-CHEK'], bn: ['ফুল', 'phul'], fa: ['گل', 'gol'], id: ['Bunga', 'boong-a'], sw: ['Maua', 'ma-oo-a'], nl: ['Bloem', 'bloom'], pl: ['Kwiat', 'kvyaht'], vi: ['Hoa', 'hwa'] },
+      { en: 'Fire', pos: 'Noun', es: ['Fuego', 'FWEH-goh'], fr: ['Feu', 'fuh'], ar: ['نار', 'naar'], ur: ['آگ', 'aag'], de: ['Feuer', 'FOY-er'], ja: ['火', 'hi'], zh: ['火', 'huǒ'], ko: ['불', 'bul'], hi: ['आग', 'aag'], pt: ['Fogo', 'FOH-goo'], it: ['Fuoco', 'FWOH-koh'], ru: ['Огонь', 'ah-GON'], tr: ['Ateş', 'a-TESH'], bn: ['আগুন', 'a-gun'], fa: ['آتش', 'aa-tash'], id: ['Api', 'ah-pee'], sw: ['Moto', 'mo-to'], nl: ['Vuur', 'voor'], pl: ['Ogień', 'OH-gyen'], vi: ['Lửa', 'luh-a'] },
+      { en: 'Air / Wind', pos: 'Noun', es: ['Aire', 'AY-reh'], fr: ['Air', 'ehr'], ar: ['هواء', 'ha-waa'], ur: ['ہوا', 'ha-waa'], de: ['Luft', 'looft'], ja: ['風', 'ka-ze'], zh: ['空气', 'kōng qì'], ko: ['바람', 'ba-ram'], hi: ['हवा', 'ha-vaa'], pt: ['Ar', 'ar'], it: ['Aria', 'AH-ryah'], ru: ['Воздух', 'VOZ-dookh'], tr: ['Hava', 'ha-VA'], bn: ['বাতাস', 'ba-tash'], fa: ['هوا', 'ha-vaa'], id: ['Udara', 'oo-da-ra'], sw: ['Hewa', 'he-wa'], nl: ['Lucht', 'lookht'], pl: ['Powietrze', 'poh-VYET-sheh'], vi: ['Không khí', 'khohm khee'] },
+      { en: 'Earth / Land', pos: 'Noun', es: ['Tierra', 'TYEH-rrah'], fr: ['Terre', 'tehr'], ar: ['أرض', 'ard'], ur: ['زمین', 'za-meen'], de: ['Erde', 'EHR-deh'], ja: ['地球', 'chi-kyū'], zh: ['地球', 'dì qiú'], ko: ['땅', 'ttang'], hi: ['धरती', 'dhar-tee'], pt: ['Terra', 'TEH-hah'], it: ['Terra', 'TEHR-rah'], ru: ['Земля', 'zem-LYAH'], tr: ['Toprak', 'top-RAK'], bn: ['পৃথিবী', 'pri-thi-bi'], fa: ['زمین', 'za-meen'], id: ['Bumi', 'boo-mee'], sw: ['Ardhi', 'ar-dhi'], nl: ['Aarde', 'aar-duh'], pl: ['Ziemia', 'ZHEH-myah'], vi: ['Trái đất', 'trai duht'] },
+      { en: 'Sky', pos: 'Noun', es: ['Cielo', 'SYEH-loh'], fr: ['Ciel', 'syel'], ar: ['سماء', 'sa-maa'], ur: ['آسمان', 'aas-maan'], de: ['Himmel', 'HIM-mel'], ja: ['空', 'so-ra'], zh: ['天空', 'tiān kōng'], ko: ['하늘', 'ha-neul'], hi: ['आसमान', 'aas-maan'], pt: ['Céu', 'seh-oo'], it: ['Cielo', 'CHEH-loh'], ru: ['Небо', 'NYE-bah'], tr: ['Gökyüzü', 'gök-yü-ZÜ'], bn: ['আকাশ', 'a-kash'], fa: ['آسمان', 'aas-maan'], id: ['Langit', 'la-ngit'], sw: ['Anga', 'an-ga'], nl: ['Lucht', 'lookht'], pl: ['Niebo', 'NYEH-boh'], vi: ['Bầu trời', 'bau truhy'] },
+      { en: 'Rain', pos: 'Noun', es: ['Lluvia', 'YOO-vyah'], fr: ['Pluie', 'plwee'], ar: ['مطر', 'ma-tar'], ur: ['بارش', 'baa-rish'], de: ['Regen', 'RAY-gen'], ja: ['雨', 'a-me'], zh: ['雨', 'yǔ'], ko: ['비', 'bi'], hi: ['बारिश', 'baa-rish'], pt: ['Chuva', 'SHOO-vah'], it: ['Pioggia', 'PYOD-jah'], ru: ['Дождь', 'dozhd'], tr: ['Yağmur', 'yaa-MUR'], bn: ['বৃষ্টি', 'brish-ti'], fa: ['باران', 'baa-raan'], id: ['Hujan', 'hoo-jan'], sw: ['Mvua', 'm-voo-a'], nl: ['Regen', 'ray-ghen'], pl: ['Deszcz', 'deshch'], vi: ['Mưa', 'muh-a'] },
+      { en: 'Snow', pos: 'Noun', es: ['Nieve', 'NYEH-veh'], fr: ['Neige', 'nezh'], ar: ['ثلج', 'thalj'], ur: ['برف', 'barf'], de: ['Schnee', 'shnay'], ja: ['雪', 'yu-ki'], zh: ['雪', 'xuě'], ko: ['눈', 'nun'], hi: ['बर्फ़', 'barf'], pt: ['Neve', 'NEH-veh'], it: ['Neve', 'NEH-veh'], ru: ['Снег', 'snek'], tr: ['Kar', 'kar'], bn: ['বরফ', 'bo-rof'], fa: ['برف', 'barf'], id: ['Salju', 'sal-joo'], sw: ['Theluji', 'the-loo-ji'], nl: ['Sneeuw', 'snay-oo'], pl: ['Śnieg', 'shnyek'], vi: ['Tuyết', 'twyet'] },
+      { en: 'Bread', pos: 'Noun', es: ['Pan', 'pahn'], fr: ['Pain', 'pan'], ar: ['خبز', 'khubz'], ur: ['روٹی', 'ro-tee'], de: ['Brot', 'broht'], ja: ['パン', 'pan'], zh: ['面包', 'miàn bāo'], ko: ['빵', 'ppang'], hi: ['रोटी', 'ro-tee'], pt: ['Pão', 'powng'], it: ['Pane', 'PAH-neh'], ru: ['Хлеб', 'khleb'], tr: ['Ekmek', 'ek-MEK'], bn: ['রুটি', 'ru-ti'], fa: ['نان', 'naan'], id: ['Roti', 'ro-tee'], sw: ['Mkate', 'm-ka-te'], nl: ['Brood', 'broht'], pl: ['Chleb', 'khlep'], vi: ['Bánh mì', 'bahn mee'] },
+      { en: 'Milk', pos: 'Noun', es: ['Leche', 'LEH-cheh'], fr: ['Lait', 'lay'], ar: ['حليب', 'ha-leeb'], ur: ['دودھ', 'doodh'], de: ['Milch', 'milkh'], ja: ['牛乳', 'gyū-nyū'], zh: ['牛奶', 'niú nǎi'], ko: ['우유', 'u-yu'], hi: ['दूध', 'doodh'], pt: ['Leite', 'LAY-cheh'], it: ['Latte', 'LAHT-teh'], ru: ['Молоко', 'mah-lah-KOH'], tr: ['Süt', 'süt'], bn: ['দুধ', 'dudh'], fa: ['شیر', 'sheer'], id: ['Susu', 'soo-soo'], sw: ['Maziwa', 'ma-zee-wa'], nl: ['Melk', 'melk'], pl: ['Mleko', 'MLEH-koh'], vi: ['Sữa', 'suh-a'] },
+      { en: 'Coffee', pos: 'Noun', es: ['Café', 'kah-FEH'], fr: ['Café', 'kah-FAY'], ar: ['قهوة', 'qah-wah'], ur: ['کافی', 'kaa-fee'], de: ['Kaffee', 'KAH-feh'], ja: ['コーヒー', 'kō-hī'], zh: ['咖啡', 'kā fēi'], ko: ['커피', 'keo-pi'], hi: ['कॉफ़ी', 'kaw-fee'], pt: ['Café', 'kah-FEH'], it: ['Caffè', 'kahf-FEH'], ru: ['Кофе', 'KOH-feh'], tr: ['Kahve', 'kah-VE'], bn: ['কফি', 'ko-fi'], fa: ['قهوه', 'ghah-veh'], id: ['Kopi', 'ko-pee'], sw: ['Kahawa', 'ka-ha-wa'], nl: ['Koffie', 'kof-fee'], pl: ['Kawa', 'KAH-vah'], vi: ['Cà phê', 'ka feh'] },
+      { en: 'Tea', pos: 'Noun', es: ['Té', 'teh'], fr: ['Thé', 'tay'], ar: ['شاي', 'shaay'], ur: ['چائے', 'chaa-ay'], de: ['Tee', 'tay'], ja: ['お茶', 'o-cha'], zh: ['茶', 'chá'], ko: ['차', 'cha'], hi: ['चाय', 'chaay'], pt: ['Chá', 'shah'], it: ['Tè', 'teh'], ru: ['Чай', 'chai'], tr: ['Çay', 'chay'], bn: ['চা', 'cha'], fa: ['چای', 'chaay'], id: ['Teh', 'teh'], sw: ['Chai', 'cha-i'], nl: ['Thee', 'tay'], pl: ['Herbata', 'her-BAH-tah'], vi: ['Trà', 'trah'] },
+      { en: 'Apple', pos: 'Noun', es: ['Manzana', 'mahn-SAH-nah'], fr: ['Pomme', 'pom'], ar: ['تفاحة', 'tuf-faa-hah'], ur: ['سیب', 'seb'], de: ['Apfel', 'AHP-fel'], ja: ['りんご', 'rin-go'], zh: ['苹果', 'píng guǒ'], ko: ['사과', 'sa-gwa'], hi: ['सेब', 'seb'], pt: ['Maçã', 'mah-SAH'], it: ['Mela', 'MEH-lah'], ru: ['Яблоко', 'YAH-blah-kah'], tr: ['Elma', 'el-MA'], bn: ['আপেল', 'a-pel'], fa: ['سیب', 'seeb'], id: ['Apel', 'ah-pel'], sw: ['Tufaha', 'too-fa-ha'], nl: ['Appel', 'ahp-pel'], pl: ['Jabłko', 'YAHB-wkoh'], vi: ['Táo', 'tao'] },
+      { en: 'Hand', pos: 'Noun', es: ['Mano', 'MAH-noh'], fr: ['Main', 'man'], ar: ['يد', 'yad'], ur: ['ہاتھ', 'haath'], de: ['Hand', 'hahnt'], ja: ['手', 'te'], zh: ['手', 'shǒu'], ko: ['손', 'son'], hi: ['हाथ', 'haath'], pt: ['Mão', 'mowng'], it: ['Mano', 'MAH-noh'], ru: ['Рука', 'roo-KAH'], tr: ['El', 'el'], bn: ['হাত', 'hat'], fa: ['دست', 'dast'], id: ['Tangan', 'ta-ngan'], sw: ['Mkono', 'm-ko-no'], nl: ['Hand', 'hahnt'], pl: ['Ręka', 'REN-kah'], vi: ['Tay', 'tay'] },
+      { en: 'Eye', pos: 'Noun', es: ['Ojo', 'OH-hoh'], fr: ['Œil', 'uhy'], ar: ['عين', 'ayn'], ur: ['آنکھ', 'aankh'], de: ['Auge', 'OW-geh'], ja: ['目', 'me'], zh: ['眼睛', 'yǎn jīng'], ko: ['눈', 'nun'], hi: ['आँख', 'aankh'], pt: ['Olho', 'OH-lyoo'], it: ['Occhio', 'OK-kyoh'], ru: ['Глаз', 'glaz'], tr: ['Göz', 'göz'], bn: ['চোখ', 'chokh'], fa: ['چشم', 'chashm'], id: ['Mata', 'ma-ta'], sw: ['Jicho', 'jee-cho'], nl: ['Oog', 'ohkh'], pl: ['Oko', 'OH-koh'], vi: ['Mắt', 'maht'] },
+      { en: 'Heart', pos: 'Noun', es: ['Corazón', 'koh-rah-SOHN'], fr: ['Cœur', 'kur'], ar: ['قلب', 'qalb'], ur: ['دل', 'dil'], de: ['Herz', 'herts'], ja: ['心', 'ko-ko-ro'], zh: ['心', 'xīn'], ko: ['마음', 'ma-eum'], hi: ['दिल', 'dil'], pt: ['Coração', 'koh-rah-SOWNG'], it: ['Cuore', 'KWOH-reh'], ru: ['Сердце', 'SER-tseh'], tr: ['Kalp', 'kalp'], bn: ['হৃদয়', 'hri-doy'], fa: ['قلب', 'ghalb'], id: ['Hati', 'ha-tee'], sw: ['Moyo', 'mo-yo'], nl: ['Hart', 'hahrt'], pl: ['Serce', 'SER-tseh'], vi: ['Trái tim', 'trai tim'] },
+      { en: 'Head', pos: 'Noun', es: ['Cabeza', 'kah-BEH-sah'], fr: ['Tête', 'tet'], ar: ['رأس', 'raas'], ur: ['سر', 'sar'], de: ['Kopf', 'kopf'], ja: ['頭', 'a-ta-ma'], zh: ['头', 'tóu'], ko: ['머리', 'meo-ri'], hi: ['सिर', 'sir'], pt: ['Cabeça', 'kah-BEH-sah'], it: ['Testa', 'TES-tah'], ru: ['Голова', 'gah-lah-VAH'], tr: ['Baş', 'bash'], bn: ['মাথা', 'ma-tha'], fa: ['سر', 'sar'], id: ['Kepala', 'ke-pa-la'], sw: ['Kichwa', 'kee-chwa'], nl: ['Hoofd', 'hohft'], pl: ['Głowa', 'GWOH-vah'], vi: ['Đầu', 'dau'] },
+      { en: 'Name', pos: 'Noun', es: ['Nombre', 'NOM-breh'], fr: ['Nom', 'nohn'], ar: ['اسم', 'ism'], ur: ['نام', 'naam'], de: ['Name', 'NAH-meh'], ja: ['名前', 'na-ma-e'], zh: ['名字', 'míng zi'], ko: ['이름', 'i-reum'], hi: ['नाम', 'naam'], pt: ['Nome', 'NOH-meh'], it: ['Nome', 'NOH-meh'], ru: ['Имя', 'EE-mya'], tr: ['İsim', 'i-SIM'], bn: ['নাম', 'nam'], fa: ['نام', 'naam'], id: ['Nama', 'na-ma'], sw: ['Jina', 'jee-na'], nl: ['Naam', 'nahm'], pl: ['Imię', 'EE-myeh'], vi: ['Tên', 'ten'] },
+      { en: 'Language', pos: 'Noun', es: ['Idioma', 'ee-DYOH-mah'], fr: ['Langue', 'lahng'], ar: ['لغة', 'lu-ghah'], ur: ['زبان', 'za-baan'], de: ['Sprache', 'SHPRAH-kheh'], ja: ['言語', 'gen-go'], zh: ['语言', 'yǔ yán'], ko: ['언어', 'eon-eo'], hi: ['भाषा', 'bhaa-shaa'], pt: ['Idioma', 'ee-JYOH-mah'], it: ['Lingua', 'LEEN-gwah'], ru: ['Язык', 'ya-ZIK'], tr: ['Dil', 'dil'], bn: ['ভাষা', 'bha-sha'], fa: ['زبان', 'za-baan'], id: ['Bahasa', 'ba-ha-sa'], sw: ['Lugha', 'loo-gha'], nl: ['Taal', 'tahl'], pl: ['Język', 'YEN-zik'], vi: ['Ngôn ngữ', 'ngon nguh'] },
+      { en: 'To go', pos: 'Verb', es: ['Ir', 'eer'], fr: ['Aller', 'ah-LAY'], ar: ['يذهب', 'yadh-hab'], ur: ['جانا', 'jaa-naa'], de: ['Gehen', 'GAY-en'], ja: ['行く', 'i-ku'], zh: ['去', 'qù'], ko: ['가다', 'ga-da'], hi: ['जाना', 'jaa-naa'], pt: ['Ir', 'eer'], it: ['Andare', 'ahn-DAH-reh'], ru: ['Идти', 'eed-TEE'], tr: ['Gitmek', 'git-MEK'], bn: ['যাওয়া', 'ja-wa'], fa: ['رفتن', 'raf-tan'], id: ['Pergi', 'per-gee'], sw: ['Kwenda', 'kwen-da'], nl: ['Gaan', 'khaan'], pl: ['Iść', 'eeshch'], vi: ['Đi', 'dee'] },
+      { en: 'To come', pos: 'Verb', es: ['Venir', 'veh-NEER'], fr: ['Venir', 'vuh-NEER'], ar: ['يأتي', 'yaa-tee'], ur: ['آنا', 'aa-naa'], de: ['Kommen', 'KOM-men'], ja: ['来る', 'ku-ru'], zh: ['来', 'lái'], ko: ['오다', 'o-da'], hi: ['आना', 'aa-naa'], pt: ['Vir', 'veer'], it: ['Venire', 'veh-NEE-reh'], ru: ['Приходить', 'pree-khah-DEET'], tr: ['Gelmek', 'gel-MEK'], bn: ['আসা', 'a-sha'], fa: ['آمدن', 'aa-ma-dan'], id: ['Datang', 'da-tang'], sw: ['Kuja', 'koo-ja'], nl: ['Komen', 'koh-men'], pl: ['Przyjść', 'pshiyshch'], vi: ['Đến', 'den'] },
+      { en: 'To eat', pos: 'Verb', es: ['Comer', 'koh-MER'], fr: ['Manger', 'mahn-ZHAY'], ar: ['يأكل', 'yaa-kul'], ur: ['کھانا', 'khaa-naa'], de: ['Essen', 'ES-sen'], ja: ['食べる', 'ta-be-ru'], zh: ['吃', 'chī'], ko: ['먹다', 'meok-da'], hi: ['खाना', 'khaa-naa'], pt: ['Comer', 'koh-MER'], it: ['Mangiare', 'mahn-JAH-reh'], ru: ['Есть', 'yest'], tr: ['Yemek', 'ye-MEK'], bn: ['খাওয়া', 'kha-wa'], fa: ['خوردن', 'khor-dan'], id: ['Makan', 'ma-kan'], sw: ['Kula', 'koo-la'], nl: ['Eten', 'ay-ten'], pl: ['Jeść', 'yeshch'], vi: ['Ăn', 'ahn'] },
+      { en: 'To drink', pos: 'Verb', es: ['Beber', 'beh-BER'], fr: ['Boire', 'bwahr'], ar: ['يشرب', 'yash-rab'], ur: ['پینا', 'pee-naa'], de: ['Trinken', 'TRIN-ken'], ja: ['飲む', 'no-mu'], zh: ['喝', 'hē'], ko: ['마시다', 'ma-si-da'], hi: ['पीना', 'pee-naa'], pt: ['Beber', 'beh-BER'], it: ['Bere', 'BEH-reh'], ru: ['Пить', 'peet'], tr: ['İçmek', 'ich-MEK'], bn: ['পান করা', 'pan ko-ra'], fa: ['نوشیدن', 'noo-shee-dan'], id: ['Minum', 'mee-noom'], sw: ['Kunywa', 'koo-nywa'], nl: ['Drinken', 'drin-ken'], pl: ['Pić', 'peech'], vi: ['Uống', 'wong'] },
+      { en: 'To speak', pos: 'Verb', es: ['Hablar', 'ah-BLAR'], fr: ['Parler', 'par-LAY'], ar: ['يتكلم', 'ya-ta-kal-lam'], ur: ['بولنا', 'bol-naa'], de: ['Sprechen', 'SHPREKH-en'], ja: ['話す', 'ha-na-su'], zh: ['说', 'shuō'], ko: ['말하다', 'mal-ha-da'], hi: ['बोलना', 'bol-naa'], pt: ['Falar', 'fah-LAR'], it: ['Parlare', 'par-LAH-reh'], ru: ['Говорить', 'gah-vah-REET'], tr: ['Konuşmak', 'ko-nush-MAK'], bn: ['কথা বলা', 'ko-tha bo-la'], fa: ['صحبت کردن', 'soh-bat kar-dan'], id: ['Berbicara', 'ber-bee-cha-ra'], sw: ['Kuzungumza', 'koo-zoon-goom-za'], nl: ['Spreken', 'spray-ken'], pl: ['Mówić', 'MOO-veech'], vi: ['Nói', 'noy'] },
+      { en: 'To read', pos: 'Verb', es: ['Leer', 'leh-ER'], fr: ['Lire', 'leer'], ar: ['يقرأ', 'yaq-ra'], ur: ['پڑھنا', 'parh-naa'], de: ['Lesen', 'LAY-zen'], ja: ['読む', 'yo-mu'], zh: ['读', 'dú'], ko: ['읽다', 'ik-da'], hi: ['पढ़ना', 'padh-naa'], pt: ['Ler', 'ler'], it: ['Leggere', 'LED-jeh-reh'], ru: ['Читать', 'chee-TAHT'], tr: ['Okumak', 'o-ku-MAK'], bn: ['পড়া', 'po-ra'], fa: ['خواندن', 'khaan-dan'], id: ['Membaca', 'mem-ba-cha'], sw: ['Kusoma', 'koo-so-ma'], nl: ['Lezen', 'lay-zen'], pl: ['Czytać', 'CHI-tahch'], vi: ['Đọc', 'dohk'] },
+      { en: 'To write', pos: 'Verb', es: ['Escribir', 'es-kree-BEER'], fr: ['Écrire', 'ay-KREER'], ar: ['يكتب', 'yak-tub'], ur: ['لکھنا', 'likh-naa'], de: ['Schreiben', 'SHRY-ben'], ja: ['書く', 'ka-ku'], zh: ['写', 'xiě'], ko: ['쓰다', 'sseu-da'], hi: ['लिखना', 'likh-naa'], pt: ['Escrever', 'es-kreh-VER'], it: ['Scrivere', 'SKREE-veh-reh'], ru: ['Писать', 'pee-SAHT'], tr: ['Yazmak', 'yaz-MAK'], bn: ['লেখা', 'le-kha'], fa: ['نوشتن', 'ne-vesh-tan'], id: ['Menulis', 'me-noo-lees'], sw: ['Kuandika', 'koo-an-dee-ka'], nl: ['Schrijven', 'skhry-ven'], pl: ['Pisać', 'PEE-sahch'], vi: ['Viết', 'vyet'] },
+      { en: 'To learn', pos: 'Verb', es: ['Aprender', 'ah-pren-DER'], fr: ['Apprendre', 'ah-PRAHN-druh'], ar: ['يتعلم', 'ya-ta-al-lam'], ur: ['سیکھنا', 'seekh-naa'], de: ['Lernen', 'LER-nen'], ja: ['学ぶ', 'ma-na-bu'], zh: ['学习', 'xué xí'], ko: ['배우다', 'bae-u-da'], hi: ['सीखना', 'seekh-naa'], pt: ['Aprender', 'ah-pren-DER'], it: ['Imparare', 'eem-pah-RAH-reh'], ru: ['Учить', 'oo-CHEET'], tr: ['Öğrenmek', 'öh-ren-MEK'], bn: ['শেখা', 'she-kha'], fa: ['یاد گرفتن', 'yaad ge-ref-tan'], id: ['Belajar', 'be-la-jar'], sw: ['Kujifunza', 'koo-jee-foon-za'], nl: ['Leren', 'lay-ren'], pl: ['Uczyć się', 'OO-chich sheh'], vi: ['Học', 'hohk'] },
+      { en: 'To know', pos: 'Verb', es: ['Saber', 'sah-BER'], fr: ['Savoir', 'sah-VWAHR'], ar: ['يعرف', 'ya-rif'], ur: ['جاننا', 'jaan-naa'], de: ['Wissen', 'VIS-sen'], ja: ['知る', 'shi-ru'], zh: ['知道', 'zhī dào'], ko: ['알다', 'al-da'], hi: ['जानना', 'jaan-naa'], pt: ['Saber', 'sah-BER'], it: ['Sapere', 'sah-PEH-reh'], ru: ['Знать', 'znaht'], tr: ['Bilmek', 'bil-MEK'], bn: ['জানা', 'ja-na'], fa: ['دانستن', 'daa-nes-tan'], id: ['Tahu', 'ta-hoo'], sw: ['Kujua', 'koo-joo-a'], nl: ['Weten', 'vay-ten'], pl: ['Wiedzieć', 'VYEH-jech'], vi: ['Biết', 'byet'] },
+      { en: 'To see', pos: 'Verb', es: ['Ver', 'ver'], fr: ['Voir', 'vwahr'], ar: ['يرى', 'ya-raa'], ur: ['دیکھنا', 'dekh-naa'], de: ['Sehen', 'ZAY-en'], ja: ['見る', 'mi-ru'], zh: ['看', 'kàn'], ko: ['보다', 'bo-da'], hi: ['देखना', 'dekh-naa'], pt: ['Ver', 'ver'], it: ['Vedere', 'veh-DEH-reh'], ru: ['Видеть', 'VEE-det'], tr: ['Görmek', 'gör-MEK'], bn: ['দেখা', 'de-kha'], fa: ['دیدن', 'dee-dan'], id: ['Melihat', 'me-lee-hat'], sw: ['Kuona', 'koo-o-na'], nl: ['Zien', 'zeen'], pl: ['Widzieć', 'VEE-jech'], vi: ['Thấy', 'thay'] },
+      { en: 'One', pos: 'Number', es: ['Uno', 'OO-noh'], fr: ['Un', 'uhn'], ar: ['واحد', 'waa-hid'], ur: ['ایک', 'aik'], de: ['Eins', 'ines'], ja: ['一', 'i-chi'], zh: ['一', 'yī'], ko: ['하나', 'ha-na'], hi: ['एक', 'ek'], pt: ['Um', 'oong'], it: ['Uno', 'OO-noh'], ru: ['Один', 'ah-DEEN'], tr: ['Bir', 'beer'], bn: ['এক', 'ek'], fa: ['یک', 'yek'], id: ['Satu', 'sa-too'], sw: ['Moja', 'mo-ja'], nl: ['Een', 'ayn'], pl: ['Jeden', 'YEH-den'], vi: ['Một', 'moht'] },
+      { en: 'Two', pos: 'Number', es: ['Dos', 'dohs'], fr: ['Deux', 'duh'], ar: ['اثنان', 'ith-naan'], ur: ['دو', 'do'], de: ['Zwei', 'tsvy'], ja: ['二', 'ni'], zh: ['二', 'èr'], ko: ['둘', 'dul'], hi: ['दो', 'do'], pt: ['Dois', 'doys'], it: ['Due', 'DOO-eh'], ru: ['Два', 'dvah'], tr: ['İki', 'i-KI'], bn: ['দুই', 'dui'], fa: ['دو', 'do'], id: ['Dua', 'doo-a'], sw: ['Mbili', 'm-bee-li'], nl: ['Twee', 'tvay'], pl: ['Dwa', 'dvah'], vi: ['Hai', 'hai'] },
+      { en: 'Three', pos: 'Number', es: ['Tres', 'trehs'], fr: ['Trois', 'twah'], ar: ['ثلاثة', 'tha-laa-thah'], ur: ['تین', 'teen'], de: ['Drei', 'dry'], ja: ['三', 'san'], zh: ['三', 'sān'], ko: ['셋', 'set'], hi: ['तीन', 'teen'], pt: ['Três', 'trehs'], it: ['Tre', 'treh'], ru: ['Три', 'tree'], tr: ['Üç', 'üch'], bn: ['তিন', 'tin'], fa: ['سه', 'seh'], id: ['Tiga', 'tee-ga'], sw: ['Tatu', 'ta-too'], nl: ['Drie', 'dree'], pl: ['Trzy', 'tshi'], vi: ['Ba', 'bah'] },
+      { en: 'Four', pos: 'Number', es: ['Cuatro', 'KWAH-troh'], fr: ['Quatre', 'KAH-truh'], ar: ['أربعة', 'ar-ba-ah'], ur: ['چار', 'chaar'], de: ['Vier', 'feer'], ja: ['四', 'yon'], zh: ['四', 'sì'], ko: ['넷', 'net'], hi: ['चार', 'chaar'], pt: ['Quatro', 'KWAH-troo'], it: ['Quattro', 'KWAHT-troh'], ru: ['Четыре', 'che-TI-reh'], tr: ['Dört', 'dört'], bn: ['চার', 'char'], fa: ['چهار', 'cha-haar'], id: ['Empat', 'em-pat'], sw: ['Nne', 'n-ne'], nl: ['Vier', 'feer'], pl: ['Cztery', 'CHTEH-ri'], vi: ['Bốn', 'bohn'] },
+      { en: 'Five', pos: 'Number', es: ['Cinco', 'SEEN-koh'], fr: ['Cinq', 'sank'], ar: ['خمسة', 'kham-sah'], ur: ['پانچ', 'paanch'], de: ['Fünf', 'fünf'], ja: ['五', 'go'], zh: ['五', 'wǔ'], ko: ['다섯', 'da-seot'], hi: ['पाँच', 'paanch'], pt: ['Cinco', 'SEEN-koo'], it: ['Cinque', 'CHEEN-kweh'], ru: ['Пять', 'pyat'], tr: ['Beş', 'besh'], bn: ['পাঁচ', 'pāch'], fa: ['پنج', 'panj'], id: ['Lima', 'lee-ma'], sw: ['Tano', 'ta-no'], nl: ['Vijf', 'fife'], pl: ['Pięć', 'pyench'], vi: ['Năm', 'nahm'] },
+      { en: 'Six', pos: 'Number', es: ['Seis', 'says'], fr: ['Six', 'sees'], ar: ['ستة', 'sit-tah'], ur: ['چھ', 'chhah'], de: ['Sechs', 'zeks'], ja: ['六', 'ro-ku'], zh: ['六', 'liù'], ko: ['여섯', 'yeo-seot'], hi: ['छह', 'chhah'], pt: ['Seis', 'says'], it: ['Sei', 'say'], ru: ['Шесть', 'shest'], tr: ['Altı', 'al-TI'], bn: ['ছয়', 'chhoy'], fa: ['شش', 'shesh'], id: ['Enam', 'e-nam'], sw: ['Sita', 'see-ta'], nl: ['Zes', 'zes'], pl: ['Sześć', 'sheshch'], vi: ['Sáu', 'sao'] },
+      { en: 'Seven', pos: 'Number', es: ['Siete', 'SYEH-teh'], fr: ['Sept', 'set'], ar: ['سبعة', 'sab-ah'], ur: ['سات', 'saat'], de: ['Sieben', 'ZEE-ben'], ja: ['七', 'na-na'], zh: ['七', 'qī'], ko: ['일곱', 'il-gop'], hi: ['सात', 'saat'], pt: ['Sete', 'SEH-cheh'], it: ['Sette', 'SET-teh'], ru: ['Семь', 'syem'], tr: ['Yedi', 'ye-DI'], bn: ['সাত', 'shat'], fa: ['هفت', 'haft'], id: ['Tujuh', 'too-jooh'], sw: ['Saba', 'sa-ba'], nl: ['Zeven', 'zay-ven'], pl: ['Siedem', 'SHEH-dem'], vi: ['Bảy', 'bay'] },
+      { en: 'Eight', pos: 'Number', es: ['Ocho', 'OH-choh'], fr: ['Huit', 'weet'], ar: ['ثمانية', 'tha-maa-ni-yah'], ur: ['آٹھ', 'aath'], de: ['Acht', 'ahkht'], ja: ['八', 'ha-chi'], zh: ['八', 'bā'], ko: ['여덟', 'yeo-deol'], hi: ['आठ', 'aath'], pt: ['Oito', 'OY-too'], it: ['Otto', 'OT-toh'], ru: ['Восемь', 'VOH-syem'], tr: ['Sekiz', 'se-KIZ'], bn: ['আট', 'at'], fa: ['هشت', 'hasht'], id: ['Delapan', 'de-la-pan'], sw: ['Nane', 'na-ne'], nl: ['Acht', 'ahkht'], pl: ['Osiem', 'OH-shem'], vi: ['Tám', 'tahm'] },
+      { en: 'Nine', pos: 'Number', es: ['Nueve', 'NWEH-veh'], fr: ['Neuf', 'nuf'], ar: ['تسعة', 'tis-ah'], ur: ['نو', 'nau'], de: ['Neun', 'noyn'], ja: ['九', 'kyū'], zh: ['九', 'jiǔ'], ko: ['아홉', 'a-hop'], hi: ['नौ', 'nau'], pt: ['Nove', 'NOH-veh'], it: ['Nove', 'NOH-veh'], ru: ['Девять', 'DYE-vyat'], tr: ['Dokuz', 'do-KUZ'], bn: ['নয়', 'noy'], fa: ['نه', 'noh'], id: ['Sembilan', 'sem-bee-lan'], sw: ['Tisa', 'tee-sa'], nl: ['Negen', 'nay-ghen'], pl: ['Dziewięć', 'JEH-vyench'], vi: ['Chín', 'cheen'] },
+      { en: 'Ten', pos: 'Number', es: ['Diez', 'dyes'], fr: ['Dix', 'dees'], ar: ['عشرة', 'a-sha-rah'], ur: ['دس', 'das'], de: ['Zehn', 'tsayn'], ja: ['十', 'jū'], zh: ['十', 'shí'], ko: ['열', 'yeol'], hi: ['दस', 'das'], pt: ['Dez', 'des'], it: ['Dieci', 'DYEH-chee'], ru: ['Десять', 'DYE-syat'], tr: ['On', 'on'], bn: ['দশ', 'dosh'], fa: ['ده', 'dah'], id: ['Sepuluh', 'se-poo-looh'], sw: ['Kumi', 'koo-mi'], nl: ['Tien', 'teen'], pl: ['Dziesięć', 'JEH-shench'], vi: ['Mười', 'muh-uhy'] },
+      { en: 'Red', pos: 'Color', es: ['Rojo', 'ROH-hoh'], fr: ['Rouge', 'roozh'], ar: ['أحمر', 'ah-mar'], ur: ['لال', 'laal'], de: ['Rot', 'roht'], ja: ['赤', 'a-ka'], zh: ['红色', 'hóng sè'], ko: ['빨간색', 'ppal-gan-saek'], hi: ['लाल', 'laal'], pt: ['Vermelho', 'ver-MEH-lyoo'], it: ['Rosso', 'ROS-soh'], ru: ['Красный', 'KRAHS-nee'], tr: ['Kırmızı', 'kır-mı-ZI'], bn: ['লাল', 'lal'], fa: ['قرمز', 'gher-mez'], id: ['Merah', 'me-rah'], sw: ['Nyekundu', 'nye-koon-doo'], nl: ['Rood', 'roht'], pl: ['Czerwony', 'cher-VOH-ni'], vi: ['Đỏ', 'doh'] },
+      { en: 'Blue', pos: 'Color', es: ['Azul', 'ah-SOOL'], fr: ['Bleu', 'bluh'], ar: ['أزرق', 'az-raq'], ur: ['نیلا', 'nee-laa'], de: ['Blau', 'blow'], ja: ['青', 'a-o'], zh: ['蓝色', 'lán sè'], ko: ['파란색', 'pa-ran-saek'], hi: ['नीला', 'nee-laa'], pt: ['Azul', 'ah-ZOOL'], it: ['Blu', 'bloo'], ru: ['Синий', 'SEE-nee'], tr: ['Mavi', 'ma-VI'], bn: ['নীল', 'nil'], fa: ['آبی', 'aa-bee'], id: ['Biru', 'bee-roo'], sw: ['Bluu', 'bloo'], nl: ['Blauw', 'blow'], pl: ['Niebieski', 'nyeh-BYES-kee'], vi: ['Xanh dương', 'sahn zuhng'] },
+      { en: 'Green', pos: 'Color', es: ['Verde', 'VER-deh'], fr: ['Vert', 'vehr'], ar: ['أخضر', 'akh-dar'], ur: ['سبز', 'sabz'], de: ['Grün', 'grün'], ja: ['緑', 'mi-do-ri'], zh: ['绿色', 'lǜ sè'], ko: ['초록색', 'cho-rok-saek'], hi: ['हरा', 'ha-raa'], pt: ['Verde', 'VER-jeh'], it: ['Verde', 'VER-deh'], ru: ['Зелёный', 'ze-LYO-nee'], tr: ['Yeşil', 'ye-SHIL'], bn: ['সবুজ', 'sho-buj'], fa: ['سبز', 'sabz'], id: ['Hijau', 'hee-jow'], sw: ['Kijani', 'ki-ja-ni'], nl: ['Groen', 'khroon'], pl: ['Zielony', 'zheh-LOH-ni'], vi: ['Xanh lá', 'sahn lah'] },
+      { en: 'White', pos: 'Color', es: ['Blanco', 'BLAHN-koh'], fr: ['Blanc', 'blahn'], ar: ['أبيض', 'ab-yad'], ur: ['سفید', 'sa-fed'], de: ['Weiß', 'vice'], ja: ['白', 'shi-ro'], zh: ['白色', 'bái sè'], ko: ['하얀색', 'ha-yan-saek'], hi: ['सफ़ेद', 'sa-fed'], pt: ['Branco', 'BRAHN-koo'], it: ['Bianco', 'BYAHN-koh'], ru: ['Белый', 'BYE-lee'], tr: ['Beyaz', 'be-YAZ'], bn: ['সাদা', 'sha-da'], fa: ['سفید', 'se-feed'], id: ['Putih', 'poo-teeh'], sw: ['Nyeupe', 'nye-oo-pe'], nl: ['Wit', 'vit'], pl: ['Biały', 'BYAH-wi'], vi: ['Trắng', 'trahng'] },
+      { en: 'Black', pos: 'Color', es: ['Negro', 'NEH-groh'], fr: ['Noir', 'nwahr'], ar: ['أسود', 'as-wad'], ur: ['کالا', 'kaa-laa'], de: ['Schwarz', 'shvarts'], ja: ['黒', 'ku-ro'], zh: ['黑色', 'hēi sè'], ko: ['검은색', 'geom-eun-saek'], hi: ['काला', 'kaa-laa'], pt: ['Preto', 'PREH-too'], it: ['Nero', 'NEH-roh'], ru: ['Чёрный', 'CHOR-nee'], tr: ['Siyah', 'si-YAH'], bn: ['কালো', 'ka-lo'], fa: ['سیاه', 'see-yaah'], id: ['Hitam', 'hee-tam'], sw: ['Nyeusi', 'nye-oo-si'], nl: ['Zwart', 'zfahrt'], pl: ['Czarny', 'CHAR-ni'], vi: ['Đen', 'den'] },
+      { en: 'Money', pos: 'Noun', es: ['Dinero', 'dee-NEH-roh'], fr: ['Argent', 'ar-ZHAHN'], ar: ['مال', 'maal'], ur: ['پیسہ', 'pai-sah'], de: ['Geld', 'gelt'], ja: ['お金', 'o-ka-ne'], zh: ['钱', 'qián'], ko: ['돈', 'don'], hi: ['पैसा', 'pai-saa'], pt: ['Dinheiro', 'jee-NYAY-roo'], it: ['Denaro', 'deh-NAH-roh'], ru: ['Деньги', 'DYEN-gee'], tr: ['Para', 'pa-RA'], bn: ['টাকা', 'ta-ka'], fa: ['پول', 'pool'], id: ['Uang', 'oo-ang'], sw: ['Pesa', 'pe-sa'], nl: ['Geld', 'khelt'], pl: ['Pieniądze', 'pyeh-NYON-dzeh'], vi: ['Tiền', 'tyen'] },
+      { en: 'Car', pos: 'Noun', es: ['Coche', 'KOH-cheh'], fr: ['Voiture', 'vwah-TOOR'], ar: ['سيارة', 'say-yaa-rah'], ur: ['گاڑی', 'gaa-ree'], de: ['Auto', 'OW-toh'], ja: ['車', 'ku-ru-ma'], zh: ['汽车', 'qì chē'], ko: ['자동차', 'ja-dong-cha'], hi: ['गाड़ी', 'gaa-dee'], pt: ['Carro', 'KAH-hoo'], it: ['Macchina', 'MAHK-kee-nah'], ru: ['Машина', 'mah-SHEE-nah'], tr: ['Araba', 'a-ra-BA'], bn: ['গাড়ি', 'ga-ri'], fa: ['ماشین', 'maa-sheen'], id: ['Mobil', 'mo-beel'], sw: ['Gari', 'ga-ri'], nl: ['Auto', 'ow-toh'], pl: ['Samochód', 'sah-MOH-khoot'], vi: ['Xe hơi', 'seh huhy'] },
+      { en: 'Train', pos: 'Noun', es: ['Tren', 'tren'], fr: ['Train', 'tran'], ar: ['قطار', 'qi-taar'], ur: ['ریل گاڑی', 'rail gaa-ree'], de: ['Zug', 'tsook'], ja: ['電車', 'den-sha'], zh: ['火车', 'huǒ chē'], ko: ['기차', 'gi-cha'], hi: ['रेलगाड़ी', 'rel-gaa-dee'], pt: ['Trem', 'treng'], it: ['Treno', 'TREH-noh'], ru: ['Поезд', 'POH-yezd'], tr: ['Tren', 'tren'], bn: ['ট্রেন', 'tren'], fa: ['قطار', 'gha-taar'], id: ['Kereta', 'ke-re-ta'], sw: ['Treni', 'tre-ni'], nl: ['Trein', 'trine'], pl: ['Pociąg', 'POH-chonk'], vi: ['Tàu hỏa', 'tao hwa'] },
+      { en: 'Airport', pos: 'Noun', es: ['Aeropuerto', 'ah-eh-roh-PWER-toh'], fr: ['Aéroport', 'ah-ay-roh-POR'], ar: ['مطار', 'ma-taar'], ur: ['ہوائی اڈا', 'ha-waa-ee ad-daa'], de: ['Flughafen', 'FLOOK-hah-fen'], ja: ['空港', 'kū-kō'], zh: ['机场', 'jī chǎng'], ko: ['공항', 'gong-hang'], hi: ['हवाई अड्डा', 'ha-vaa-ee ad-daa'], pt: ['Aeroporto', 'ah-eh-roh-POR-too'], it: ['Aeroporto', 'ah-eh-roh-POR-toh'], ru: ['Аэропорт', 'ah-eh-rah-PORT'], tr: ['Havalimanı', 'ha-va-li-ma-NI'], bn: ['বিমানবন্দর', 'bi-man-bon-dor'], fa: ['فرودگاه', 'fo-rood-gaah'], id: ['Bandara', 'ban-da-ra'], sw: ['Uwanja wa ndege', 'oo-wan-ja wa n-de-ge'], nl: ['Luchthaven', 'lookht-haa-ven'], pl: ['Lotnisko', 'lot-NEES-koh'], vi: ['Sân bay', 'suhn bay'] },
+      { en: 'Hotel', pos: 'Noun', es: ['Hotel', 'oh-TEL'], fr: ['Hôtel', 'oh-TEL'], ar: ['فندق', 'fun-duq'], ur: ['ہوٹل', 'ho-tal'], de: ['Hotel', 'hoh-TEL'], ja: ['ホテル', 'ho-te-ru'], zh: ['酒店', 'jiǔ diàn'], ko: ['호텔', 'ho-tel'], hi: ['होटल', 'ho-tal'], pt: ['Hotel', 'oh-TEL'], it: ['Albergo', 'ahl-BER-goh'], ru: ['Отель', 'ah-TEL'], tr: ['Otel', 'o-TEL'], bn: ['হোটেল', 'ho-tel'], fa: ['هتل', 'ho-tel'], id: ['Hotel', 'ho-tel'], sw: ['Hoteli', 'ho-te-li'], nl: ['Hotel', 'ho-tel'], pl: ['Hotel', 'HOH-tel'], vi: ['Khách sạn', 'khahk sahn'] },
+      { en: 'Doctor', pos: 'Noun', es: ['Médico', 'MEH-dee-koh'], fr: ['Médecin', 'mayd-SAN'], ar: ['طبيب', 'ta-beeb'], ur: ['ڈاکٹر', 'daak-tar'], de: ['Arzt', 'artst'], ja: ['医者', 'i-sha'], zh: ['医生', 'yī shēng'], ko: ['의사', 'ui-sa'], hi: ['डॉक्टर', 'dawk-tar'], pt: ['Médico', 'MEH-jee-koo'], it: ['Medico', 'MEH-dee-koh'], ru: ['Врач', 'vrach'], tr: ['Doktor', 'dok-TOR'], bn: ['ডাক্তার', 'dak-tar'], fa: ['پزشک', 'pe-zeshk'], id: ['Dokter', 'dok-ter'], sw: ['Daktari', 'dak-ta-ri'], nl: ['Dokter', 'dok-ter'], pl: ['Lekarz', 'LEH-kash'], vi: ['Bác sĩ', 'bahk see'] },
+      { en: 'Hospital', pos: 'Noun', es: ['Hospital', 'os-pee-TAHL'], fr: ['Hôpital', 'oh-pee-TAHL'], ar: ['مستشفى', 'mus-tash-faa'], ur: ['ہسپتال', 'has-pa-taal'], de: ['Krankenhaus', 'KRAHN-ken-hows'], ja: ['病院', 'byō-in'], zh: ['医院', 'yī yuàn'], ko: ['병원', 'byeong-won'], hi: ['अस्पताल', 'as-pa-taal'], pt: ['Hospital', 'os-pee-TAHL'], it: ['Ospedale', 'os-peh-DAH-leh'], ru: ['Больница', 'bahl-NEE-tsah'], tr: ['Hastane', 'has-ta-NE'], bn: ['হাসপাতাল', 'hash-pa-tal'], fa: ['بیمارستان', 'bee-maa-res-taan'], id: ['Rumah sakit', 'roo-mah sa-keet'], sw: ['Hospitali', 'hos-pi-ta-li'], nl: ['Ziekenhuis', 'zee-ken-hoys'], pl: ['Szpital', 'SHPEE-tahl'], vi: ['Bệnh viện', 'benh vyen'] },
+      { en: 'Help', pos: 'Noun / Verb', es: ['Ayuda', 'ah-YOO-dah'], fr: ['Aide', 'ed'], ar: ['مساعدة', 'mu-saa-a-dah'], ur: ['مدد', 'ma-dad'], de: ['Hilfe', 'HIL-feh'], ja: ['助け', 'ta-su-ke'], zh: ['帮助', 'bāng zhù'], ko: ['도움', 'do-um'], hi: ['मदद', 'ma-dad'], pt: ['Ajuda', 'ah-ZHOO-dah'], it: ['Aiuto', 'ah-YOO-toh'], ru: ['Помощь', 'POH-mashch'], tr: ['Yardım', 'yar-DIM'], bn: ['সাহায্য', 'sha-haj-jo'], fa: ['کمک', 'ko-mak'], id: ['Bantuan', 'ban-too-an'], sw: ['Msaada', 'm-sa-a-da'], nl: ['Hulp', 'hoolp'], pl: ['Pomoc', 'POH-mohts'], vi: ['Giúp đỡ', 'zoop duh'] },
+      { en: 'Peace', pos: 'Noun', es: ['Paz', 'pahs'], fr: ['Paix', 'pay'], ar: ['سلام', 'sa-laam'], ur: ['امن', 'amn'], de: ['Frieden', 'FREE-den'], ja: ['平和', 'hei-wa'], zh: ['和平', 'hé píng'], ko: ['평화', 'pyeong-hwa'], hi: ['शांति', 'shaan-ti'], pt: ['Paz', 'pahs'], it: ['Pace', 'PAH-cheh'], ru: ['Мир', 'meer'], tr: ['Barış', 'ba-RISH'], bn: ['শান্তি', 'shan-ti'], fa: ['صلح', 'solh'], id: ['Damai', 'da-my'], sw: ['Amani', 'a-ma-ni'], nl: ['Vrede', 'vray-duh'], pl: ['Pokój', 'POH-kooy'], vi: ['Hòa bình', 'hwa binh'] },
+      { en: 'Freedom', pos: 'Noun', es: ['Libertad', 'lee-ber-TAHD'], fr: ['Liberté', 'lee-ber-TAY'], ar: ['حرية', 'hur-ri-yah'], ur: ['آزادی', 'aa-zaa-dee'], de: ['Freiheit', 'FRY-hite'], ja: ['自由', 'ji-yū'], zh: ['自由', 'zì yóu'], ko: ['자유', 'ja-yu'], hi: ['आज़ादी', 'aa-zaa-dee'], pt: ['Liberdade', 'lee-ber-DAH-jeh'], it: ['Libertà', 'lee-ber-TAH'], ru: ['Свобода', 'svah-BOH-dah'], tr: ['Özgürlük', 'öz-gür-LÜK'], bn: ['স্বাধীনতা', 'sha-dhi-no-ta'], fa: ['آزادی', 'aa-zaa-dee'], id: ['Kebebasan', 'ke-be-ba-san'], sw: ['Uhuru', 'oo-hoo-roo'], nl: ['Vrijheid', 'vry-hite'], pl: ['Wolność', 'VOL-noshch'], vi: ['Tự do', 'tuh zoh'] },
+      { en: 'Hope', pos: 'Noun', es: ['Esperanza', 'es-peh-RAHN-sah'], fr: ['Espoir', 'es-PWAHR'], ar: ['أمل', 'a-mal'], ur: ['امید', 'um-meed'], de: ['Hoffnung', 'HOF-noong'], ja: ['希望', 'ki-bō'], zh: ['希望', 'xī wàng'], ko: ['희망', 'hui-mang'], hi: ['आशा', 'aa-shaa'], pt: ['Esperança', 'es-peh-RAHN-sah'], it: ['Speranza', 'speh-RAHN-tsah'], ru: ['Надежда', 'nah-DYEZH-dah'], tr: ['Umut', 'u-MUT'], bn: ['আশা', 'a-sha'], fa: ['امید', 'o-meed'], id: ['Harapan', 'ha-ra-pan'], sw: ['Matumaini', 'ma-too-ma-ee-ni'], nl: ['Hoop', 'hohp'], pl: ['Nadzieja', 'nah-JEH-yah'], vi: ['Hy vọng', 'hee vohng'] },
+      { en: 'Dream', pos: 'Noun', es: ['Sueño', 'SWEH-nyoh'], fr: ['Rêve', 'rev'], ar: ['حلم', 'hulm'], ur: ['خواب', 'khwaab'], de: ['Traum', 'trowm'], ja: ['夢', 'yu-me'], zh: ['梦想', 'mèng xiǎng'], ko: ['꿈', 'kkum'], hi: ['सपना', 'sap-naa'], pt: ['Sonho', 'SOH-nyoo'], it: ['Sogno', 'SOH-nyoh'], ru: ['Мечта', 'mech-TAH'], tr: ['Rüya', 'rü-YA'], bn: ['স্বপ্ন', 'shop-no'], fa: ['رویا', 'ro-yaa'], id: ['Mimpi', 'mim-pee'], sw: ['Ndoto', 'n-do-to'], nl: ['Droom', 'drohm'], pl: ['Marzenie', 'mah-ZHEH-nyeh'], vi: ['Giấc mơ', 'zuhk muh'] },
+      { en: 'Music', pos: 'Noun', es: ['Música', 'MOO-see-kah'], fr: ['Musique', 'myoo-ZEEK'], ar: ['موسيقى', 'moo-see-qaa'], ur: ['موسیقی', 'moo-see-qee'], de: ['Musik', 'moo-ZEEK'], ja: ['音楽', 'on-ga-ku'], zh: ['音乐', 'yīn yuè'], ko: ['음악', 'eum-ak'], hi: ['संगीत', 'san-geet'], pt: ['Música', 'MOO-zee-kah'], it: ['Musica', 'MOO-zee-kah'], ru: ['Музыка', 'MOO-zi-kah'], tr: ['Müzik', 'mü-ZIK'], bn: ['সঙ্গীত', 'shon-git'], fa: ['موسیقی', 'moo-see-ghee'], id: ['Musik', 'moo-seek'], sw: ['Muziki', 'moo-zee-ki'], nl: ['Muziek', 'moo-zeek'], pl: ['Muzyka', 'MOO-zi-kah'], vi: ['Âm nhạc', 'uhm nyahk'] },
+      { en: 'Art', pos: 'Noun', es: ['Arte', 'AR-teh'], fr: ['Art', 'ar'], ar: ['فن', 'fann'], ur: ['فن', 'fann'], de: ['Kunst', 'koonst'], ja: ['芸術', 'gei-jutsu'], zh: ['艺术', 'yì shù'], ko: ['예술', 'ye-sul'], hi: ['कला', 'ka-laa'], pt: ['Arte', 'AR-cheh'], it: ['Arte', 'AR-teh'], ru: ['Искусство', 'ees-KOOST-vah'], tr: ['Sanat', 'sa-NAT'], bn: ['শিল্প', 'shil-po'], fa: ['هنر', 'ho-nar'], id: ['Seni', 'se-nee'], sw: ['Sanaa', 'sa-na-a'], nl: ['Kunst', 'koonst'], pl: ['Sztuka', 'SHTOO-kah'], vi: ['Nghệ thuật', 'ngeh thwuht'] },
+      { en: 'Science', pos: 'Noun', es: ['Ciencia', 'SYEN-syah'], fr: ['Science', 'syahns'], ar: ['علم', 'ilm'], ur: ['سائنس', 'saains'], de: ['Wissenschaft', 'VIS-sen-shahft'], ja: ['科学', 'ka-ga-ku'], zh: ['科学', 'kē xué'], ko: ['과학', 'gwa-hak'], hi: ['विज्ञान', 'vig-yaan'], pt: ['Ciência', 'see-EN-syah'], it: ['Scienza', 'SHEN-tsah'], ru: ['Наука', 'nah-OO-kah'], tr: ['Bilim', 'bi-LIM'], bn: ['বিজ্ঞান', 'big-gan'], fa: ['علم', 'elm'], id: ['Ilmu', 'il-moo'], sw: ['Sayansi', 'sa-yan-si'], nl: ['Wetenschap', 'vay-ten-skhahp'], pl: ['Nauka', 'nah-OO-kah'], vi: ['Khoa học', 'khwa hohk'] },
+      { en: 'History', pos: 'Noun', es: ['Historia', 'ees-TOH-ryah'], fr: ['Histoire', 'ees-TWAHR'], ar: ['تاريخ', 'taa-reekh'], ur: ['تاریخ', 'taa-reekh'], de: ['Geschichte', 'geh-SHIKH-teh'], ja: ['歴史', 're-ki-shi'], zh: ['历史', 'lì shǐ'], ko: ['역사', 'yeok-sa'], hi: ['इतिहास', 'i-ti-haas'], pt: ['História', 'ees-TOH-ryah'], it: ['Storia', 'STOH-ryah'], ru: ['История', 'ees-TOH-ree-ya'], tr: ['Tarih', 'ta-RIH'], bn: ['ইতিহাস', 'i-ti-hash'], fa: ['تاریخ', 'taa-reekh'], id: ['Sejarah', 'se-ja-rah'], sw: ['Historia', 'his-to-ria'], nl: ['Geschiedenis', 'kheh-skhee-duh-nis'], pl: ['Historia', 'hees-TOH-ryah'], vi: ['Lịch sử', 'lik suh'] },
+      { en: 'Future', pos: 'Noun', es: ['Futuro', 'foo-TOO-roh'], fr: ['Futur', 'fyoo-TOOR'], ar: ['مستقبل', 'mus-taq-bal'], ur: ['مستقبل', 'mus-taq-bil'], de: ['Zukunft', 'TSOO-koonft'], ja: ['未来', 'mi-rai'], zh: ['未来', 'wèi lái'], ko: ['미래', 'mi-rae'], hi: ['भविष्य', 'bha-vish-ya'], pt: ['Futuro', 'foo-TOO-roo'], it: ['Futuro', 'foo-TOO-roh'], ru: ['Будущее', 'BOO-doo-shche-yeh'], tr: ['Gelecek', 'ge-le-JEK'], bn: ['ভবিষ্যৎ', 'bho-bish-shot'], fa: ['آینده', 'aa-yan-deh'], id: ['Masa depan', 'ma-sa de-pan'], sw: ['Wakati ujao', 'wa-ka-ti oo-ja-o'], nl: ['Toekomst', 'too-komst'], pl: ['Przyszłość', 'PSHISH-woshch'], vi: ['Tương lai', 'tuhng lai'] },
+      { en: 'Strength', pos: 'Noun', es: ['Fuerza', 'FWER-sah'], fr: ['Force', 'fors'], ar: ['قوة', 'quw-wah'], ur: ['طاقت', 'taa-qat'], de: ['Stärke', 'SHTER-keh'], ja: ['力', 'chi-ka-ra'], zh: ['力量', 'lì liàng'], ko: ['힘', 'him'], hi: ['ताकत', 'taa-kat'], pt: ['Força', 'FOR-sah'], it: ['Forza', 'FOR-tsah'], ru: ['Сила', 'SEE-lah'], tr: ['Güç', 'güch'], bn: ['শক্তি', 'shok-ti'], fa: ['قدرت', 'ghod-rat'], id: ['Kekuatan', 'ke-koo-a-tan'], sw: ['Nguvu', 'n-goo-voo'], nl: ['Kracht', 'krahkht'], pl: ['Siła', 'SHEE-wah'], vi: ['Sức mạnh', 'suhk mahn'] },
+      { en: 'Wisdom', pos: 'Noun', es: ['Sabiduría', 'sah-bee-doo-REE-ah'], fr: ['Sagesse', 'sah-ZHES'], ar: ['حكمة', 'hik-mah'], ur: ['حکمت', 'hik-mat'], de: ['Weisheit', 'VICE-hite'], ja: ['知恵', 'chi-e'], zh: ['智慧', 'zhì huì'], ko: ['지혜', 'ji-hye'], hi: ['ज्ञान', 'gyaan'], pt: ['Sabedoria', 'sah-beh-doh-REE-ah'], it: ['Saggezza', 'sahd-JET-sah'], ru: ['Мудрость', 'MOOD-rast'], tr: ['Bilgelik', 'bil-ge-LIK'], bn: ['প্রজ্ঞা', 'prog-ga'], fa: ['حکمت', 'hek-mat'], id: ['Kebijaksanaan', 'ke-bee-jak-sa-na-an'], sw: ['Hekima', 'he-kee-ma'], nl: ['Wijsheid', 'vice-hite'], pl: ['Mądrość', 'MON-droshch'], vi: ['Trí tuệ', 'tree tweh'] },
+      { en: 'Truth', pos: 'Noun', es: ['Verdad', 'ver-DAHD'], fr: ['Vérité', 'vay-ree-TAY'], ar: ['حقيقة', 'ha-qee-qah'], ur: ['سچ', 'sach'], de: ['Wahrheit', 'VAHR-hite'], ja: ['真実', 'shin-jitsu'], zh: ['真相', 'zhēn xiàng'], ko: ['진실', 'jin-sil'], hi: ['सच', 'sach'], pt: ['Verdade', 'ver-DAH-jeh'], it: ['Verità', 'veh-ree-TAH'], ru: ['Правда', 'PRAHV-dah'], tr: ['Gerçek', 'ger-CHEK'], bn: ['সত্য', 'shot-to'], fa: ['حقیقت', 'ha-ghee-ghat'], id: ['Kebenaran', 'ke-be-na-ran'], sw: ['Ukweli', 'oo-kwe-li'], nl: ['Waarheid', 'vaar-hite'], pl: ['Prawda', 'PRAHV-dah'], vi: ['Sự thật', 'suh thuht'] },
+      { en: 'Light', pos: 'Noun', es: ['Luz', 'loos'], fr: ['Lumière', 'lyoo-MYEHR'], ar: ['نور', 'noor'], ur: ['روشنی', 'rosh-nee'], de: ['Licht', 'likht'], ja: ['光', 'hi-ka-ri'], zh: ['光', 'guāng'], ko: ['빛', 'bit'], hi: ['रोशनी', 'rosh-nee'], pt: ['Luz', 'loos'], it: ['Luce', 'LOO-cheh'], ru: ['Свет', 'svyet'], tr: ['Işık', 'ı-SHIK'], bn: ['আলো', 'a-lo'], fa: ['نور', 'noor'], id: ['Cahaya', 'cha-ha-ya'], sw: ['Mwanga', 'm-wan-ga'], nl: ['Licht', 'likht'], pl: ['Światło', 'SHFYAHT-woh'], vi: ['Ánh sáng', 'ahn sahng'] },
+      { en: 'Shadow', pos: 'Noun', es: ['Sombra', 'SOM-brah'], fr: ['Ombre', 'ohm-bruh'], ar: ['ظل', 'zill'], ur: ['سایہ', 'saa-yah'], de: ['Schatten', 'SHAHT-ten'], ja: ['影', 'ka-ge'], zh: ['影子', 'yǐng zi'], ko: ['그림자', 'geu-rim-ja'], hi: ['छाया', 'chhaa-yaa'], pt: ['Sombra', 'SOHM-brah'], it: ['Ombra', 'OM-brah'], ru: ['Тень', 'tyen'], tr: ['Gölge', 'göl-GE'], bn: ['ছায়া', 'chha-ya'], fa: ['سایه', 'saa-yeh'], id: ['Bayangan', 'ba-ya-ngan'], sw: ['Kivuli', 'ki-voo-li'], nl: ['Schaduw', 'skhaa-doo'], pl: ['Cień', 'chen'], vi: ['Bóng tối', 'bohng toy'] },
+      { en: 'Bridge', pos: 'Noun', es: ['Puente', 'PWEN-teh'], fr: ['Pont', 'pohn'], ar: ['جسر', 'jisr'], ur: ['پل', 'pul'], de: ['Brücke', 'BRÜK-keh'], ja: ['橋', 'ha-shi'], zh: ['桥', 'qiáo'], ko: ['다리', 'da-ri'], hi: ['पुल', 'pul'], pt: ['Ponte', 'POHN-cheh'], it: ['Ponte', 'PON-teh'], ru: ['Мост', 'mohst'], tr: ['Köprü', 'köp-RÜ'], bn: ['সেতু', 'she-tu'], fa: ['پل', 'pol'], id: ['Jembatan', 'jem-ba-tan'], sw: ['Daraja', 'da-ra-ja'], nl: ['Brug', 'brookh'], pl: ['Most', 'mohst'], vi: ['Cây cầu', 'kay kau'] },
+      { en: 'Journey', pos: 'Noun', es: ['Viaje', 'VYAH-heh'], fr: ['Voyage', 'vwah-YAHZH'], ar: ['رحلة', 'rih-lah'], ur: ['سفر', 'sa-far'], de: ['Reise', 'RY-zeh'], ja: ['旅', 'ta-bi'], zh: ['旅程', 'lǚ chéng'], ko: ['여행', 'yeo-haeng'], hi: ['यात्रा', 'yaa-traa'], pt: ['Viagem', 'vyah-ZHENG'], it: ['Viaggio', 'VYAD-joh'], ru: ['Путешествие', 'poo-te-SHEST-vee-yeh'], tr: ['Yolculuk', 'yol-ju-LUK'], bn: ['যাত্রা', 'jat-tra'], fa: ['سفر', 'sa-far'], id: ['Perjalanan', 'per-ja-la-nan'], sw: ['Safari', 'sa-fa-ri'], nl: ['Reis', 'rice'], pl: ['Podróż', 'POH-droosh'], vi: ['Hành trình', 'hahn trinh'] },
+      { en: 'Victory', pos: 'Noun', es: ['Victoria', 'veek-TOH-ryah'], fr: ['Victoire', 'veek-TWAHR'], ar: ['نصر', 'nasr'], ur: ['فتح', 'fa-tah'], de: ['Sieg', 'zeek'], ja: ['勝利', 'shō-ri'], zh: ['胜利', 'shèng lì'], ko: ['승리', 'seung-ri'], hi: ['जीत', 'jeet'], pt: ['Vitória', 'vee-TOH-ryah'], it: ['Vittoria', 'veet-TOH-ryah'], ru: ['Победа', 'pah-BYE-dah'], tr: ['Zafer', 'za-FER'], bn: ['বিজয়', 'bi-joy'], fa: ['پیروزی', 'pee-roo-zee'], id: ['Kemenangan', 'ke-me-na-ngan'], sw: ['Ushindi', 'oo-shin-di'], nl: ['Overwinning', 'oh-ver-vin-ning'], pl: ['Zwycięstwo', 'zvi-CHENST-voh'], vi: ['Chiến thắng', 'chyen thahng'] }
+    ];
+
+    const THEMES_BY_LANG = {
+      es: ['en casa', 'del día', 'importante', 'nuevo', 'grande', 'de la ciudad', 'rápido', 'feliz', 'hermoso', 'fuerte'],
+      fr: ['à la maison', 'du jour', 'important', 'nouveau', 'grand', 'de la ville', 'rapide', 'heureux', 'beau', 'fort'],
+      ar: ['في البيت', 'اليومي', 'المهم', 'الجديد', 'الكبير', 'في المدينة', 'السريع', 'السعيد', 'الجميل', 'القوي'],
+      ur: ['گھر میں', 'روزانہ', 'اہم', 'نیا', 'بڑا', 'شہر کا', 'تیز', 'خوش', 'خوبصورت', 'مضبوط'],
+      de: ['zu Hause', 'des Tages', 'wichtig', 'neu', 'groß', 'der Stadt', 'schnell', 'glücklich', 'schön', 'stark'],
+      ja: ['の毎日', 'の大切', 'の新しい', 'の大きい', 'の街', 'の速い', 'の幸せ', 'の美しい', 'の強い', 'の未来'],
+      zh: ['每天', '重要', '新的', '大的', '城市', '快速', '快乐', '美丽', '强大', '未来'],
+      ko: ['매일', '중요한', '새로운', '큰', '도시의', '빠른', '행복한', '아름다운', '강한', '미래의'],
+      hi: ['रोज़ाना', 'महत्वपूर्ण', 'नया', 'बड़ा', 'शहर का', 'तेज़', 'खुश', 'सुंदर', 'मज़बूत', 'भविष्य'],
+      pt: ['em casa', 'do dia', 'importante', 'novo', 'grande', 'da cidade', 'rápido', 'feliz', 'bonito', 'forte'],
+      it: ['a casa', 'del giorno', 'importante', 'nuovo', 'grande', 'della città', 'veloce', 'felice', 'bello', 'forte'],
+      ru: ['дома', 'дня', 'важный', 'новый', 'большой', 'города', 'быстрый', 'счастливый', 'красивый', 'сильный'],
+      tr: ['evde', 'günlük', 'önemli', 'yeni', 'büyük', 'şehirde', 'hızlı', 'mutlu', 'güzel', 'güçlü'],
+      bn: ['বাড়িতে', 'প্রতিদিনের', 'গুরুত্বপূর্ণ', 'নতুন', 'বড়', 'শহরের', 'দ্রুত', 'সুখী', 'সুন্দর', 'শক্তিশালী'],
+      fa: ['در خانه', 'روزانه', 'مهم', 'جدید', 'بزرگ', 'در شهر', 'سریع', 'خوشحال', 'زیبا', 'قوی'],
+      id: ['di rumah', 'harian', 'penting', 'baru', 'besar', 'di kota', 'cepat', 'bahagia', 'indah', 'kuat'],
+      sw: ['nyumbani', 'wa siku', 'muhimu', 'mpya', 'kubwa', 'wa mjini', 'haraka', 'furaha', 'mzuri', 'imara'],
+      nl: ['thuis', 'van de dag', 'belangrijk', 'nieuw', 'groot', 'in de stad', 'snel', 'blij', 'mooi', 'sterk'],
+      pl: ['w domu', 'dnia', 'ważny', 'nowy', 'duży', 'w mieście', 'szybki', 'szczęśliwy', 'piękny', 'silny'],
+      vi: ['ở nhà', 'hàng ngày', 'quan trọng', 'mới', 'lớn', 'thành phố', 'nhanh', 'vui vẻ', 'đẹp', 'mạnh mẽ']
+    };
+
+    const liveTranslationCache = {};
+
+    const READING_PASSAGES = [
+      {
+        id: 'p1',
+        enTitle: 'A Morning in the City',
+        enText: 'Every morning, I drink warm tea and eat fresh bread at home. Then I walk to school in the big city to learn a new language with my good friend.',
+        questionEn: 'What does the speaker do before walking to school?',
+        answerEn: 'Drinks warm tea and eats fresh bread at home',
+        distractorsEn: ['Travels to the airport by train', 'Reads a history book at the hospital', 'Looks at the stars at night'],
+        translations: {
+          es: 'Cada mañana, bebo té caliente y como pan fresco en casa. Luego camino a la escuela en la gran ciudad para aprender un nuevo idioma con mi buen amigo.',
+          fr: 'Chaque matin, je bois du thé chaud et je mange du pain frais à la maison. Ensuite, je marche vers l’école dans la grande ville pour apprendre une nouvelle langue avec mon bon ami.',
+          ar: 'كل صباح، أشرب الشاي الدافئ وآكل الخبز الطازج في البيت. ثم أمشي إلى المدرسة في المدينة الكبيرة لأتعلم لغة جديدة مع صديقي الجيد.',
+          ur: 'ہر صبح، میں گھر میں گرم چائے پیتا ہوں اور تازہ روٹی کھاتا ہوں۔ پھر میں بڑے شہر میں اسکول جاتا ہوں تاکہ اپنے اچھے دوست کے ساتھ نئی زبان سیکھوں۔',
+          de: 'Jeden Morgen trinke ich warmen Tee und esse frisches Brot zu Hause. Dann gehe ich zu Fuß zur Schule in der großen Stadt, um mit meinem guten Freund eine neue Sprache zu lernen.',
+          ja: '毎朝、私は家で温かいお茶を飲み、新鮮なパンを食べます。それから大きな都市の学校へ歩いて行き、良い友達と一緒に新しい言語を学びます。',
+          zh: '每天早上，我在家喝热茶，吃新鲜的面包。然后我步行去大城市的学校，和我的好朋友一起学习一门新语言。',
+          ko: '매일 아침, 나는 집에서 따뜻한 차를 마시고 신선한 빵을 먹습니다. 그런 다음 큰 도시의 학교로 걸어가서 좋은 친구와 함께 새로운 언어를 배웁니다.',
+          hi: 'हर सुबह, मैं घर पर गर्म चाय पीता हूँ और ताज़ी रोटी खाता हूँ। फिर मैं बड़े शहर के स्कूल में अपने अच्छे दोस्त के साथ नई भाषा सीखने जाता हूँ।',
+          pt: 'Todas as manhãs, bebo chá quente e como pão fresco em casa. Depois caminho até a escola na cidade grande para aprender um novo idioma com meu bom amigo.',
+          it: 'Ogni mattina bevo tè caldo e mangio pane fresco a casa. Poi cammino verso la scuola nella grande città per imparare una nuova lingua con il mio buon amico.',
+          ru: 'Каждое утро я пью тёплый чай и ем свежий хлеб дома. Затем я иду в школу в большом городе, чтобы учить новый язык со своим хорошим другом.',
+          tr: 'Her sabah evde sıcak çay içer ve taze ekmek yerim. Sonra iyi arkadaşımla yeni bir dil öğrenmek için büyük şehirdeki okula yürürüm.',
+          bn: 'প্রতিদিন সকালে, আমি বাড়িতে গরম চা পান করি এবং তাজা রুটি খাই। তারপর আমি আমার ভালো বন্ধুর সাথে নতুন ভাষা শিখতে বড় শহরের বিদ্যালয়ে হেঁটে যাই।',
+          fa: 'هر صبح در خانه چای گرم می‌نوشم و نان تازه می‌خورم. سپس به مدرسه در شهر بزرگ می‌روم تا با دوست خوبم زبان جدیدی یاد بگیرم.',
+          id: 'Setiap pagi, saya minum teh hangat dan makan roti segar di rumah. Lalu saya berjalan ke sekolah di kota besar untuk belajar bahasa baru bersama teman baik saya.',
+          sw: 'Kila asubuhi, mimi hunywa chai ya moto na kula mkate mpya nyumbani. Kisha hutembea kwenda shuleni katika mji mkubwa kujifunza lugha mpya na rafiki yangu mzuri.',
+          nl: 'Elke ochtend drink ik warme thee en eet ik vers brood thuis. Daarna loop ik naar school in de grote stad om samen met mijn goede vriend een nieuwe taal te leren.',
+          pl: 'Każdego ranka piję ciepłą herbatę i jem świeży chleb w domu. Potem idę do szkoły w dużym mieście, aby uczyć się nowego języka z moim dobrym przyjacielem.',
+          vi: 'Mỗi buổi sáng, tôi uống trà ấm và ăn bánh mì tươi ở nhà. Sau đó tôi đi bộ đến trường ở thành phố lớn để học một ngôn ngữ mới cùng người bạn tốt của tôi.'
+        }
+      },
+      {
+        id: 'p2',
+        enTitle: 'A Journey to the Sea and Mountains',
+        enText: 'Tomorrow our family will take a fast train from the city to the blue sea and high mountains. We hope for bright sun, pure water, and great peace.',
+        questionEn: 'How will the family travel to the sea and mountains?',
+        answerEn: 'By taking a fast train from the city',
+        distractorsEn: ['By driving a black car in the snow', 'By walking across a small bridge at night', 'By flying from the airport with a doctor'],
+        translations: {
+          es: 'Mañana nuestra familia tomará un tren rápido desde la ciudad hasta el mar azul y las altas montañas. Esperamos un sol brillante, agua pura y mucha paz.',
+          fr: 'Demain, notre famille prendra un train rapide de la ville vers la mer bleue et les hautes montagnes. Nous espérons un soleil brillant, une eau pure et une grande paix.',
+          ar: 'غداً ستأخذ عائلتنا قطاراً سريعاً من المدينة إلى البحر الأزرق والجبال العالية. نأمل في شمس مشرقة وماء نقي وسلام عظيم.',
+          ur: 'کل ہمارا خاندان شہر سے نیلے سمندر اور اونچے پہاڑوں کی طرف تیز ریل گاڑی میں سفر کرے گا۔ ہمیں روشن سورج، صاف پانی اور عظیم امن کی امید ہے۔',
+          de: 'Morgen wird unsere Familie einen schnellen Zug von der Stadt zum blauen Meer und den hohen Bergen nehmen. Wir hoffen auf strahlende Sonne, reines Wasser und großen Frieden.',
+          ja: '明日、私たちの家族は都市から青い海と高い山へ速い電車で行きます。明るい太陽、きれいな水、そして大きな平和を願っています。',
+          zh: '明天我们全家将从城市乘坐快车去蓝色的大海和高山。我们希望有明媚的阳光、纯净的水和伟大的和平。',
+          ko: '내일 우리 가족은 도시에서 푸른 바다와 높은 산으로 빠른 기차를 타고 갈 것입니다. 밝은 태양과 맑은 물, 그리고 큰 평화를 희망합니다.',
+          hi: 'कल हमारा परिवार शहर से नीले समुद्र और ऊँचे पहाड़ों तक तेज़ रेलगाड़ी से जाएगा। हमें चमकते सूरज, शुद्ध पानी और महान शांति की आशा है।',
+          pt: 'Amanhã nossa família pegará um trem rápido da cidade até o mar azul e as montanhas altas. Esperamos sol brilhante, água pura e muita paz.',
+          it: 'Domani la nostra famiglia prenderà un treno veloce dalla città verso il mare blu e le alte montagne. Speriamo in un sole splendente, acqua pura e grande pace.',
+          ru: 'Завтра наша семья поедет на быстром поезде из города к синему морю и высоким горам. Мы надеемся на яркое солнце, чистую воду и великий мир.',
+          tr: 'Yarın ailemiz şehirden mavi denize ve yüksek dağlara hızlı bir trene binecek. Parlak güneş, saf su ve büyük bir barış umuyoruz.',
+          bn: 'আগামীকাল আমাদের পরিবার শহর থেকে নীল সমুদ্র এবং উঁচু পাহাড়ে দ্রুতগতির ট্রেনে যাবে। আমরা উজ্জ্বল সূর্য, বিশুদ্ধ পানি এবং মহান শান্তির আশা করি।',
+          fa: 'فردا خانواده ما با قطار سریع از شهر به دریای آبی و کوه‌های بلند می‌رود. ما به خورشید درخشان، آب پاک و صلح بزرگ امیدواریم.',
+          id: 'Besok keluarga kami akan naik kereta cepat dari kota menuju laut biru dan gunung tinggi. Kami berharap matahari cerah, air murni, dan kedamaian besar.',
+          sw: 'Kesho familia yetu itapanda treni ya haraka kutoka mjini kwenda bahari ya bluu na milima mirefu. Tunatumaini jua angavu, maji safi, na amani kuu.',
+          nl: 'Morgen neemt onze familie een snelle trein van de stad naar de blauwe zee en hoge bergen. We hopen op felle zon, zuiver water en grote vrede.',
+          pl: 'Jutro nasza rodzina pojedzie szybkim pociągiem z miasta nad niebieskie morze i wysokie góry. Mamy nadzieję na jasne słońce, czystą wodę i wielki pokój.',
+          vi: 'Ngày mai gia đình chúng tôi sẽ đi tàu hỏa nhanh từ thành phố đến biển xanh và núi cao. Chúng tôi hy vọng có mặt trời rực rỡ, nước sạch và hòa bình lớn.'
+        }
+      },
+      {
+        id: 'p3',
+        enTitle: 'Wisdom, Science, and Art',
+        enText: 'In the library, students read books about history, science, and music. With truth, strength, and hope, they build a bright future for the whole world.',
+        questionEn: 'What subjects do the students read about in their books?',
+        answerEn: 'History, science, and music',
+        distractorsEn: ['Coffee, milk, and red apples', 'Hotels, money, and big cars', 'Rain, snow, and dark shadows'],
+        translations: {
+          es: 'En la biblioteca, los estudiantes leen libros sobre historia, ciencia y música. Con verdad, fuerza y esperanza, construyen un futuro brillante para todo el mundo.',
+          fr: 'À la bibliothèque, les étudiants lisent des livres sur l’histoire, la science et la musique. Avec vérité, force et espoir, ils construisent un avenir brillant pour le monde entier.',
+          ar: 'في المكتبة، يقرأ الطلاب كتباً عن التاريخ والعلوم والموسيقى. بالحقيقة والقوة والأمل، يبنون مستقبلاً مشرقاً للعالم كله.',
+          ur: 'کتب خانے میں طلباء تاریخ، سائنس اور موسیقی کے بارے میں کتابیں پڑھتے ہیں۔ سچائی، طاقت اور امید کے ساتھ وہ پوری دنیا کے لیے روشن مستقبل تعمیر کرتے ہیں۔',
+          de: 'In der Bibliothek lesen Schüler Bücher über Geschichte, Wissenschaft und Musik. Mit Wahrheit, Stärke und Hoffnung bauen sie eine strahlende Zukunft für die ganze Welt.',
+          ja: '図書館で、学生たちは歴史、科学、音楽についての本を読みます。真実、力、そして希望を持って、彼らは全世界のために明るい未来を築きます。',
+          zh: '在图书馆里，学生们阅读有关历史、科学和音乐的书籍。凭借真相、力量和希望，他们为全世界建设光明的未来。',
+          ko: '도서관에서 학생들은 역사, 과학, 음악에 관한 책을 읽습니다. 진실과 힘, 희망으로 그들은 온 세상을 위한 밝은 미래를 만듭니다.',
+          hi: 'पुस्तकालय में छात्र इतिहास, विज्ञान और संगीत के बारे में किताबें पढ़ते हैं। सच्चाई, ताकत और आशा के साथ वे पूरी दुनिया के लिए उज्ज्वल भविष्य बनाते हैं।',
+          pt: 'Na biblioteca, os estudantes leem livros sobre história, ciência e música. Com verdade, força e esperança, eles constroem um futuro brilhante para o mundo inteiro.',
+          it: 'In biblioteca, gli studenti leggono libri di storia, scienza e musica. Con verità, forza e speranza, costruiscono un futuro luminoso per il mondo intero.',
+          ru: 'В библиотеке студенты читают книги об истории, науке и музыке. С правдой, силой и надеждой они строят светлое будущее для всего мира.',
+          tr: 'Kütüphanede öğrenciler tarih, bilim ve müzik hakkında kitaplar okurlar. Gerçek, güç ve umutla tüm dünya için parlak bir gelecek inşa ederler.',
+          bn: 'গ্রন্থাগারে শিক্ষার্থীরা ইতিহাস, বিজ্ঞান এবং সঙ্গীত সম্পর্কে বই পড়ে। সত্য, শক্তি এবং আশার সাথে তারা সমগ্র পৃথিবীর জন্য একটি উজ্জ্বল ভবিষ্যৎ গড়ে তোলে।',
+          fa: 'در کتابخانه، دانش‌آموزان کتاب‌هایی درباره تاریخ، علم و موسیقی می‌خوانند. با حقیقت، قدرت و امید، آینده‌ای روشن برای سراسر جهان می‌سازند.',
+          id: 'Di perpustakaan, siswa membaca buku tentang sejarah, ilmu pengetahuan, dan musik. Dengan kebenaran, kekuatan, dan harapan, mereka membangun masa depan cerah bagi seluruh dunia.',
+          sw: 'Maktabani, wanafunzi husoma vitabu kuhusu historia, sayansi, na muziki. Kwa ukweli, nguvu, na matumaini, wanajenga wakati ujao angavu kwa dunia nzima.',
+          nl: 'In de bibliotheek lezen studenten boeken over geschiedenis, wetenschap en muziek. Met waarheid, kracht en hoop bouwen zij aan een stralende toekomst voor de hele wereld.',
+          pl: 'W bibliotece uczniowie czytają książki o historii, nauce i muzyce. Z prawdą, siłą i nadzieją budują jasną przyszłość dla całego świata.',
+          vi: 'Trong thư viện, học sinh đọc sách về lịch sử, khoa học và âm nhạc. Với sự thật, sức mạnh và hy vọng, họ xây dựng một tương lai tươi sáng cho cả thế giới.'
+        }
+      }
+    ];
+
+    // Generate 20 distinct daily reading comprehension passages (p1..p20)
+    const EXTRA_PASSAGE_TEMPLATES = [
+      { title: 'At the Train Station', text: 'Every morning at seven, travelers wait at the big train station with books and warm coffee. The fast train goes from the city to the mountains.', q: 'Where does the fast train go?', a: 'From the city to the mountains', d: ['To the airport and hotel', 'To a small school by the sea', 'To the hospital at night'] },
+      { title: 'Dinner with Family', text: 'Tonight our family will eat fresh bread, apples, and warm soup at home. We drink pure water and talk about our happy day.', q: 'What does the family eat tonight?', a: 'Fresh bread, apples, and warm soup', d: ['Cold tea and red flowers', 'Coffee and milk at a hotel', 'Bread and water on a train'] },
+      { title: 'The Doctor at the Hospital', text: 'The kind doctor works every day and night at the big hospital. He gives hope, help, and strength to every friend and family.', q: 'Where does the doctor work?', a: 'At the big hospital', d: ['At the city airport', 'In a small school library', 'By the blue ocean'] },
+      { title: 'Stars in the Night Sky', text: 'When the bright sun goes down, the silver moon and a thousand stars shine in the dark sky over the quiet sea.', q: 'What shines in the dark sky after sunset?', a: 'The silver moon and a thousand stars', d: ['The bright sun and rain', 'White snow and green trees', 'Fast cars and red lights'] },
+      { title: 'Learning a New Language', text: 'To speak, read, and write a new language, students learn one hundred words every day. Wisdom and victory come from daily work.', q: 'How many words do students learn every day?', a: 'One hundred words every day', d: ['Only five words a week', 'Ten numbers every month', 'Two books every night'] },
+      { title: 'Rain and Snow in Winter', text: 'In cold winter days, white snow falls on the high mountains while cool rain falls on the green trees and flowers in the city.', q: 'Where does the white snow fall?', a: 'On the high mountains', d: ['Inside the warm house', 'On the fast airport train', 'In the hot desert sun'] },
+      { title: 'Crossing the Old Bridge', text: 'We walk across the stone bridge over the wide river to reach the new art museum. Inside, there is beautiful music and light.', q: 'Where do they go after crossing the bridge?', a: 'To the new art museum', d: ['To the train station', 'To the hospital', 'To the airport'] },
+      { title: 'The Airport Journey', text: 'Tomorrow morning I will take a car to the international airport to begin a long journey across the world with my family.', q: 'How will the speaker get to the airport?', a: 'By taking a car', d: ['By walking across a bridge', 'By taking a slow boat', 'By running through the rain'] },
+      { title: 'Peace and Freedom', text: 'People across the earth hope for peace, truth, and freedom. With open hearts and strong hands, we build a better future.', q: 'What do people across the earth hope for?', a: 'Peace, truth, and freedom', d: ['Money, cars, and big hotels', 'Cold snow and dark shadows', 'Coffee, bread, and apples'] },
+      { title: 'Colors of Nature', text: 'Look at the blue sky, the green trees, the red flowers, and the white clouds. Nature brings joy and peace to every eye.', q: 'What color are the flowers in the passage?', a: 'Red', d: ['Black', 'Blue', 'White'] },
+      { title: 'Counting to Ten', text: 'At school, young children learn to count from one, two, three, four, five up to ten before they read their first book.', q: 'What do children learn before reading their first book?', a: 'To count from one up to ten', d: ['To drive a car to the city', 'To cook bread and tea', 'To fly from an airport'] },
+      { title: 'The Hotel by the Sea', text: 'Our small white hotel stands near the blue sea. Every morning we open the window to feel the fresh wind and warm sun.', q: 'Where is the small white hotel located?', a: 'Near the blue sea', d: ['On top of a snowy mountain', 'Inside a busy train station', 'Next to a big hospital'] },
+      { title: 'A Cup of Coffee and Tea', text: 'In the morning, my father drinks black coffee while my mother drinks green tea with sweet bread before going to work.', q: 'What does the mother drink in the morning?', a: 'Green tea', d: ['Black coffee', 'Cold milk', 'Pure water'] },
+      { title: 'Music and Art Festival', text: 'Today in the center of the city, artists and musicians share songs, paintings, and stories of hope and love with the world.', q: 'Where does the festival take place?', a: 'In the center of the city', d: ['At the airport', 'In the hospital', 'On a mountain train'] },
+      { title: 'Health and Heart', text: 'Good food, clean water, daily walking, and a happy heart keep the head clear and give strength for tomorrow.', q: 'What keeps the head clear and gives strength?', a: 'Good food, clean water, daily walking, and a happy heart', d: ['Working all night without sleep', 'Staying inside in the dark', 'Drinking only coffee at the hotel'] },
+      { title: 'The Book of History', text: 'Yesterday I found an old book of history at school. It tells true stories of great journeys, wise leaders, and lasting peace.', q: 'Where did the speaker find the old history book?', a: 'At school', d: ['At the airport', 'On the train', 'By the sea'] },
+      { title: 'Light and Shadow', text: 'When the morning light shines through the window, every dark shadow disappears and the whole house feels warm and new.', q: 'What happens when the morning light shines through the window?', a: 'Every dark shadow disappears', d: ['Rain and snow begin to fall', 'The train leaves the city', 'The stars appear in the sky'] }
+    ];
+
+    EXTRA_PASSAGE_TEMPLATES.forEach((tpl, idx) => {
+      READING_PASSAGES.push({
+        id: 'p' + (idx + 4),
+        enTitle: tpl.title,
+        enText: tpl.text,
+        questionEn: tpl.q,
+        answerEn: tpl.a,
+        distractorsEn: tpl.d,
+        translations: {}
+      });
+    });
+
+    function getPassageForLang(passageObj, langObj) {
+      if (passageObj.translations && passageObj.translations[langObj.code]) {
+        return { text: passageObj.translations[langObj.code], needsLiveFetch: false };
+      }
+      const cacheKey = `${langObj.code}:passage:${passageObj.id}`;
+      if (liveTranslationCache[cacheKey]) {
+        return { text: liveTranslationCache[cacheKey], needsLiveFetch: false };
+      }
+      return { text: passageObj.enText, needsLiveFetch: true };
+    }
+
+    async function applyLivePassageTranslation(passageObj, langObj, elId) {
+      if (!passageObj || !langObj || langObj.code === 'en') return;
+      const cacheKey = `${langObj.code}:passage:${passageObj.id}`;
+      if (liveTranslationCache[cacheKey]) return;
+      try {
+        const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(langObj.code)}&dt=t&q=${encodeURIComponent(passageObj.enText)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const translated = Array.isArray(data?.[0]) ? data[0].map(seg => seg?.[0] || '').join('') : '';
+        if (translated && translated.trim()) {
+          liveTranslationCache[cacheKey] = translated.trim();
+          const el = document.getElementById(elId);
+          if (el) el.textContent = translated.trim();
+        }
+      } catch (e) {}
+    }
+
+    const OPTION_PHRASE_DICT = {
+      'Drinks warm tea and eats fresh bread at home': {
+        es: 'Bebe té caliente y come pan fresco en casa', fr: 'Boit du thé chaud et mange du pain frais à la maison', ar: 'يشرب الشاي الدافئ ويأكل الخبز الطازج في البيت', ur: 'گھر میں گرم چائے پیتا ہے اور تازہ روٹی کھاتا ہے', de: 'Trinkt warmen Tee und isst frisches Brot zu Hause', ja: '家で温かいお茶を飲み、新鮮なパンを食べます', zh: '在家喝热茶和吃新鲜的面包', ko: '집에서 따뜻한 차를 마시고 신선한 빵을 먹습니다', hi: 'घर पर गर्म चाय पीता है और ताज़ी रोटी खाता है', pt: 'Bebe chá quente e come pão fresco em casa', it: 'Beve tè caldo e mangia pane fresco a casa', ru: 'Пьёт тёплый чай и ест свежий хлеб дома', tr: 'Evde sıcak çay içer ve taze ekmek yer', bn: 'বাড়িতে গরম চা পান করে এবং তাজা রুটি খায়', fa: 'در خانه چای گرم می‌نوشد و نان تازه می‌خورد', id: 'Minum teh hangat dan makan roti segar di rumah', sw: 'Hunywa chai ya moto na kula mkate mpya nyumbani', nl: 'Drinkt warme thee en eet vers brood thuis', pl: 'Pije ciepłą herbatę i je świeży chleb w domu', vi: 'Uống trà ấm và ăn bánh mì tươi ở nhà'
+      },
+      'Travels to the airport by train': {
+        es: 'Viaja al aeropuerto en tren', fr: 'Voyage à l’aéroport en train', ar: 'يسافر إلى المطار بالقطار', ur: 'ریل گاڑی کے ذریعے ہوائی اڈے جاتا ہے', de: 'Fährt mit dem Zug zum Flughafen', ja: '電車で空港へ行きます', zh: '乘火车去机场', ko: '기차로 공항에 갑니다', hi: 'रेलगाड़ी से हवाई अड्डे जाता है', pt: 'Viaja para o aeroporto de trem', it: 'Viaggia verso l’aeroporto in treno', ru: 'Едет в аэропорт на поезде', tr: 'Trenle havalimanına gider', bn: 'ট্রেনে করে বিমানবন্দরে যায়', fa: 'با قطار به فرودگاه می‌رود', id: 'Pergi ke bandara dengan kereta', sw: 'Husafiri kwenda uwanja wa ndege kwa treni', nl: 'Reist met de trein naar de luchthaven', pl: 'Jedzie pociągiem na lotnisko', vi: 'Đi đến sân bay bằng tàu hỏa'
+      },
+      'Reads a history book at the hospital': {
+        es: 'Lee un libro de historia en el hospital', fr: 'Lit un livre d’histoire à l’hôpital', ar: 'يقرأ كتاب تاريخ في المستشفى', ur: 'ہسپتال میں تاریخ کی کتاب پڑھتا ہے', de: 'Liest ein Geschichtsbuch im Krankenhaus', ja: '病院で歴史の本を読みます', zh: '在医院读历史书', ko: '병원에서 역사책을 읽습니다', hi: 'अस्पताल में इतिहास की किताब पढ़ता है', pt: 'Lê um livro de história no hospital', it: 'Legge un libro di storia in ospedale', ru: 'Читает книгу по истории в больнице', tr: 'Hastanede tarih kitabı okur', bn: 'হাসপাতালে ইতিহাসের বই পড়ে', fa: 'در بیمارستان کتاب تاریخ می‌خواند', id: 'Membaca buku sejarah di rumah sakit', sw: 'Husoma kitabu cha historia hospitalini', nl: 'Leest een geschiedenisboek in het ziekenhuis', pl: 'Czyta książkę historyczną w szpitalu', vi: 'Đọc sách lịch sử ở bệnh viện'
+      },
+      'Looks at the stars at night': {
+        es: 'Mira las estrellas por la noche', fr: 'Regarde les étoiles la nuit', ar: 'ينظر إلى النجوم في الليل', ur: 'رات کو ستاروں کو دیکھتا ہے', de: 'Schaut nachts die Sterne an', ja: '夜に星を見ます', zh: '晚上看星星', ko: '밤에 별을 봅니다', hi: 'रात में तारों को देखता है', pt: 'Olha para as estrelas à noite', it: 'Guarda le stelle di notte', ru: 'Смотрит на звёзды ночью', tr: 'Gece yıldızlara bakar', bn: 'রাতে তারার দিকে তাকায়', fa: 'شب به ستاره‌ها نگاه می‌کند', id: 'Melihat bintang di malam hari', sw: 'Hutazama nyota usiku', nl: 'Kijkt ’s nachts naar de sterren', pl: 'Patrzy na gwiazdy w nocy', vi: 'Ngắm sao vào ban đêm'
+      },
+      'By taking a fast train from the city': {
+        es: 'Tomando un tren rápido desde la ciudad', fr: 'En prenant un train rapide depuis la ville', ar: 'بأخذ قطار سريع من المدينة', ur: 'شہر سے تیز ریل گاڑی میں سفر کر کے', de: 'Mit einem schnellen Zug aus der Stadt', ja: '都市から速い電車に乗って', zh: '从城市乘坐快车', ko: '도시에서 빠른 기차를 타고', hi: 'शहर से तेज़ रेलगाड़ी लेकर', pt: 'Pegando um trem rápido da cidade', it: 'Prendendo un treno veloce dalla città', ru: 'На быстром поезде из города', tr: 'Şehirden hızlı trene binerek', bn: 'শহর থেকে দ্রুতগতির ট্রেনে চড়ে', fa: 'با سوار شدن به قطار سریع از شهر', id: 'Dengan naik kereta cepat dari kota', sw: 'Kwa kupanda treni ya haraka kutoka mjini', nl: 'Door een snelle trein vanuit de stad te nemen', pl: 'Jadąc szybkim pociągiem z miasta', vi: 'Bằng cách đi tàu hỏa nhanh từ thành phố'
+      },
+      'By driving a black car in the snow': {
+        es: 'Conduciendo un coche negro en la nieve', fr: 'En conduisant une voiture noire dans la neige', ar: 'بقيادة سيارة سوداء في الثلج', ur: 'برف میں کالی گاڑی چلا کر', de: 'Mit einem schwarzen Auto im Schnee', ja: '雪の中で黒い車を運転して', zh: '在雪地里开黑车', ko: '눈 속에서 검은 차를 운전해서', hi: 'बर्फ़ में काली गाड़ी चलाकर', pt: 'Dirigindo um carro preto na neve', it: 'Guidando un’auto nera nella neve', ru: 'На чёрной машине по снегу', tr: 'Karda siyah araba sürerek', bn: 'বরফের মধ্যে কালো গাড়ি চালিয়ে', fa: 'با راندن ماشین سیاه در برف', id: 'Dengan mengendarai mobil hitam di salju', sw: 'Kwa kuendesha gari jeusi kwenye theluji', nl: 'Door in de sneeuw een zwarte auto te rijden', pl: 'Jadąc czarnym samochodem po śniegu', vi: 'Bằng cách lái xe hơi đen trong tuyết'
+      },
+      'By walking across a small bridge at night': {
+        es: 'Caminando por un puente pequeño de noche', fr: 'En traversant un petit pont la nuit', ar: 'بالمشي عبر جسر صغير ليلاً', ur: 'رات کو چھوٹے پل پر پیدل چل کر', de: 'Zu Fuß über eine kleine Brücke bei Nacht', ja: '夜に小さな橋を歩いて渡って', zh: '晚上步行穿过一座小桥', ko: '밤에 작은 다리를 걸어서 건너', hi: 'रात में छोटे पुल पर पैदल चलकर', pt: 'Caminhando por uma pequena ponte à noite', it: 'Camminando su un piccolo ponte di notte', ru: 'Пешком через маленький мост ночью', tr: 'Gece küçük bir köprüden yürüyerek', bn: 'রাতে ছোট সেতু পার হয়ে হেঁটে', fa: 'با پیاده‌روی از روی پل کوچک در شب', id: 'Dengan berjalan melintasi jembatan kecil di malam hari', sw: 'Kwa kutembea kuvuka daraja dogo usiku', nl: 'Door ’s nachts over een kleine brug te lopen', pl: 'Przechodząc nocą przez mały most', vi: 'Bằng cách đi bộ qua cây cầu nhỏ vào ban đêm'
+      },
+      'By flying from the airport with a doctor': {
+        es: 'Volando desde el aeropuerto con un médico', fr: 'En prenant l’avion avec un médecin', ar: 'بالطيران من المطار مع طبيب', ur: 'ڈاکٹر کے ساتھ ہوائی اڈے سے پرواز کر کے', de: 'Mit einem Arzt vom Flughafen fliegend', ja: '医者と一緒に空港から飛行機で', zh: '和医生一起从机场乘飞机', ko: '의사와 함께 공항에서 비행기를 타고', hi: 'डॉक्टर के साथ हवाई अड्डे से उड़ान भरकर', pt: 'Voando do aeroporto com um médico', it: 'Volando dall’aeroporto con un medico', ru: 'На самолёте из аэропорта с врачом', tr: 'Doktorla havalimanından uçarak', bn: 'ডাক্তারের সাথে বিমানবন্দর থেকে উড়ে', fa: 'با پرواز از فرودگاه همراه پزشک', id: 'Dengan terbang dari bandara bersama dokter', sw: 'Kwa kuruka kutoka uwanja wa ndege na daktari', nl: 'Door met een dokter vanaf de luchthaven te vliegen', pl: 'Lecąc z lotniska z lekarzem', vi: 'Bằng cách bay từ sân bay cùng bác sĩ'
+      },
+      'History, science, and music': {
+        es: 'Historia, ciencia y música', fr: 'Histoire, science et musique', ar: 'التاريخ والعلوم والموسيقى', ur: 'تاریخ، سائنس اور موسیقی', de: 'Geschichte, Wissenschaft und Musik', ja: '歴史、科学、そして音楽', zh: '历史、科学和音乐', ko: '역사, 과학, 그리고 음악', hi: 'इतिहास, विज्ञान और संगीत', pt: 'História, ciência e música', it: 'Storia, scienza e musica', ru: 'История, наука и музыка', tr: 'Tarih, bilim ve müzik', bn: 'ইতিহাস, বিজ্ঞান এবং সঙ্গীত', fa: 'تاریخ، علم و موسیقی', id: 'Sejarah, ilmu pengetahuan, dan musik', sw: 'Historia, sayansi, na muziki', nl: 'Geschiedenis, wetenschap en muziek', pl: 'Historia, nauka i muzyka', vi: 'Lịch sử, khoa học và âm nhạc'
+      },
+      'Coffee, milk, and red apples': {
+        es: 'Café, leche y manzanas rojas', fr: 'Café, lait et pommes rouges', ar: 'القهوة والحليب والتفاح الأحمر', ur: 'کافی، دودھ اور لال سیب', de: 'Kaffee, Milch und rote Äpfel', ja: 'コーヒー、牛乳、赤いりんご', zh: '咖啡、牛奶和红苹果', ko: '커피, 우유, 빨간 사과', hi: 'कॉफ़ी, दूध और लाल सेब', pt: 'Café, leite e maçãs vermelhas', it: 'Caffè, latte e mele rosse', ru: 'Кофе, молоко и красные яблоки', tr: 'Kahve, süt ve kırmızı elmalar', bn: 'কফি, দুধ এবং লাল আপেল', fa: 'قهوه، شیر و سیب قرمز', id: 'Kopi, susu, dan apel merah', sw: 'Kahawa, maziwa, na tufaha nyekundu', nl: 'Koffie, melk en rode appels', pl: 'Kawa, mleko i czerwone jabłka', vi: 'Cà phê, sữa và táo đỏ'
+      },
+      'Hotels, money, and big cars': {
+        es: 'Hoteles, dinero y coches grandes', fr: 'Hôtels, argent et grandes voitures', ar: 'الفنادق والمال والسيارات الكبيرة', ur: 'ہوٹل، پیسہ اور بڑی گاڑیاں', de: 'Hotels, Geld und große Autos', ja: 'ホテル、お金、大きな車', zh: '酒店、钱和大汽车', ko: '호텔, 돈, 큰 자동차', hi: 'होटल, पैसा और बड़ी गाड़ियाँ', pt: 'Hotéis, dinheiro e carros grandes', it: 'Alberghi, denaro e grandi auto', ru: 'Отели, деньги и большие машины', tr: 'Oteller, para ve büyük arabalar', bn: 'হোটেল, টাকা এবং বড় গাড়ি', fa: 'هتل‌ها، پول و ماشین‌های بزرگ', id: 'Hotel, uang, dan mobil besar', sw: 'Hoteli, pesa, na magari makubwa', nl: 'Hotels, geld en grote auto’s', pl: 'Hotele, pieniądze i duże samochody', vi: 'Khách sạn, tiền và xe hơi lớn'
+      },
+      'Rain, snow, and dark shadows': {
+        es: 'Lluvia, nieve y sombras oscuras', fr: 'Pluie, neige et ombres sombres', ar: 'المطر والثلج والظلال الداكنة', ur: 'بارش، برف اور گہرے سائے', de: 'Regen, Schnee und dunkle Schatten', ja: '雨、雪、暗い影', zh: '雨、雪和黑影', ko: '비, 눈, 어두운 그림자', hi: 'बारिश, बर्फ़ और गहरी छाया', pt: 'Chuva, neve e sombras escuras', it: 'Pioggia, neve e ombre scure', ru: 'Дождь, снег и тёмные тени', tr: 'Yağmur, kar ve karanlık gölgeler', bn: 'বৃষ্টি, বরফ এবং অন্ধকার ছায়া', fa: 'باران، برف و سایه‌های تاریک', id: 'Hujan, salju, dan bayangan gelap', sw: 'Mvua, theluji, na vivuli vyeusi', nl: 'Regen, sneeuw en donkere schaduwen', pl: 'Deszcz, śnieg i ciemne cienie', vi: 'Mưa, tuyết và bóng tối'
+      }
+    };
+
+    const WORD_LEVEL_GLOSSARY = {
+      train: { es: 'tren', fr: 'train', ar: 'قطار', ur: 'ریل گاڑی', de: 'Zug', ja: '電車', zh: '火车', ko: '기차', hi: 'रेलगाड़ी', pt: 'trem', it: 'treno', ru: 'поезд', tr: 'tren', bn: 'ট্রেন', fa: 'قطار', id: 'kereta', sw: 'treni', nl: 'trein', pl: 'pociąg', vi: 'tàu hỏa' },
+      city: { es: 'ciudad', fr: 'ville', ar: 'مدينة', ur: 'شہر', de: 'Stadt', ja: '都市', zh: '城市', ko: '도시', hi: 'शहर', pt: 'cidade', it: 'città', ru: 'город', tr: 'şehir', bn: 'শহর', fa: 'شهر', id: 'kota', sw: 'mji', nl: 'stad', pl: 'miasto', vi: 'thành phố' },
+      mountains: { es: 'montañas', fr: 'montagnes', ar: 'جبال', ur: 'پہاڑ', de: 'Berge', ja: '山', zh: '山', ko: '산', hi: 'पहाड़', pt: 'montanhas', it: 'montagne', ru: 'горы', tr: 'dağlar', bn: 'পাহাড়', fa: 'کوه‌ها', id: 'gunung', sw: 'milima', nl: 'bergen', pl: 'góry', vi: 'núi' },
+      airport: { es: 'aeropuerto', fr: 'aéroport', ar: 'مطار', ur: 'ہوائی اڈا', de: 'Flughafen', ja: '空港', zh: '机场', ko: '공항', hi: 'हवाई अड्डा', pt: 'aeroporto', it: 'aeroporto', ru: 'аэропорт', tr: 'havalimanı', bn: 'বিমানবন্দর', fa: 'فرودگاه', id: 'bandara', sw: 'uwanja wa ndege', nl: 'luchthaven', pl: 'lotnisko', vi: 'sân bay' },
+      hotel: { es: 'hotel', fr: 'hôtel', ar: 'فندق', ur: 'ہوٹل', de: 'Hotel', ja: 'ホテル', zh: '酒店', ko: '호텔', hi: 'होटल', pt: 'hotel', it: 'albergo', ru: 'отель', tr: 'otel', bn: 'হোটেল', fa: 'هتل', id: 'hotel', sw: 'hoteli', nl: 'hotel', pl: 'hotel', vi: 'khách sạn' },
+      school: { es: 'escuela', fr: 'école', ar: 'مدرسة', ur: 'اسکول', de: 'Schule', ja: '学校', zh: '学校', ko: '학교', hi: 'स्कूल', pt: 'escola', it: 'scuola', ru: 'школа', tr: 'okul', bn: 'বিদ্যালয়', fa: 'مدرسه', id: 'sekolah', sw: 'shule', nl: 'school', pl: 'szkoła', vi: 'trường học' },
+      sea: { es: 'mar', fr: 'mer', ar: 'بحر', ur: 'سمندر', de: 'Meer', ja: '海', zh: '大海', ko: '바다', hi: 'समुद्र', pt: 'mar', it: 'mare', ru: 'море', tr: 'deniz', bn: 'সমুদ্র', fa: 'دریا', id: 'laut', sw: 'bahari', nl: 'zee', pl: 'morze', vi: 'biển' },
+      ocean: { es: 'océano', fr: 'océan', ar: 'محيط', ur: 'سمندر', de: 'Ozean', ja: '海', zh: '海洋', ko: '바다', hi: 'समुद्र', pt: 'oceano', it: 'oceano', ru: 'океан', tr: 'okyanus', bn: 'সমুদ্র', fa: 'اقیانوس', id: 'lautan', sw: 'bahari', nl: 'oceaan', pl: 'ocean', vi: 'đại dương' },
+      hospital: { es: 'hospital', fr: 'hôpital', ar: 'مستشفى', ur: 'ہسپتال', de: 'Krankenhaus', ja: '病院', zh: '医院', ko: '병원', hi: 'अस्पताल', pt: 'hospital', it: 'ospedale', ru: 'больница', tr: 'hastane', bn: 'হাসপাতাল', fa: 'بیمارستان', id: 'rumah sakit', sw: 'hospitali', nl: 'ziekenhuis', pl: 'szpital', vi: 'bệnh viện' },
+      bread: { es: 'pan', fr: 'pain', ar: 'خبز', ur: 'روٹی', de: 'Brot', ja: 'パン', zh: '面包', ko: '빵', hi: 'रोटी', pt: 'pão', it: 'pane', ru: 'хлеб', tr: 'ekmek', bn: 'রুটি', fa: 'نان', id: 'roti', sw: 'mkate', nl: 'brood', pl: 'chleb', vi: 'bánh mì' },
+      apples: { es: 'manzanas', fr: 'pommes', ar: 'تفاح', ur: 'سیب', de: 'Äpfel', ja: 'りんご', zh: '苹果', ko: '사과', hi: 'सेब', pt: 'maçãs', it: 'mele', ru: 'яблоки', tr: 'elmalar', bn: 'আপেল', fa: 'سیب', id: 'apel', sw: 'tufaha', nl: 'appels', pl: 'jabłka', vi: 'táo' },
+      tea: { es: 'té', fr: 'thé', ar: 'شاي', ur: 'چائے', de: 'Tee', ja: 'お茶', zh: '茶', ko: '차', hi: 'चाय', pt: 'chá', it: 'tè', ru: 'чай', tr: 'çay', bn: 'চা', fa: 'چای', id: 'teh', sw: 'chai', nl: 'thee', pl: 'herbata', vi: 'trà' },
+      flowers: { es: 'flores', fr: 'fleurs', ar: 'زهور', ur: 'پھول', de: 'Blumen', ja: '花', zh: '花', ko: '꽃', hi: 'फूल', pt: 'flores', it: 'fiori', ru: 'цветы', tr: 'çiçekler', bn: 'ফুল', fa: 'گل‌ها', id: 'bunga', sw: 'maua', nl: 'bloemen', pl: 'kwiaty', vi: 'hoa' },
+      coffee: { es: 'café', fr: 'café', ar: 'قهوة', ur: 'کافی', de: 'Kaffee', ja: 'コーヒー', zh: '咖啡', ko: '커피', hi: 'कॉफ़ी', pt: 'café', it: 'caffè', ru: 'кофе', tr: 'kahve', bn: 'কফি', fa: 'قهوه', id: 'kopi', sw: 'kahawa', nl: 'koffie', pl: 'kawa', vi: 'cà phê' },
+      milk: { es: 'leche', fr: 'lait', ar: 'حليب', ur: 'دودھ', de: 'Milch', ja: '牛乳', zh: '牛奶', ko: '우유', hi: 'दूध', pt: 'leite', it: 'latte', ru: 'молоко', tr: 'süt', bn: 'দুধ', fa: 'شیر', id: 'susu', sw: 'maziwa', nl: 'melk', pl: 'mleko', vi: 'sữa' },
+      water: { es: 'agua', fr: 'eau', ar: 'ماء', ur: 'پانی', de: 'Wasser', ja: '水', zh: '水', ko: '물', hi: 'पानी', pt: 'água', it: 'acqua', ru: 'вода', tr: 'su', bn: 'পানি', fa: 'آب', id: 'air', sw: 'maji', nl: 'water', pl: 'woda', vi: 'nước' },
+      library: { es: 'biblioteca', fr: 'bibliothèque', ar: 'مكتبة', ur: 'کتب خانہ', de: 'Bibliothek', ja: '図書館', zh: '图书馆', ko: '도서관', hi: 'पुस्तकालय', pt: 'biblioteca', it: 'biblioteca', ru: 'библиотека', tr: 'kütüphane', bn: 'গ্রন্থাগার', fa: 'کتابخانه', id: 'perpustakaan', sw: 'maktaba', nl: 'bibliotheek', pl: 'biblioteka', vi: 'thư viện' },
+      moon: { es: 'luna', fr: 'lune', ar: 'قمر', ur: 'چاند', de: 'Mond', ja: '月', zh: '月亮', ko: '달', hi: 'चाँद', pt: 'lua', it: 'luna', ru: 'луна', tr: 'ay', bn: 'চাঁদ', fa: 'ماه', id: 'bulan', sw: 'mwezi', nl: 'maan', pl: 'księżyc', vi: 'mặt trăng' },
+      stars: { es: 'estrellas', fr: 'étoiles', ar: 'نجوم', ur: 'ستارے', de: 'Sterne', ja: '星', zh: '星星', ko: '별', hi: 'तारे', pt: 'estrelas', it: 'stelle', ru: 'звёзды', tr: 'yıldızlar', bn: 'তারা', fa: 'ستاره‌ها', id: 'bintang', sw: 'nyota', nl: 'sterren', pl: 'gwiazdy', vi: 'ngôi sao' },
+      sun: { es: 'sol', fr: 'soleil', ar: 'شمس', ur: 'سورج', de: 'Sonne', ja: '太陽', zh: '太阳', ko: '태양', hi: 'सूरज', pt: 'sol', it: 'sole', ru: 'солнце', tr: 'güneş', bn: 'সূর্য', fa: 'خورشید', id: 'matahari', sw: 'jua', nl: 'zon', pl: 'słońce', vi: 'mặt trời' },
+      rain: { es: 'lluvia', fr: 'pluie', ar: 'مطر', ur: 'بارش', de: 'Regen', ja: '雨', zh: '雨', ko: '비', hi: 'बारिश', pt: 'chuva', it: 'pioggia', ru: 'дождь', tr: 'yağmur', bn: 'বৃষ্টি', fa: 'باران', id: 'hujan', sw: 'mvua', nl: 'regen', pl: 'deszcz', vi: 'mưa' },
+      snow: { es: 'nieve', fr: 'neige', ar: 'ثلج', ur: 'برف', de: 'Schnee', ja: '雪', zh: '雪', ko: '눈', hi: 'बर्फ़', pt: 'neve', it: 'neve', ru: 'снег', tr: 'kar', bn: 'বরফ', fa: 'برف', id: 'salju', sw: 'theluji', nl: 'sneeuw', pl: 'śnieg', vi: 'tuyết' },
+      trees: { es: 'árboles', fr: 'arbres', ar: 'أشجار', ur: 'درخت', de: 'Bäume', ja: '木', zh: '树', ko: '나무', hi: 'पेड़', pt: 'árvores', it: 'alberi', ru: 'деревья', tr: 'ağaçlar', bn: 'গাছ', fa: 'درختان', id: 'pohon', sw: 'miti', nl: 'bomen', pl: 'drzewa', vi: 'cây' },
+      car: { es: 'coche', fr: 'voiture', ar: 'سيارة', ur: 'گاڑی', de: 'Auto', ja: '車', zh: '汽车', ko: '자동차', hi: 'गाड़ी', pt: 'carro', it: 'macchina', ru: 'машина', tr: 'araba', bn: 'গাড়ি', fa: 'ماشین', id: 'mobil', sw: 'gari', nl: 'auto', pl: 'samochód', vi: 'xe hơi' },
+      cars: { es: 'coches', fr: 'voitures', ar: 'سيارات', ur: 'گاڑیاں', de: 'Autos', ja: '車', zh: '汽车', ko: '자동차', hi: 'गाड़ियाँ', pt: 'carros', it: 'auto', ru: 'машины', tr: 'arabalar', bn: 'গাড়ি', fa: 'ماشین‌ها', id: 'mobil', sw: 'magari', nl: 'auto’s', pl: 'samochody', vi: 'xe hơi' },
+      lights: { es: 'luces', fr: 'lumières', ar: 'أضواء', ur: 'روشنیاں', de: 'Lichter', ja: '光', zh: '灯光', ko: '불빛', hi: 'रोशनी', pt: 'luzes', it: 'luci', ru: 'огни', tr: 'ışıklar', bn: 'আলো', fa: 'چراغ‌ها', id: 'lampu', sw: 'taa', nl: 'lichten', pl: 'światła', vi: 'ánh đèn' },
+      words: { es: 'palabras', fr: 'mots', ar: 'كلمات', ur: 'الفاظ', de: 'Wörter', ja: '言葉', zh: '单词', ko: '단어', hi: 'शब्द', pt: 'palavras', it: 'parole', ru: 'слова', tr: 'kelimeler', bn: 'শব্দ', fa: 'کلمات', id: 'kata', sw: 'maneno', nl: 'woorden', pl: 'słowa', vi: 'từ vựng' },
+      books: { es: 'libros', fr: 'livres', ar: 'كتب', ur: 'کتابیں', de: 'Bücher', ja: '本', zh: '书', ko: '책', hi: 'किताबें', pt: 'livros', it: 'libri', ru: 'книги', tr: 'kitaplar', bn: 'বই', fa: 'کتاب‌ها', id: 'buku', sw: 'vitabu', nl: 'boeken', pl: 'książki', vi: 'sách' },
+      house: { es: 'casa', fr: 'maison', ar: 'بيت', ur: 'گھر', de: 'Haus', ja: '家', zh: '房子', ko: '집', hi: 'घर', pt: 'casa', it: 'casa', ru: 'дом', tr: 'ev', bn: 'বাড়ি', fa: 'خانه', id: 'rumah', sw: 'nyumba', nl: 'huis', pl: 'dom', vi: 'nhà' },
+      bridge: { es: 'puente', fr: 'pont', ar: 'جسر', ur: 'پل', de: 'Brücke', ja: '橋', zh: '桥', ko: '다리', hi: 'पुल', pt: 'ponte', it: 'ponte', ru: 'мост', tr: 'köprü', bn: 'সেতু', fa: 'پل', id: 'jembatan', sw: 'daraja', nl: 'brug', pl: 'most', vi: 'cây cầu' },
+      boat: { es: 'barco', fr: 'bateau', ar: 'قارب', ur: 'کشتی', de: 'Boot', ja: '船', zh: '船', ko: '배', hi: 'नाव', pt: 'barco', it: 'barca', ru: 'лодка', tr: 'tekne', bn: 'নৌকা', fa: 'قایق', id: 'perahu', sw: 'mashua', nl: 'boot', pl: 'łódź', vi: 'thuyền' },
+      peace: { es: 'paz', fr: 'paix', ar: 'سلام', ur: 'امن', de: 'Frieden', ja: '平和', zh: '和平', ko: '평화', hi: 'शांति', pt: 'paz', it: 'pace', ru: 'мир', tr: 'barış', bn: 'শান্তি', fa: 'صلح', id: 'damai', sw: 'amani', nl: 'vrede', pl: 'pokój', vi: 'hòa bình' },
+      truth: { es: 'verdad', fr: 'vérité', ar: 'حقيقة', ur: 'سچ', de: 'Wahrheit', ja: '真実', zh: '真相', ko: '진실', hi: 'सच', pt: 'verdade', it: 'verità', ru: 'правда', tr: 'gerçek', bn: 'সত্য', fa: 'حقیقت', id: 'kebenaran', sw: 'ukweli', nl: 'waarheid', pl: 'prawda', vi: 'sự thật' },
+      freedom: { es: 'libertad', fr: 'liberté', ar: 'حرية', ur: 'آزادی', de: 'Freiheit', ja: '自由', zh: '自由', ko: '자유', hi: 'आज़ादी', pt: 'liberdade', it: 'libertà', ru: 'свобода', tr: 'özgürlük', bn: 'স্বাধীনতা', fa: 'آزادی', id: 'kebebasan', sw: 'uhuru', nl: 'vrijheid', pl: 'wolność', vi: 'tự do' },
+      money: { es: 'dinero', fr: 'argent', ar: 'مال', ur: 'پیسہ', de: 'Geld', ja: 'お金', zh: '钱', ko: '돈', hi: 'पैसा', pt: 'dinheiro', it: 'denaro', ru: 'деньги', tr: 'para', bn: 'টাকা', fa: 'پول', id: 'uang', sw: 'pesa', nl: 'geld', pl: 'pieniądze', vi: 'tiền' },
+      shadows: { es: 'sombras', fr: 'ombres', ar: 'ظلال', ur: 'سائے', de: 'Schatten', ja: '影', zh: '影子', ko: '그림자', hi: 'छाया', pt: 'sombras', it: 'ombre', ru: 'тени', tr: 'gölgeler', bn: 'ছায়া', fa: 'سایه‌ها', id: 'bayangan', sw: 'vivuli', nl: 'schaduwen', pl: 'cienie', vi: 'bóng tối' },
+      heart: { es: 'corazón', fr: 'cœur', ar: 'قلب', ur: 'دل', de: 'Herz', ja: '心', zh: '心', ko: '마음', hi: 'दिल', pt: 'coração', it: 'cuore', ru: 'сердце', tr: 'kalp', bn: 'হৃদয়', fa: 'قلب', id: 'hati', sw: 'moyo', nl: 'hart', pl: 'serce', vi: 'trái tim' },
+      night: { es: 'noche', fr: 'nuit', ar: 'ليل', ur: 'رات', de: 'Nacht', ja: '夜', zh: '夜晚', ko: '밤', hi: 'रात', pt: 'noite', it: 'notte', ru: 'ночь', tr: 'gece', bn: 'রাত', fa: 'شب', id: 'malam', sw: 'usiku', nl: 'nacht', pl: 'noc', vi: 'đêm' },
+      dark: { es: 'oscuridad', fr: 'obscurité', ar: 'ظلام', ur: 'اندھیرا', de: 'Dunkelheit', ja: '暗闇', zh: '黑暗', ko: '어둠', hi: 'अंधेरा', pt: 'escuridão', it: 'buio', ru: 'темнота', tr: 'karanlık', bn: 'অন্ধকার', fa: 'تاریکی', id: 'kegelapan', sw: 'giza', nl: 'duisternis', pl: 'ciemność', vi: 'bóng tối' }
+    };
+
+    function getTargetPhraseForOption(enText, langObj) {
+      if (!langObj || langObj.code === 'en') return { target: enText, phonetic: '', needsLiveFetch: false };
+      if (OPTION_PHRASE_DICT[enText] && OPTION_PHRASE_DICT[enText][langObj.code]) {
+        return { target: OPTION_PHRASE_DICT[enText][langObj.code], phonetic: '', needsLiveFetch: false };
+      }
+      const exactConcept = CORE_100_CONCEPTS.find(c => c.en.toLowerCase() === enText.toLowerCase());
+      if (exactConcept && exactConcept[langObj.code]) {
+        return {
+          target: exactConcept[langObj.code][0],
+          phonetic: exactConcept[langObj.code][1] || '',
+          needsLiveFetch: false
+        };
+      }
+      const cacheKey = `${langObj.code}:opt:${enText}`;
+      if (liveTranslationCache[cacheKey]) {
+        return { target: liveTranslationCache[cacheKey], phonetic: '', needsLiveFetch: false };
+      }
+      // Instant built-in keyword translation for all bundled languages so English never leaks
+      const tokens = enText.toLowerCase().replace(/[^a-z\s]/g, '').split(/\s+/);
+      const matchedTargetWords = [];
+      for (const tok of tokens) {
+        if (WORD_LEVEL_GLOSSARY[tok] && WORD_LEVEL_GLOSSARY[tok][langObj.code]) {
+          const w = WORD_LEVEL_GLOSSARY[tok][langObj.code];
+          if (!matchedTargetWords.includes(w)) matchedTargetWords.push(w);
+        } else {
+          const foundConcept = CORE_100_CONCEPTS.find(c => c.en.toLowerCase() === tok);
+          if (foundConcept && foundConcept[langObj.code]) {
+            const w = foundConcept[langObj.code][0];
+            if (!matchedTargetWords.includes(w)) matchedTargetWords.push(w);
+          }
+        }
+      }
+      if (matchedTargetWords.length > 0) {
+        return { target: matchedTargetWords.join(' • '), phonetic: '', needsLiveFetch: true };
+      }
+      return { target: `${langObj.native}`, phonetic: '', needsLiveFetch: true };
+    }
+
+    async function applyLiveOptionTranslation(enText, langObj, optDomId) {
+      if (!enText || !langObj || langObj.code === 'en') return;
+      const cacheKey = `${langObj.code}:opt:${enText}`;
+      if (liveTranslationCache[cacheKey]) {
+        const el = document.getElementById(optDomId);
+        if (el) el.textContent = liveTranslationCache[cacheKey];
+        return;
+      }
+      try {
+        const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(langObj.code)}&dt=t&q=${encodeURIComponent(enText)}`);
+        if (res.ok) {
+          const data = await res.json();
+          const translated = Array.isArray(data?.[0]) ? data[0].map(seg => seg?.[0] || '').join('') : '';
+          if (translated && translated.trim()) {
+            liveTranslationCache[cacheKey] = translated.trim();
+            const el = document.getElementById(optDomId);
+            if (el) el.textContent = translated.trim();
+            return;
+          }
+        }
+      } catch (e) {}
+      try {
+        const res2 = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(enText)}&langpair=en|${encodeURIComponent(langObj.code)}`);
+        if (res2.ok) {
+          const data2 = await res2.json();
+          const translated2 = data2?.responseData?.translatedText;
+          if (translated2 && translated2.trim()) {
+            liveTranslationCache[cacheKey] = translated2.trim();
+            const el = document.getElementById(optDomId);
+            if (el) el.textContent = translated2.trim();
+          }
+        }
+      } catch (e) {}
+    }
+
+    function buildPassageOptions(passageObj, langObj) {
+      const rawOpts = [
+        { id: 'ans', english: passageObj.answerEn },
+        ...passageObj.distractorsEn.map((d, idx) => ({ id: 'd' + idx, english: d }))
+      ].sort(() => 0.5 - Math.random());
+
+      return rawOpts.map(o => {
+        const tr = getTargetPhraseForOption(o.english, langObj);
+        return {
+          id: o.id,
+          english: o.english,
+          target: tr.target,
+          phonetic: tr.phonetic,
+          needsLiveFetch: tr.needsLiveFetch
+        };
+      });
+    }
+
+    async function applyLiveTranslation(wordObj, langObj) {
+      if (!wordObj || !langObj || langObj.code === 'en') return;
+      const cacheKey = `${langObj.code}:${wordObj.rawEn}`;
+      if (liveTranslationCache[cacheKey]) return;
+      try {
+        const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(langObj.code)}&dt=t&q=${encodeURIComponent(wordObj.rawEn)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const translated = Array.isArray(data?.[0]) ? data[0].map(seg => seg?.[0] || '').join('') : '';
+        if (translated && translated.trim()) {
+          liveTranslationCache[cacheKey] = translated.trim();
+          document.querySelectorAll(`[data-word-id="${wordObj.id}"]`).forEach(el => {
+            el.textContent = translated.trim();
+          });
+        }
+      } catch (e) {}
+    }
+
+    function getWordsForDay(langObj, dayNum) {
+      const words = [];
+      const totalConcepts = CORE_100_CONCEPTS.length;
+      for (let i = 0; i < 100; i++) {
+        const conceptIdx = (i + (dayNum - 1) * 13) % totalConcepts;
+        const base = CORE_100_CONCEPTS[conceptIdx];
+        const pair = base[langObj.code];
+        const cacheKey = `${langObj.code}:${base.en}`;
+        let targetText = '';
+        let phoneticText = '';
+        let needsLiveFetch = false;
+
+        if (pair && pair[0]) {
+          targetText = pair[0];
+          phoneticText = pair[1] || langObj.native;
+        } else if (liveTranslationCache[cacheKey]) {
+          targetText = liveTranslationCache[cacheKey];
+          phoneticText = langObj.native;
+        } else {
+          targetText = base.en;
+          phoneticText = `${langObj.name} (${langObj.native})`;
+          needsLiveFetch = true;
+        }
+
+        words.push({
+          id: `${langObj.code}-d${dayNum}-w${i + 1}`,
+          day: dayNum,
+          num: i + 1,
+          batch: Math.floor(i / 20) + 1,
+          rawEn: base.en,
+          english: base.en,
+          target: targetText,
+          phonetic: phoneticText,
+          pos: base.pos,
+          needsLiveFetch
+        });
+      }
+      return words;
+    }
+
+    // =========================================================================
+    // 3. APPLICATION STATE & STORAGE
+    // =========================================================================
+    const state = {
+      appName: 'LexiSphere',
+      tab: 'dashboard',
+      tabHistory: [],
+      langCode: 'es',
+      regionFilter: 'All',
+      trackMonths: 1, // 1 to 6 months
+      currentDay: 1,  // 1 to 30 days
+      activeBatch: 1, // 1 to 5 (20 words each = 100/day)
+      dailyMode: 'flashcards', // 'flashcards' | 'list' | 'drill'
+      cardIndex: 0,
+      isFlipped: false,
+      masteredIds: [],
+      streak: 1,
+      weeklyScores: {},
+      monthlyScores: {},
+      finalExamScores: {},
+      certificatesUnlocked: [],
+      certName: 'Alex Morgan',
+      certMonth: 1,
+      certHash: 'LX-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+      drillScore: 0,
+      drillStep: 0,
+      drillPassagesDone: 0,
+      drillUsedWordIds: [],
+      drillUsedPassageIds: [],
+      drillCurrent: null,
+      drillOptions: [],
+      quiz: null,
+      vaultSearch: '',
+      vaultFilter: 'all',
+      supportChat: [
+        { sender: 'agent', name: 'LexiSphere Care', time: 'Just now', text: 'Welcome to 24/7 Student Support! Ask any question about courses, exams, or diplomas.' }
+      ],
+      feedbackList: [
+        { id: 'FB-101', type: 'Improvement', subject: '20 Daily Reading Paragraphs', message: 'Added 20 daily comprehension paragraphs + 50/100 question exams.', email: 'Academic Team', date: 'Today', status: 'Resolved' }
+      ]
+    };
+
+    try {
+      const saved = localStorage.getItem('lexisphere_state_v3');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        Object.assign(state, parsed);
+        state.quiz = null;
+        if (!Array.isArray(state.tabHistory)) state.tabHistory = [];
+      }
+    } catch (e) {}
+
+    function saveState() {
+      try {
+        const toSave = { ...state, quiz: null, drillCurrent: null, drillOptions: [] };
+        localStorage.setItem('lexisphere_state_v3', JSON.stringify(toSave));
+      } catch (e) {}
+    }
+
+    function getCurrentLang() {
+      return WORLD_LANGUAGES.find(l => l.code === state.langCode) || WORLD_LANGUAGES[0];
+    }
+
+    function getAppInitials(name) {
+      const clean = (name || 'LS').trim();
+      const parts = clean.split(/\s+/);
+      if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+      return clean.substring(0, 2).toUpperCase();
+    }
+
+    function showToast(msg, icon = '✅') {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      document.getElementById('toast-icon').textContent = icon;
+      document.getElementById('toast-msg').textContent = msg;
+      el.classList.remove('hidden');
+      el.classList.add('flex');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      }, 2800);
+    }
+
+    function speakText(text) {
+      try {
+        if (!('speechSynthesis' in window)) return;
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = getCurrentLang().speech || 'es-ES';
+        utter.rate = 0.92;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {}
+    }
+
+    function toggleMastered(wordId) {
+      const idx = state.masteredIds.indexOf(wordId);
+      if (idx === -1) {
+        state.masteredIds.push(wordId);
+        showToast('Word marked as mastered!', '🌟');
+      } else {
+        state.masteredIds.splice(idx, 1);
+      }
+      saveState();
+      renderMain();
+    }
+
+    function masterEntireBatch(batchNum) {
+      const lang = getCurrentLang();
+      const batchWords = getWordsForDay(lang, state.currentDay).filter(w => w.batch === batchNum);
+      batchWords.forEach(w => {
+        if (!state.masteredIds.includes(w.id)) state.masteredIds.push(w.id);
+      });
+      saveState();
+      showToast(`All 20 words in Batch ${batchNum} mastered!`, '🎉');
+      renderMain();
+    }
+
+    function prepareDrill() {
+      const lang = getCurrentLang();
+      const pool = getWordsForDay(lang, state.currentDay);
+      if (!pool.length) return;
+      if (!Array.isArray(state.drillUsedWordIds)) state.drillUsedWordIds = [];
+      if (!Array.isArray(state.drillUsedPassageIds)) state.drillUsedPassageIds = [];
+
+      if (state.drillStep % 2 === 1 || (state.drillPassagesDone < 20 && state.drillStep % 2 === 0 && state.drillStep > 0)) {
+        // Pick a reading passage that hasn't been repeated yet
+        let availablePassages = READING_PASSAGES.filter(p => !state.drillUsedPassageIds.includes(p.id));
+        if (!availablePassages.length) {
+          state.drillUsedPassageIds = [];
+          availablePassages = [...READING_PASSAGES];
+        }
+        const p = availablePassages[Math.floor(Math.random() * availablePassages.length)];
+        state.drillUsedPassageIds.push(p.id);
+
+        const opts = buildPassageOptions(p, lang);
+        const ansOpt = opts.find(o => o.id === 'ans');
+        state.drillCurrent = {
+          id: 'passage-' + p.id + '-' + state.drillPassagesDone,
+          isPassage: true,
+          passageNum: (state.drillPassagesDone % 20) + 1,
+          passageObj: p,
+          passageText: p.enText,
+          questionEn: p.questionEn,
+          english: ansOpt ? ansOpt.target : p.answerEn
+        };
+        state.drillOptions = opts;
+        return;
+      }
+
+      // Pick a vocabulary word that hasn't been repeated yet in this session
+      let availableWords = pool.filter(w => !state.drillUsedWordIds.includes(w.rawEn));
+      if (!availableWords.length) {
+        state.drillUsedWordIds = [];
+        availableWords = [...pool];
+      }
+      const target = availableWords[Math.floor(Math.random() * availableWords.length)];
+      state.drillUsedWordIds.push(target.rawEn);
+
+      // Deduplicate distractors by rawEn so options never repeat
+      const uniqueWrongsPool = [];
+      const seenEn = new Set([target.rawEn]);
+      for (const item of [...pool].sort(() => 0.5 - Math.random())) {
+        if (!seenEn.has(item.rawEn)) {
+          seenEn.add(item.rawEn);
+          uniqueWrongsPool.push(item);
+        }
+        if (uniqueWrongsPool.length === 3) break;
+      }
+      state.drillCurrent = target;
+      state.drillOptions = [target, ...uniqueWrongsPool].sort(() => 0.5 - Math.random());
+    }
+
+    function answerDrill(chosenId) {
+      if (!state.drillCurrent) return;
+      if (state.drillCurrent.isPassage) {
+        state.drillPassagesDone++;
+      }
+      state.drillStep++;
+      const isCorrect = state.drillCurrent.isPassage ? (chosenId === 'ans') : (chosenId === state.drillCurrent.id);
+      if (isCorrect) {
+        state.drillScore++;
+        if (!state.masteredIds.includes(state.drillCurrent.id)) {
+          state.masteredIds.push(state.drillCurrent.id);
+          saveState();
+        }
+        showToast('Correct! +1 Speed Recall & Reading Point', '⚡');
+      } else {
+        const rightOpt = state.drillOptions.find(o => o.id === (state.drillCurrent.isPassage ? 'ans' : state.drillCurrent.id));
+        const rightText = rightOpt ? (rightOpt.target || rightOpt.english) : state.drillCurrent.english;
+        showToast(`Correct answer: ${rightText}`, '💡');
+      }
+      prepareDrill();
+      renderMain();
+    }
+
+    function isCertUnlocked(monthNum) {
+      const monthlyPassed = (state.monthlyScores[monthNum] || 0) >= 70;
+      const finalPassed = (state.finalExamScores[monthNum] || 0) >= 75;
+      return monthlyPassed && finalPassed;
+    }
+
+    function startExam(type, num) {
+      const lang = getCurrentLang();
+      // Weekly = 50 total (40 vocab + 10 paragraphs)
+      // Monthly = 100 total (80 vocab + 20 paragraphs)
+      // Grand Final = 100 total (75 vocab + 25 paragraphs)
+      const vocabCount = type === 'weekly' ? 40 : (type === 'monthly' ? 80 : 75);
+      const passageCount = type === 'weekly' ? 10 : (type === 'monthly' ? 20 : 25);
+
+      // Build unique vocabulary pool across multiple days so questions never repeat back-to-back
+      const rawPool = [];
+      for (let d = 1; d <= 12; d++) {
+        rawPool.push(...getWordsForDay(lang, d));
+      }
+      const uniqueConceptWords = [];
+      const seenConcepts = new Set();
+      for (const w of rawPool) {
+        const key = `${w.rawEn}-${w.day}`;
+        if (!seenConcepts.has(key)) {
+          seenConcepts.add(key);
+          uniqueConceptWords.push(w);
+        }
+      }
+
+      const pool = [];
+      let lastPickedRawEn = '';
+      while (pool.length < vocabCount) {
+        const shuffled = [...uniqueConceptWords].sort(() => 0.5 - Math.random());
+        for (const candidate of shuffled) {
+          if (pool.length >= vocabCount) break;
+          // Prevent consecutive identical concepts
+          if (candidate.rawEn === lastPickedRawEn && shuffled.length > 1) continue;
+          pool.push(candidate);
+          lastPickedRawEn = candidate.rawEn;
+        }
+      }
+
+      const selectedWords = pool.slice(0, vocabCount);
+      const questions = selectedWords.map((word, idx) => {
+        const wrongs = [];
+        const usedOptionEn = new Set([word.rawEn]);
+        for (const cand of [...uniqueConceptWords].sort(() => 0.5 - Math.random())) {
+          if (!usedOptionEn.has(cand.rawEn)) {
+            usedOptionEn.add(cand.rawEn);
+            wrongs.push(cand);
+          }
+          if (wrongs.length === 3) break;
+        }
+        const options = [word, ...wrongs].sort(() => 0.5 - Math.random());
+        return { isPassage: false, word, options, qIdx: idx };
+      });
+
+      // Add non-repeating Reading Comprehension Paragraph Questions
+      const shuffledPassages = [...READING_PASSAGES].sort(() => 0.5 - Math.random());
+      for (let i = 0; i < passageCount; i++) {
+        const p = shuffledPassages[i % shuffledPassages.length];
+        const opts = buildPassageOptions(p, lang);
+        const ansOpt = opts.find(o => o.id === 'ans');
+        questions.push({
+          isPassage: true,
+          passageObj: p,
+          passageText: p.enText,
+          questionEn: p.questionEn,
+          word: { id: 'ans', english: ansOpt ? ansOpt.target : p.answerEn },
+          options: opts
+        });
+      }
+
+      // Interleave reading paragraphs evenly throughout the 50-question and 100-question exams
+      const finalQuestions = [];
+      const vocabQs = questions.filter(q => !q.isPassage);
+      const passageQs = questions.filter(q => q.isPassage);
+      const interval = Math.max(1, Math.floor(vocabQs.length / Math.max(1, passageQs.length)));
+      let pPointer = 0;
+      for (let i = 0; i < vocabQs.length; i++) {
+        finalQuestions.push(vocabQs[i]);
+        if ((i + 1) % interval === 0 && pPointer < passageQs.length) {
+          finalQuestions.push(passageQs[pPointer++]);
+        }
+      }
+      while (pPointer < passageQs.length) {
+        finalQuestions.push(passageQs[pPointer++]);
+      }
+
+      const titles = {
+        weekly: `Week ${num} Intensive Checkpoint (50 Questions • 40 Vocab + 10 Paragraphs)`,
+        monthly: `Month ${num} Mastery Exam (100 Questions • 80 Vocab + 20 Paragraphs)`,
+        final: `Month ${num} Grand Final Graduation Exam (100 Questions • 75 Vocab + 25 Paragraphs)`
+      };
+      state.quiz = {
+        type,
+        num,
+        title: titles[type] || 'Mastery Assessment',
+        questions: finalQuestions,
+        index: 0,
+        score: 0,
+        finished: false
+      };
+      renderMain();
+    }
+
+    function submitExamAnswer(chosenId) {
+      const q = state.quiz;
+      if (!q || q.finished) return;
+      const curr = q.questions[q.index];
+      if (chosenId === curr.word.id) {
+        q.score++;
+      }
+      if (q.index + 1 < q.questions.length) {
+        q.index++;
+      } else {
+        q.finished = true;
+        const pct = Math.round((q.score / q.questions.length) * 100);
+        if (q.type === 'weekly') {
+          state.weeklyScores[q.num] = Math.max(state.weeklyScores[q.num] || 0, pct);
+        } else if (q.type === 'monthly') {
+          state.monthlyScores[q.num] = Math.max(state.monthlyScores[q.num] || 0, pct);
+        } else if (q.type === 'final') {
+          state.finalExamScores[q.num] = Math.max(state.finalExamScores[q.num] || 0, pct);
+        }
+        if (isCertUnlocked(q.num) && !state.certificatesUnlocked.includes(q.num)) {
+          state.certificatesUnlocked.push(q.num);
+        }
+        saveState();
+      }
+      renderMain();
+    }
+
+    // =========================================================================
+    // 4. HEADER, NAVIGATION, MODALS & STORE HELPERS
+    // =========================================================================
+    const TAB_LABELS = {
+      dashboard: 'Main Menu (Dashboard)',
+      daily: 'Daily 100+ Words & 20 Paragraphs',
+      courses: '1–6 Month Intensive Courses',
+      tests: 'Weekly, Monthly & Final Tests',
+      vault: '1,000+ Word Vault',
+      certificate: 'Official Diploma & Certificate',
+      support: '24/7 Customer Service',
+      feedback: 'Bugs, Issues & Feedback'
+    };
+
+    function updateHeader() {
+      const lang = getCurrentLang();
+      const flagEl = document.getElementById('header-lang-flag');
+      const nameEl = document.getElementById('header-lang-name');
+      const nativeEl = document.getElementById('header-lang-native');
+      const streakEl = document.getElementById('header-streak');
+      const brandTitle = document.getElementById('brand-title');
+      const splashTitle = document.getElementById('splash-brand-title');
+      const monogram = document.getElementById('brand-monogram');
+
+      if (flagEl) flagEl.textContent = lang.flag;
+      if (nameEl) nameEl.textContent = lang.name;
+      if (nativeEl) nativeEl.textContent = `(${lang.native})`;
+      if (streakEl) streakEl.textContent = state.streak;
+      if (brandTitle) brandTitle.textContent = state.appName;
+      if (splashTitle) splashTitle.textContent = state.appName;
+      if (monogram) monogram.textContent = getAppInitials(state.appName);
+      document.title = `${state.appName} | 100% Free 1-6 Month Language Mastery (100+ Words/Day)`;
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        const isActive = btn.id === `nav-${state.tab}`;
+        btn.className = isActive
+          ? 'nav-btn px-3.5 py-2 rounded-lg text-sm font-extrabold bg-indigo-600 text-white shadow-sm transition'
+          : 'nav-btn px-3.5 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:bg-slate-200/70 hover:text-slate-900 transition';
+      });
+
+      const backBar = document.getElementById('page-back-bar');
+      const crumb = document.getElementById('current-page-breadcrumb');
+      if (backBar) {
+        if (state.tab !== 'dashboard' || state.quiz) {
+          backBar.classList.remove('hidden');
+          if (crumb) {
+            crumb.textContent = `Main Menu  /  ${TAB_LABELS[state.tab] || state.tab}${state.quiz ? '  /  Active Exam' : ''}`;
+          }
+        } else {
+          backBar.classList.add('hidden');
+        }
+      }
+    }
+
+    function switchTab(tabName, skipHistory = false) {
+      if (!skipHistory && state.tab && state.tab !== tabName) {
+        if (!Array.isArray(state.tabHistory)) state.tabHistory = [];
+        state.tabHistory.push(state.tab);
+        if (state.tabHistory.length > 25) state.tabHistory.shift();
+      }
+      state.tab = tabName;
+      if (tabName === 'daily' && state.dailyMode === 'drill' && !state.drillCurrent) {
+        prepareDrill();
+      }
+      updateHeader();
+      renderMain();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goBackPage() {
+      // 1. If an active exam is open, step back to the Tests menu first
+      if (state.tab === 'tests' && state.quiz) {
+        state.quiz = null;
+        updateHeader();
+        renderMain();
+        showToast('Returned to Exams Menu', '←');
+        return;
+      }
+      // 2. Pop previous page from navigation history
+      if (Array.isArray(state.tabHistory) && state.tabHistory.length > 0) {
+        const prevTab = state.tabHistory.pop();
+        switchTab(prevTab, true);
+        return;
+      }
+      // 3. Fallback to Main Menu (Dashboard)
+      if (state.tab !== 'dashboard') {
+        switchTab('dashboard', true);
+      }
+    }
+
+    function selectLanguage(code) {
+      state.langCode = code;
+      state.quiz = null;
+      prepareDrill();
+      saveState();
+      closeLangModal();
+      updateHeader();
+      renderMain();
+      const lang = getCurrentLang();
+      showToast(`Switched to ${lang.flag} ${lang.name} (${lang.native})`, '🌍');
+    }
+
+    function openLangModal() {
+      const modal = document.getElementById('lang-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      const input = document.getElementById('lang-search-input');
+      if (input) {
+        input.value = '';
+        setTimeout(() => input.focus(), 50);
+      }
+      renderLangGrid();
+    }
+
+    function closeLangModal() {
+      const modal = document.getElementById('lang-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function renderLangGrid() {
+      const grid = document.getElementById('lang-grid');
+      const pillsEl = document.getElementById('region-pills');
+      if (!grid) return;
+
+      const regions = ['All', 'Europe', 'Asia', 'Middle East', 'Africa', 'Americas', 'Oceania', 'Classical & Constructed'];
+      if (pillsEl) {
+        pillsEl.innerHTML = regions.map(r => `
+          <button onclick="state.regionFilter='${r}'; renderLangGrid()" class="px-3 py-1.5 rounded-xl text-xs font-extrabold whitespace-nowrap transition ${state.regionFilter === r ? 'bg-indigo-600 text-white shadow-sm' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'}">
+            ${r}
+          </button>
+        `).join('');
+      }
+
+      const query = (document.getElementById('lang-search-input')?.value || '').toLowerCase().trim();
+      const filtered = WORLD_LANGUAGES.filter(l => {
+        const matchesRegion = state.regionFilter === 'All' || l.region === state.regionFilter;
+        const matchesQuery = !query ||
+          l.name.toLowerCase().includes(query) ||
+          l.native.toLowerCase().includes(query) ||
+          l.region.toLowerCase().includes(query) ||
+          l.code.toLowerCase().includes(query);
+        return matchesRegion && matchesQuery;
+      });
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="col-span-full text-center py-8 text-sm text-slate-500 font-semibold">No languages matched "${query}". Try another search term or select "All" regions.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(l => {
+        const isSelected = l.code === state.langCode;
+        return `
+          <button onclick="selectLanguage('${l.code}')" class="flex items-center justify-between gap-2.5 p-3 rounded-2xl border text-left transition ${isSelected ? 'border-indigo-600 bg-indigo-50/70 shadow-sm' : 'border-slate-200 hover:border-indigo-400 hover:bg-slate-50'}">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="text-2xl shrink-0">${l.flag}</span>
+              <div class="min-w-0">
+                <div class="font-extrabold text-sm text-slate-900 truncate">${l.name}</div>
+                <div class="text-xs text-slate-500 truncate">${l.native} • <span class="text-[10px] text-indigo-600 font-bold">${l.region}</span></div>
+              </div>
+            </div>
+            ${isSelected ? '<span class="text-xs font-black text-indigo-600 shrink-0">✓</span>' : ''}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function openBrandModal() {
+      const modal = document.getElementById('brand-modal');
+      const input = document.getElementById('brand-name-input');
+      if (input) input.value = state.appName;
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeBrandModal() {
+      const modal = document.getElementById('brand-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function saveBrandName() {
+      const val = (document.getElementById('brand-name-input')?.value || '').trim();
+      if (val) {
+        state.appName = val;
+        saveState();
+        updateHeader();
+        renderMain();
+        showToast(`App renamed to "${state.appName}"!`, '✨');
+      }
+      closeBrandModal();
+    }
+
+    function dismissSplash() {
+      const el = document.getElementById('app-splash-screen');
+      if (!el) return;
+      el.style.opacity = '0';
+      setTimeout(() => el.classList.add('hidden'), 450);
+    }
+
+    function replaySplash() {
+      const el = document.getElementById('app-splash-screen');
+      if (!el) return;
+      el.classList.remove('hidden');
+      el.style.opacity = '1';
+      setTimeout(dismissSplash, 1900);
+    }
+
+    function sendSupportChat(e, presetText) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('support-chat-input');
+      const text = (presetText || input?.value || '').trim();
+      if (!text) return;
+      if (input) input.value = '';
+      const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      state.supportChat.push({ sender: 'user', name: state.certName || 'Student', time: now, text });
+
+      let reply = `Thank you! Our academic team has logged your question regarding "${text}". Remember all 195+ languages, 100+ daily words, and printable diplomas are 100% free.`;
+      if (text.toLowerCase().includes('name') || text.toLowerCase().includes('certificate')) {
+        reply = 'To update your diploma name, open the 🎓 Certificate tab, type your full name in "Recipient Full Name (Change Name)", and click Update Name.';
+      } else if (text.toLowerCase().includes('exam') || text.toLowerCase().includes('pass')) {
+        reply = 'Pass Step 1: Monthly Exam (70%+) and Step 2: Grand Final Exam (75%+) in the 📝 Weekly & Monthly Tests tab to unlock your official gold-seal diploma.';
+      } else if (text.toLowerCase().includes('audio')) {
+        reply = 'Click the 🔊 button next to any word or paragraph. Make sure your device volume is turned up and browser speech synthesis is enabled.';
+      }
+      state.supportChat.push({ sender: 'agent', name: `${state.appName} Care`, time: now, text: reply });
+      saveState();
+      renderMain();
+      const box = document.getElementById('support-chat-box');
+      if (box) box.scrollTop = box.scrollHeight;
+    }
+
+    function submitSupportTicket(e) {
+      e.preventDefault();
+      const ticketId = 'CS-' + Math.floor(1000 + Math.random() * 9000);
+      showToast(`Priority Support Ticket ${ticketId} created!`, '🎧');
+      e.target.reset();
+    }
+
+    function submitFeedbackForm(e) {
+      e.preventDefault();
+      const type = document.getElementById('fb-type')?.value || 'Feedback';
+      const subject = document.getElementById('fb-subject')?.value || '';
+      const message = document.getElementById('fb-message')?.value || '';
+      const email = document.getElementById('fb-email')?.value || 'Anonymous Student';
+      state.feedbackList.unshift({
+        id: 'FB-' + Math.floor(100 + Math.random() * 900),
+        type,
+        subject,
+        message,
+        email,
+        date: new Date().toLocaleDateString(),
+        status: 'Received'
+      });
+      saveState();
+      showToast('Report submitted! Thank you for your feedback.', '🚀');
+      renderMain();
+    }
+
+    function copyFeedbackExport() {
+      const summary = state.feedbackList.map(f => `[${f.id}] (${f.type}) ${f.subject}: ${f.message} — ${f.email}`).join('\n');
+      const ta = document.createElement('textarea');
+      ta.value = summary;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('Copied all feedback reports to clipboard!', '📋');
+    }
+
+    // =========================================================================
+    // 5. MAIN VIEW ROUTER & RENDERER
+    // =========================================================================
+    function renderMain() {
+      const container = document.getElementById('main-content');
+      if (!container) return;
+      const lang = getCurrentLang();
+      const monthGoal = state.trackMonths * 1000;
+      const langMastered = state.masteredIds.filter(id => id.startsWith(lang.code + '-')).length;
+      const unlockedTrack = isCertUnlocked(state.trackMonths);
+
+      if (state.tab === 'dashboard') {
+        const quickLangCodes = ['es', 'fr', 'ar', 'ur', 'de', 'ja', 'zh', 'ko', 'hi', 'pt', 'it', 'ru', 'tr', 'bn', 'fa'];
+        const quickLangs = quickLangCodes.map(c => WORLD_LANGUAGES.find(l => l.code === c)).filter(Boolean);
+
+        container.innerHTML = `
+          <div class="space-y-6">
+            <!-- Prominent Quick World Language Selector Bar -->
+            <div class="bg-white p-4 sm:p-5 rounded-3xl border-2 border-indigo-200 shadow-sm space-y-3">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg">🌍</span>
+                  <div>
+                    <h2 class="text-sm sm:text-base font-black text-slate-900">Choose Your Target Language (195+ World Languages)</h2>
+                    <p class="text-xs text-slate-500">Currently learning: <strong class="text-indigo-700">${lang.flag} ${lang.name} (${lang.native})</strong> — Tap any language below or browse all 195+</p>
+                  </div>
+                </div>
+                <button onclick="openLangModal()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold shadow-sm whitespace-nowrap transition">
+                  🔍 Search All 195+ Languages
+                </button>
+              </div>
+
+              <div class="flex items-center gap-2 overflow-x-auto pb-1">
+                ${quickLangs.map(ql => {
+                  const isCurr = ql.code === state.langCode;
+                  return `
+                    <button onclick="selectLanguage('${ql.code}')" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-extrabold whitespace-nowrap border transition ${isCurr ? 'bg-indigo-600 text-white border-indigo-600 shadow' : 'bg-slate-50 hover:bg-indigo-50 text-slate-800 border-slate-200 hover:border-indigo-300'}">
+                      <span class="text-base">${ql.flag}</span>
+                      <span>${ql.name}</span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <!-- Hero Banner -->
+            <div class="bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-700 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="space-y-2.5 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-xs font-extrabold tracking-wide">
+                  <span>${lang.flag} Active Language: ${lang.name} (${lang.native})</span>
+                  <span>•</span>
+                  <span>100% Free Forever</span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-black tracking-tight">Master 100+ ${lang.name} Words Every Day</h1>
+                <p class="text-indigo-100 text-sm sm:text-base">
+                  Complete 5 micro-batches of 20 words daily + 20 reading paragraphs to hit <strong>1,000+ words/month</strong>, pass your Weekly & Monthly Exams, and unlock your official printable diploma.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-3 shrink-0">
+                <button onclick="switchTab('daily')" class="px-5 py-3 rounded-2xl bg-white text-indigo-700 hover:bg-indigo-50 font-black text-sm shadow-lg transition">
+                  ⚡ Start Day ${state.currentDay} (100 Words)
+                </button>
+                <button onclick="openLangModal()" class="px-4 py-3 rounded-2xl bg-indigo-950/40 hover:bg-indigo-950/60 border border-white/25 text-white font-bold text-sm transition">
+                  🌍 195+ Languages
+                </button>
+              </div>
+            </div>
+
+            <!-- Key Metrics Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Words Mastered (${lang.name})</div>
+                <div class="text-3xl font-black text-slate-900 mt-1">${langMastered} <span class="text-sm font-bold text-slate-400">/ ${monthGoal.toLocaleString()}</span></div>
+                <div class="w-full bg-slate-100 h-2 rounded-full mt-3 overflow-hidden">
+                  <div class="bg-indigo-600 h-full" style="width:${Math.min(100, Math.round((langMastered / monthGoal) * 100))}%"></div>
+                </div>
+              </div>
+
+              <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Active Intensive Track</div>
+                <div class="text-2xl font-black text-indigo-600 mt-1">${state.trackMonths}-Month Course</div>
+                <button onclick="switchTab('courses')" class="text-xs font-bold text-slate-600 hover:text-indigo-600 mt-2">Switch 1–6 Month Track →</button>
+              </div>
+
+              <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Daily Reading Paragraphs</div>
+                <div class="text-2xl font-black text-emerald-600 mt-1">${Math.min(20, state.drillPassagesDone)} / 20 Done</div>
+                <button onclick="state.dailyMode='drill'; prepareDrill(); switchTab('daily')" class="text-xs font-bold text-indigo-600 hover:underline mt-2">Practice Paragraphs →</button>
+              </div>
+
+              <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm">
+                <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Month ${state.trackMonths} Diploma</div>
+                ${unlockedTrack ? `
+                  <div class="text-2xl font-black text-emerald-600 mt-1">Unlocked 🎓</div>
+                  <button onclick="state.certMonth=${state.trackMonths}; switchTab('certificate')" class="text-xs font-bold text-indigo-600 hover:underline mt-1">View & Print Diploma →</button>
+                ` : `
+                  <div class="text-2xl font-black text-amber-600 mt-1">Locked 🔒</div>
+                  <button onclick="switchTab('tests')" class="text-xs font-bold text-indigo-600 hover:underline mt-1">Pass Monthly & Final Exam →</button>
+                `}
+              </div>
+            </div>
+
+            <!-- 5 Micro-Batch Progress Overview -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <h2 class="text-lg font-extrabold text-slate-900">Today's 100-Word Sprint Breakdown (Day ${state.currentDay})</h2>
+                  <p class="text-xs text-slate-500">Complete 5 quick sessions of 20 words + 20 daily reading paragraph questions.</p>
+                </div>
+                <button onclick="switchTab('daily')" class="text-xs font-extrabold text-indigo-600 hover:underline">Open Interactive Study Studio →</button>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                ${[1, 2, 3, 4, 5].map(b => {
+                  const batchWords = getWordsForDay(lang, state.currentDay).filter(w => w.batch === b);
+                  const doneCount = batchWords.filter(w => state.masteredIds.includes(w.id)).length;
+                  return `
+                    <div onclick="state.activeBatch=${b}; switchTab('daily')" class="cursor-pointer p-4 rounded-2xl border ${doneCount === 20 ? 'border-emerald-300 bg-emerald-50/40' : 'border-slate-200 hover:border-indigo-400 bg-slate-50/50'} transition">
+                      <div class="flex items-center justify-between text-xs font-bold">
+                        <span class="text-indigo-600">Batch ${b}</span>
+                        <span class="${doneCount === 20 ? 'text-emerald-600' : 'text-slate-500'}">${doneCount}/20</span>
+                      </div>
+                      <div class="text-sm font-extrabold text-slate-900 mt-1">Words ${(b - 1) * 20 + 1}–${b * 20}</div>
+                      <div class="w-full bg-slate-200 h-1.5 rounded-full mt-2 overflow-hidden">
+                        <div class="bg-indigo-600 h-full" style="width:${(doneCount / 20) * 100}%"></div>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // =======================================================================
+      // VIEW 7: 24/7 CUSTOMER SERVICE & HELP DESK
+      // =======================================================================
+      else if (state.tab === 'support') {
+        container.innerHTML = `
+          <div class="space-y-6">
+            <!-- Customer Service Hero Banner -->
+            <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-indigo-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-extrabold">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 24/7 Student Customer Service Online
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black tracking-tight">${state.appName} Customer Service & Help Desk</h2>
+                <p class="text-indigo-200 text-sm">Need assistance with your certificate name, exam verification, language audio, or mobile app setup? Chat live or open a priority support ticket.</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur border border-white/15 rounded-2xl p-4 text-xs space-y-1.5 min-w-[220px]">
+                <div class="font-extrabold text-amber-300">Direct Support Channels</div>
+                <div>📧 support@${state.appName.toLowerCase().replace(/[^a-z0-9]/g, '')}.edu</div>
+                <div>⏱️ Avg. Response: &lt; 2 Hours</div>
+                <div>🌍 195+ Languages Supported</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Live Support Assistant Chat -->
+              <div class="lg:col-span-6 bg-white rounded-3xl border border-slate-200 shadow-sm flex flex-col overflow-hidden">
+                <div class="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-black">🎧</div>
+                    <div>
+                      <div class="font-extrabold text-sm text-slate-900">Live Customer Care Chat</div>
+                      <div class="text-[11px] text-emerald-600 font-bold">● Instant Answers & Troubleshooting</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Quick Topic Chips -->
+                <div class="px-4 py-2.5 bg-indigo-50/50 border-b border-slate-200 flex gap-1.5 overflow-x-auto">
+                  <button onclick="sendSupportChat(null, 'How do I change my name on the certificate?')" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-bold text-slate-700 hover:border-indigo-400 whitespace-nowrap">🎓 Certificate Name</button>
+                  <button onclick="sendSupportChat(null, 'Is this app really 100% free with no subscriptions?')" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-bold text-slate-700 hover:border-indigo-400 whitespace-nowrap">💳 Billing / Free Access</button>
+                  <button onclick="sendSupportChat(null, 'How do I pass the monthly exam?')" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-bold text-slate-700 hover:border-indigo-400 whitespace-nowrap">📝 Exam Rules</button>
+                  <button onclick="sendSupportChat(null, 'Audio pronunciation is not playing')" class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-bold text-slate-700 hover:border-indigo-400 whitespace-nowrap">🔊 Audio Help</button>
+                </div>
+
+                <!-- Chat Messages -->
+                <div id="support-chat-box" class="p-4 space-y-3 h-72 overflow-y-auto bg-slate-50/40">
+                  ${state.supportChat.map(m => `
+                    <div class="flex flex-col ${m.sender === 'user' ? 'items-end' : 'items-start'}">
+                      <div class="text-[10px] font-bold text-slate-400 mb-0.5">${m.name} • ${m.time}</div>
+                      <div class="max-w-[85%] px-4 py-2.5 rounded-2xl text-xs leading-relaxed ${m.sender === 'user' ? 'bg-indigo-600 text-white rounded-br-none' : 'bg-white border border-slate-200 text-slate-800 rounded-bl-none shadow-sm'}">
+                        ${m.text}
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+
+                <!-- Chat Input -->
+                <form onsubmit="sendSupportChat(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
+                  <input id="support-chat-input" type="text" placeholder="Ask Customer Service a question..." class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:ring-2 focus:ring-indigo-500" />
+                  <button type="submit" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold">Send</button>
+                </form>
+              </div>
+
+              <!-- Priority Customer Service Ticket Form -->
+              <form onsubmit="submitSupportTicket(event)" class="lg:col-span-6 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div>
+                  <h3 class="text-lg font-extrabold text-slate-900">Open a Customer Service Ticket</h3>
+                  <p class="text-xs text-slate-500">Need human verification for your diploma or personal assistance? Submit a ticket below.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Your Full Name</label>
+                    <input id="cs-name" type="text" value="${state.certName}" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">Email Address</label>
+                    <input id="cs-email" type="email" required placeholder="student@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Support Department</label>
+                  <select id="cs-topic" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-bold bg-white">
+                    <option value="Certificate & Diploma Verification">🎓 Certificate & Diploma Verification</option>
+                    <option value="Course & 100+ Words/Day Help">📚 Course & 100+ Words/Day Curriculum</option>
+                    <option value="Weekly / Monthly Exam Support">📝 Weekly / Monthly Exam Support</option>
+                    <option value="Mobile App (iOS / Android)">📱 Mobile App (iOS / Android) Assistance</option>
+                    <option value="Other Inquiry">💬 General Student Inquiry</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">How can we help you?</label>
+                  <textarea id="cs-details" rows="4" required placeholder="Describe your question or certificate ID..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm shadow-md transition">
+                  🎧 Submit Customer Service Request
+                </button>
+              </form>
+            </div>
+
+            <!-- Frequently Asked Questions -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+              <h3 class="text-lg font-extrabold text-slate-900">Frequently Asked Questions (FAQ)</h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div class="font-extrabold text-slate-900 text-sm">Are the 1–6 month courses free?</div>
+                  <p class="text-slate-600 leading-relaxed">Yes! Every course track (1,000 to 6,000+ words), daily 100-word sprint, exam, and printable diploma is 100% free with zero subscriptions.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div class="font-extrabold text-slate-900 text-sm">How do I download my diploma?</div>
+                  <p class="text-slate-600 leading-relaxed">Open the <strong>🎓 Certificate</strong> tab, enter your full name, select your completed month track, and click <strong>Print / Save PDF</strong>.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div class="font-extrabold text-slate-900 text-sm">Can I switch between languages?</div>
+                  <p class="text-slate-600 leading-relaxed">Click the language selector button in the top-right header anytime to switch between any of the 195+ world languages without losing progress.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // =======================================================================
+      // VIEW 9: BUGS, ISSUES, IMPROVEMENTS & FEEDBACK
+      // =======================================================================
+      else if (state.tab === 'feedback') {
+        container.innerHTML = `
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h2 class="text-2xl font-black text-slate-900">Report Issues, Bugs, Improvements & Feedback</h2>
+                <p class="text-sm text-slate-500 mt-1">Help make ${state.appName} better! Report a bug, request a new language feature, or share your learning feedback.</p>
+              </div>
+              <button onclick="copyFeedbackExport()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-extrabold whitespace-nowrap">
+                📋 Copy All Reports
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Submission Form -->
+              <form onsubmit="submitFeedbackForm(event)" class="lg:col-span-6 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <h3 class="text-lg font-extrabold text-slate-900">Submit a New Report</h3>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Category</label>
+                  <select id="fb-type" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm font-bold bg-white">
+                    <option value="Bug / Issue">🐞 Bug / Technical Issue</option>
+                    <option value="Improvement">💡 Feature Improvement</option>
+                    <option value="Language Request">🌍 New Language / Translation Fix</option>
+                    <option value="General Feedback">⭐ General Feedback / Review</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Title / Summary</label>
+                  <input id="fb-subject" type="text" required placeholder="e.g., Audio speed option on flashcards..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Detailed Description</label>
+                  <textarea id="fb-message" rows="4" required placeholder="Describe the bug, steps to reproduce, or your improvement idea..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Your Name or Email (Optional)</label>
+                  <input id="fb-email" type="text" placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-indigo-500" />
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm shadow-md transition">
+                  🚀 Send Report to Developer
+                </button>
+              </form>
+
+              <!-- Submitted Tickets Log -->
+              <div class="lg:col-span-6 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-extrabold text-slate-900">Submitted Feedback Log (${state.feedbackList.length})</h3>
+                  <span class="text-xs font-bold text-emerald-600">Saved Locally</span>
+                </div>
+
+                <div class="space-y-3 max-h-[460px] overflow-y-auto pr-1">
+                  ${state.feedbackList.map(item => `
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold ${item.type.includes('Bug') ? 'bg-rose-100 text-rose-700' : 'bg-indigo-100 text-indigo-700'}">
+                          ${item.type}
+                        </span>
+                        <span class="text-[11px] font-mono text-slate-400">${item.id} • ${item.date}</span>
+                      </div>
+                      <div class="font-bold text-sm text-slate-900">${item.subject}</div>
+                      <p class="text-xs text-slate-600 leading-relaxed">${item.message}</p>
+                      <div class="flex items-center justify-between pt-1 text-[11px] text-slate-400">
+                        <span>By: ${item.email}</span>
+                        <span class="font-bold text-emerald-600">● ${item.status}</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Trigger live translation hydration for any non-bundled global languages currently visible
+      if (state.tab === 'daily') {
+        const bw = getWordsForDay(lang, state.currentDay).filter(w => w.batch === state.activeBatch);
+        bw.forEach(w => { if (w.needsLiveFetch) applyLiveTranslation(w, lang); });
+        if (state.drillCurrent?.isPassage) {
+          state.drillOptions.forEach((opt, oIdx) => {
+            if (opt.needsLiveFetch) applyLiveOptionTranslation(opt.english, lang, `drill-opt-${oIdx}`);
+          });
+        } else if (state.drillCurrent?.needsLiveFetch) {
+          applyLiveTranslation(state.drillCurrent, lang);
+        }
+      } else if (state.tab === 'tests' && state.quiz && !state.quiz.finished) {
+        const curr = state.quiz.questions[state.quiz.index];
+        if (curr?.isPassage) {
+          curr.options.forEach((opt, oIdx) => {
+            if (opt.needsLiveFetch) applyLiveOptionTranslation(opt.english, lang, `exam-opt-${oIdx}`);
+          });
+        } else if (curr?.word?.needsLiveFetch) {
+          applyLiveTranslation(curr.word, lang);
+        }
+      }
+    }
+
+    function updateCertName(val, notify = false) {
+      state.certName = val;
+      saveState();
+      const displayEl = document.getElementById('cert-display-name');
+      if (displayEl) {
+        displayEl.textContent = val.trim() || 'Your Full Name';
+      }
+      if (notify) {
+        showToast(`Diploma name updated to "${state.certName || 'Your Full Name'}"!`, '🎓');
+      }
+    }
+
+    // Initialize immediately on load & dismiss opening splash smoothly
+    prepareDrill();
+    updateHeader();
+    renderMain();
+    setTimeout(dismissSplash, 1900);
+  </script>
+</body>
+</html>
